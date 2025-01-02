@@ -28,7 +28,7 @@ namespace SystemAnalysisAndDesignProject
             this.testDate = testDate;
             this.vehicleConditionStatus = vehicleCondition;
 
-            this.createVehicle();
+            this.CreateVehicle();
             Program.VehicleList.Add(this);
 
 
@@ -38,19 +38,19 @@ namespace SystemAnalysisAndDesignProject
         public void CreateVehicle()
         {
             SqlCommand sp = new SqlCommand();
-            sp.CommandText = "EXECUTE SP_add_worker @id, @name, @title";
+            sp.CommandText = "EXECUTE SP_add_vehicle @id, @type, @maxCapacity, @testDate, @condition, @cargoType";
+            sp.Parameters.AddWithValue("@id", this.id);
+            sp.Parameters.AddWithValue("@type", this.vehicleType);
+            sp.Parameters.AddWithValue("@maxCapacity", this.maxCapacity);
+            sp.Parameters.AddWithValue("@testDate" , this.testDate);
+            sp.Parameters.AddWithValue("@condition", this.vehicleConditionStatus);
+            sp.Parameters.AddWithValue("@cargoType", this.cargoType);
+            SQLConnection SC = new SQLConnection();
+            SC.execute_non_query(sp);
 
         }
-        //public void create_vehicle()
-        //{
-        //    SqlCommand c = new SqlCommand();
-        //    c.CommandText = "EXECUTE SP_add_worker @id, @name, @title";
-        //    c.Parameters.AddWithValue("@id", this.WorkerId);
-        //    c.Parameters.AddWithValue("@name", this.WorkerName);
-        //    c.Parameters.AddWithValue("@title", this.workerTitle.ToString());
-        //    SQL_CON SC = new SQL_CON();
-        //    SC.execute_non_query(c);
-        //}
+
+
 
         public string GetID()
         {
@@ -86,7 +86,7 @@ namespace SystemAnalysisAndDesignProject
             return true;
         }
 
-        public bool SetTestDate(DateTime date)
+        public bool UpdateTestDate(DateTime date)
         {
             this.testDate = date;
             return true;

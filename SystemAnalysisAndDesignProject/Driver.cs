@@ -103,6 +103,16 @@ namespace SystemAnalysisAndDesignProject
             return this.userName;
         }
 
+        public string GetPassword()
+        {
+            return this.password;
+        }
+
+        public string GetLicenseId()
+        {
+            return this.licenseId;
+        }
+
         
         public bool UpdatePassword(string password)
         {

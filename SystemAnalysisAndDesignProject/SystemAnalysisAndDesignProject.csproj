@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DriverMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DriverMainForm.Designer.cs">
+      <DependentUpon>DriverMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DriverProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DriverProfile.Designer.cs">
+      <DependentUpon>DriverProfile.cs</DependentUpon>
+    </Compile>
     <Compile Include="SQL_CON.cs" />
     <Compile Include="Driver.cs" />
     <Compile Include="VehicleType.cs" />
@@ -60,6 +72,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DriverMainForm.resx">
+      <DependentUpon>DriverMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DriverProfile.resx">
+      <DependentUpon>DriverProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

@@ -17,19 +17,21 @@ namespace SystemAnalysisAndDesignProject
         private VehicleConditionStatus vehicleConditionStatus; //enum
 
 
-        public Vehicle(string id, CargoType cargoType, VehicleType vehicleType, 
-            float maxCapacity, DateTime testDate, VehicleConditionStatus vehicleCondition) 
+        public Vehicle(string id, VehicleType vehicleType, 
+            float maxCapacity, DateTime testDate, VehicleConditionStatus vehicleCondition, CargoType cargoType, bool is_new) 
         {
             //id was already validated in the GUI and is not duplicate
             this.id = id;
-            this.cargoType = cargoType;
             this.vehicleType = vehicleType;
             this.maxCapacity = maxCapacity;
             this.testDate = testDate;
             this.vehicleConditionStatus = vehicleCondition;
-
-            this.CreateVehicle();
-            Program.VehicleList.Add(this);
+            this.cargoType = cargoType;
+            if (is_new)
+            {
+                this.CreateVehicle();
+                Program.VehicleList.Add(this);
+            }
 
 
         }
@@ -45,7 +47,7 @@ namespace SystemAnalysisAndDesignProject
             sp.Parameters.AddWithValue("@testDate" , this.testDate);
             sp.Parameters.AddWithValue("@condition", this.vehicleConditionStatus);
             sp.Parameters.AddWithValue("@cargoType", this.cargoType);
-            SQLConnection SC = new SQLConnection();
+            SQL_CON SC = new SQL_CON();
             SC.execute_non_query(sp);
 
         }

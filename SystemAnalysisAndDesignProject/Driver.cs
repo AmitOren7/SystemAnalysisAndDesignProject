@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,11 +24,11 @@ namespace SystemAnalysisAndDesignProject
 
         public Driver(string firstName, string lastName, string id, string phoneNumber,
             string email, string address, string userName, string password,
-            string idCopy, string licenseCopy, string licenseId)
+            string idCopy, string licenseCopy, string licenseId, bool is_new)
         {
             this.firstName = firstName;
-             this.lastName = lastName;
-             this.id = id;
+            this.lastName = lastName;
+            this.id = id;
             this.phoneNumber = phoneNumber;
             this.email = email;
             this.address = address;
@@ -36,11 +37,38 @@ namespace SystemAnalysisAndDesignProject
             this.idCopy = idCopy;
             this.licenseCopy = licenseCopy;
             this.licenseId = licenseId;
+            if (is_new)
+            {
+                this.CreateDriver();
+                Program.DriverList.Add(this);
+            }
 
-
-            this.createDriver();
-            Program.DriverList.Add(this);
         }
+
+
+
+        public void CreateDriver()
+        {
+            SqlCommand sp = new SqlCommand();
+            sp.CommandText = "EXECUTE SP_add_Driver @firstName, @lastName, @id, @phoneNumber" +
+                ", @email, @address, @userName, @password, @idCopy, @licenseCopy, @licenseId";
+            sp.Parameters.AddWithValue("@firstName", this.firstName);
+            sp.Parameters.AddWithValue("@lastName", this.lastName);
+            sp.Parameters.AddWithValue("@id", this.id);
+            sp.Parameters.AddWithValue("@phoneNumber", this.phoneNumber);
+            sp.Parameters.AddWithValue("@email", this.email);
+            sp.Parameters.AddWithValue("@address", this.address);
+            sp.Parameters.AddWithValue("@userName", this.userName);
+            sp.Parameters.AddWithValue("@password", this.password);
+            sp.Parameters.AddWithValue("@idCopy", this.idCopy);
+            sp.Parameters.AddWithValue("@licenseCopy", this.licenseCopy);
+            sp.Parameters.AddWithValue("@licenseId", this.licenseId);
+
+            SQL_CON SC = new SQL_CON();
+            SC.execute_non_query(sp); 
+        }
+
+
 
         public string GetFirstName() 
         {

@@ -5,6 +5,10 @@ using System.Windows.Forms;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using System.ComponentModel;
+using System.Net;
 
 
 namespace SystemAnalysisAndDesignProject
@@ -15,9 +19,9 @@ namespace SystemAnalysisAndDesignProject
         public static System.Collections.Generic.List<Driver> DriverList;
 
         [STAThread]
-      
-          
-        public static void InitLists()//
+
+
+        public static void InitLists()
         {
             InitVehicleList();
             InitDriverList();
@@ -26,91 +30,62 @@ namespace SystemAnalysisAndDesignProject
         public static void InitVehicleList()
         {
             SqlCommand sp = new SqlCommand();
-            sp.CommandText = "EXECUTE dbo.Get_all_Workers";
-            SQLConnection SC = new SQLConnection();
+            sp.CommandText = "EXECUTE dbo.Get_all_Vehicles";
+            SQL_CON SC = new SQL_CON();
             SqlDataReader rdr = SC.execute_query(sp);
 
             VehicleList = new List<Vehicle>();
 
             while (rdr.Read())
             {
-                Vehicle vehicle = new Vehicle(rdr.GetValue(0).ToString(), rdr.GetValue(1).ToString(), rdr.GetValue(2);
+                string id = rdr.GetValue(0).ToString();
+                VehicleType vehicleType = (VehicleType)Enum.Parse(typeof(VehicleType), rdr.GetValue(1).ToString());
+                float maxCapacity = Convert.ToSingle(rdr.GetValue(2));
+                DateTime testDate = Convert.ToDateTime(rdr.GetValue(3));
+                VehicleConditionStatus vehicleCondition = (VehicleConditionStatus)Enum.Parse(typeof(VehicleConditionStatus), rdr.GetValue(4).ToString());
+                CargoType cargoType = (CargoType)Enum.Parse(typeof(CargoType), rdr.GetValue(5).ToString());
+                Vehicle vehicle = new Vehicle(id, vehicleType, maxCapacity, testDate, vehicleCondition, cargoType, false);
                 VehicleList.Add(vehicle);
             }
         }
+
+        public static void InitDriverList()
+        {
+            SqlCommand sp = new SqlCommand();
+            sp.CommandText = "EXECUTE dbo.Get_All_Drivers";
+            SQL_CON SC = new SQL_CON();
+            SqlDataReader rdr = SC.execute_query(sp);
+
+
+            DriverList = new List<Driver>();
+            while (rdr.Read())
+            {
+                string firstName = rdr.GetValue(0).ToString();
+                string lastName = rdr.GetValue(1).ToString();
+                string id = rdr.GetValue(2).ToString();
+                string phoneNumber = rdr.GetValue(3).ToString();
+                string email = rdr.GetValue(4).ToString();
+                string address = rdr.GetValue(5).ToString();
+                string userName = rdr.GetValue(6).ToString();
+                string password = rdr.GetValue(7).ToString();
+                string idCopy = rdr.GetValue(8).ToString();
+                string licenseCopy = rdr.GetValue(9).ToString();
+                string licenseId = rdr.GetValue(10).ToString();
+
+                Driver driver = new Driver(firstName, lastName, id, phoneNumber, email, address, userName, password, idCopy, licenseCopy, licenseId, false);
+
+                DriverList.Add(driver);
+            }
+        }
+
+        static void Main()
+        {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            InitLists();
+            Application.Run(new MainForm());
+        }
     }
 }
 
-
-
-static class Program
-{
-    /// <summary>
-    /// The main entry point for the application.
-    /// </summary>
-    /// 
-    //רשימות
-    public static System.Collections.Generic.List<Worker> Workers;
-    public static System.Collections.Generic.List<Order> Orders;
-    [STAThread]
-
-    //שיטה שמחפשת עובד ברשימה לפי תעודת זהות
-    public static Worker seekWorker(string id)
-    {
-        foreach (Worker w in Workers)
-        {
-            if (w.getID() == id)
-                return w;
-        }
-        return null;
-    }
-
-
-    public static void initLists()//מילוי הרשימות מתוך בסיס הנתונים
-    {
-        init_workers();//אתחול הרשימה של העובדים
-        init_orders();//אתחול הרשימה של ההזמנות
-    }
-
-
-    public static void init_workers()//מילוי המערך מתוך בסיס הנתונים
-    {
-        SqlCommand c = new SqlCommand();
-        c.CommandText = "EXECUTE dbo.Get_all_Workers";
-        SQL_CON SC = new SQL_CON();
-        SqlDataReader rdr = SC.execute_query(c);
-
-        Workers = new List<Worker>();
-
-        while (rdr.Read())
-        {
-            Title T = (Title)Enum.Parse(typeof(Title), rdr.GetValue(2).ToString());
-            Worker w = new Worker(rdr.GetValue(0).ToString(), rdr.GetValue(1).ToString(), T, false);
-            Workers.Add(w);
-        }
-    }
-
-    public static void init_orders()//מילוי המערך מתוך בסיס הנתונים
-    {
-        SqlCommand c = new SqlCommand();
-        c.CommandText = "EXECUTE dbo.Get_all_Orders";
-        SQL_CON SC = new SQL_CON();
-        SqlDataReader rdr = SC.execute_query(c);
-        Orders = new List<Order>();
-        while (rdr.Read())
-        {
-            Order o = new Order(seekWorker(rdr.GetValue(0).ToString()), int.Parse(rdr.GetValue(1).ToString()), DateTime.Parse((rdr.GetValue(2).ToString())), int.Parse(rdr.GetValue(3).ToString()), false);
-            Orders.Add(o);
-        }
-    }
-
-
-    static void Main()
-    {
-        Application.EnableVisualStyles();
-        Application.SetCompatibleTextRenderingDefault(false);
-        initLists();//אתחול כל הרשימות
-        Application.Run(new main_form());
-    }
-}
-}
+  

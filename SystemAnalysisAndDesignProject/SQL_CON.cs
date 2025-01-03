@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Data.SqlClient;
-using System.Windows.Forms;
+using System.Data.SqlClient;//חשוב!
+using System.Windows.Forms;//עבור ההודעות!
 using System.Data;
 
 namespace SystemAnalysisAndDesignProject
-{ 
-    class SQLConnection
+{
+    class SQL_CON
     {
         SqlConnection conn;
 
-        public SQLConnection()
+        public SQL_CON()
         {
             conn = new SqlConnection("Data Source=IEMDBS;Initial Catalog=SADM_14;Integrated Security=True");//update this!!
         }

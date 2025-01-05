@@ -55,7 +55,7 @@ namespace SystemAnalysisAndDesignProject
         {
             SqlCommand sp = new SqlCommand();
             sp.CommandText = "EXECUTE SP_add_Driver @firstName, @lastName, @id, @phoneNumber" +
-                ", @email, @address, @userName, @password, @idCopy, @licenseCopy, @licenseId, @role";
+                ", @email, @address, @userName, @password, @idCopy, @licenseCopy, @licenseId, @role, @status";
             sp.Parameters.AddWithValue("@firstName", this.firstName);
             sp.Parameters.AddWithValue("@lastName", this.lastName);
             sp.Parameters.AddWithValue("@id", this.id);

@@ -17,6 +17,7 @@ namespace SystemAnalysisAndDesignProject
     {
         public static System.Collections.Generic.List<Vehicle> VehicleList;
         public static System.Collections.Generic.List<Driver> DriverList;
+        public static System.Collections.Generic.List<OperationalManager> OperationalManagerList;
 
         [STAThread]
 
@@ -25,6 +26,7 @@ namespace SystemAnalysisAndDesignProject
         {
             InitVehicleList();
             InitDriverList();
+            InitOperationalManager();
         }
 
         public static void InitVehicleList()
@@ -71,12 +73,42 @@ namespace SystemAnalysisAndDesignProject
                 string idCopy = rdr.GetValue(8).ToString();
                 string licenseCopy = rdr.GetValue(9).ToString();
                 string licenseId = rdr.GetValue(10).ToString();
+                Role role = (Role)Enum.Parse(typeof(Role), rdr.GetValue(11).ToString());
+                PerformanceStatus status = (PerformanceStatus)Enum.Parse(typeof(PerformanceStatus), rdr.GetValue(12).ToString());
 
-                Driver driver = new Driver(firstName, lastName, id, phoneNumber, email, address, userName, password, idCopy, licenseCopy, licenseId, false);
+                Driver driver = new Driver(firstName, lastName, id, phoneNumber, email, address, userName, password, idCopy, licenseCopy, licenseId, false, role, status );
 
                 DriverList.Add(driver);
             }
         }
+
+        public static void InitOperationalManagerList()
+        {
+            SqlCommand sp = new SqlCommand();
+            sp.CommandText = "EXECUTE dbo.Get_All_OperationalManagers"; // Adjust the stored procedure name if needed
+            SQL_CON SC = new SQL_CON();
+            SqlDataReader rdr = SC.execute_query(sp);
+
+            Program.OperationalManagerList = new List<OperationalManager>();
+            while (rdr.Read())
+            {
+                string firstName = rdr.GetValue(0).ToString();
+                string lastName = rdr.GetValue(1).ToString();
+                string id = rdr.GetValue(2).ToString();
+                string phoneNumber = rdr.GetValue(3).ToString();
+                string email = rdr.GetValue(4).ToString();
+                string address = rdr.GetValue(5).ToString();
+                string userName = rdr.GetValue(6).ToString();
+                string password = rdr.GetValue(7).ToString();
+                string idCopy = rdr.GetValue(8).ToString();
+                Role role = (Role)Enum.Parse(typeof(Role), rdr.GetValue(9).ToString());
+
+                OperationalManager operationalManager = new OperationalManager(firstName, lastName, id, phoneNumber, email, address, userName, password, idCopy, false, role);
+
+                Program.OperationalManagerList.Add(operationalManager);
+            }
+        }
+
 
         static void Main()
         {

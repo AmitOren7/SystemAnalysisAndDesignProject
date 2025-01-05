@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="OperationalManager.cs" />
+    <Compile Include="PerformanceStatus.cs" />
+    <Compile Include="Role.cs" />
     <Compile Include="DriverMainForm.cs">
       <SubType>Form</SubType>
     </Compile>

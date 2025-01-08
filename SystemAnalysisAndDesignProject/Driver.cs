@@ -21,12 +21,12 @@ namespace SystemAnalysisAndDesignProject
         private string licenseCopy; //path of license file
         private string licenseId; //serial number of license
         private Role role;
-        private PerformanceStatus performancestatus;
+        private PerformanceStatus performanceStatus;
 
 
         public Driver(string firstName, string lastName, string id, string phoneNumber,
             string email, string address, string userName, string password,
-            string idCopy, string licenseCopy, string licenseId, bool is_new, Role role, PerformanceStatus performancestatus)
+            string idCopy, string licenseCopy, string licenseId, bool is_new, Role role, PerformanceStatus performanceStatus)
         {
             this.firstName = firstName;
             this.lastName = lastName;
@@ -40,7 +40,7 @@ namespace SystemAnalysisAndDesignProject
             this.licenseCopy = licenseCopy;
             this.licenseId = licenseId;
             this.role = role;
-            this.performancestatus = performancestatus;
+            this.performanceStatus = performanceStatus;
             if (is_new)
             {
                 this.CreateDriver();
@@ -55,7 +55,7 @@ namespace SystemAnalysisAndDesignProject
         {
             SqlCommand sp = new SqlCommand();
             sp.CommandText = "EXECUTE SP_add_Driver @firstName, @lastName, @id, @phoneNumber" +
-                ", @email, @address, @userName, @password, @idCopy, @licenseCopy, @licenseId, @role, @status";
+                ", @email, @address, @userName, @password, @idCopy, @licenseCopy, @licenseId, @role, @performanceStatus";
             sp.Parameters.AddWithValue("@firstName", this.firstName);
             sp.Parameters.AddWithValue("@lastName", this.lastName);
             sp.Parameters.AddWithValue("@id", this.id);
@@ -68,7 +68,7 @@ namespace SystemAnalysisAndDesignProject
             sp.Parameters.AddWithValue("@licenseCopy", this.licenseCopy);
             sp.Parameters.AddWithValue("@licenseId", this.licenseId);
             sp.Parameters.AddWithValue("@role", this.role);
-            sp.Parameters.AddWithValue("@performancestatus", this.performancestatus);
+            sp.Parameters.AddWithValue("@performanceStatus", this.performanceStatus);
 
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(sp); 
@@ -138,7 +138,6 @@ namespace SystemAnalysisAndDesignProject
             return true;
         }
 
-        // updating the license file path
         public bool UpdateLicenseCopy(string licenseCopy)
         {
             this.licenseCopy = licenseCopy;
@@ -152,7 +151,7 @@ namespace SystemAnalysisAndDesignProject
 
         public PerformanceStatus GetPerformanceStatus() 
         {
-            return this.performancestatus;
+            return this.performanceStatus;
         }
 
         //public bool UpdateOrederStatus(string orederStatus) 

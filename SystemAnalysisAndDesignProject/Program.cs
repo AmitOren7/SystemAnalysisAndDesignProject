@@ -19,6 +19,7 @@ namespace SystemAnalysisAndDesignProject
         public static System.Collections.Generic.List<Driver> DriverList;
         public static System.Collections.Generic.List<OperationalManager> OperationalManagerList;
         public static System.Collections.Generic.List<Order> OrderList;
+        public static System.Collections.Generic.List<Clerk> ClerkList;
 
         [STAThread]
 
@@ -29,6 +30,7 @@ namespace SystemAnalysisAndDesignProject
             InitDriverList();
             InitOperationalManagerList();
             InitOrderList();
+            InitClerkList();
         }
 
         public static void InitVehicleList()
@@ -136,11 +138,41 @@ namespace SystemAnalysisAndDesignProject
                 Order order = new Order(id, customerName, customerPhoneNamber, customerPhoneName,
                     customerEmail, startDate, departure, destenation, cargoType, estimatedFinishDate, orderStatus, false);
 
-
                 Program.OrderList.Add(order);
             }
 
         }
+
+        public static void InitClerkList()
+        {
+            SqlCommand sp = new SqlCommand();
+            sp.CommandText = "EXECUTE dbo.Get_All_Clerks";  
+            SQL_CON SC = new SQL_CON();
+            SqlDataReader rdr = SC.execute_query(sp);
+            
+            Program.ClerkList = new List<Clerk>();
+            while (rdr.Read())
+            {
+                
+                string firstName = rdr.GetValue(0).ToString();
+                string lastName = rdr.GetValue(1).ToString();
+                string id = rdr.GetValue(2).ToString();
+                string phoneNumber = rdr.GetValue(3).ToString();
+                string email = rdr.GetValue(4).ToString();
+                string address = rdr.GetValue(5).ToString();
+                string userName = rdr.GetValue(6).ToString();
+                string password = rdr.GetValue(7).ToString();
+                string idCopy = rdr.GetValue(8).ToString();
+                Role role = (Role)Enum.Parse(typeof(Role), rdr.GetValue(9).ToString()); 
+                PerformanceStatus performanceStatus = (PerformanceStatus)Enum.Parse(typeof(PerformanceStatus), rdr.GetValue(10).ToString()); 
+
+                Clerk clerk = new Clerk(firstName, lastName, id, phoneNumber, email, address, userName, password, idCopy, false, role, performanceStatus);
+
+                Program.ClerkList.Add(clerk);
+            }
+
+        }
+
 
 
 

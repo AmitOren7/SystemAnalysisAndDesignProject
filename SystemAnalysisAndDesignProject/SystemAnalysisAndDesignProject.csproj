@@ -46,8 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Answer.cs" />
     <Compile Include="OperationalManager.cs" />
     <Compile Include="PerformanceStatus.cs" />
+    <Compile Include="Question.cs" />
     <Compile Include="Role.cs" />
     <Compile Include="DriverMainForm.cs">
       <SubType>Form</SubType>
@@ -63,6 +65,7 @@
     </Compile>
     <Compile Include="SQL_CON.cs" />
     <Compile Include="Driver.cs" />
+    <Compile Include="Survey.cs" />
     <Compile Include="VehicleType.cs" />
     <Compile Include="VehicleConditionStatus.cs" />
     <Compile Include="Vehicle.cs" />

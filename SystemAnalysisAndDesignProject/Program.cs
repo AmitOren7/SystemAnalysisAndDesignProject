@@ -18,6 +18,10 @@ namespace SystemAnalysisAndDesignProject
         public static System.Collections.Generic.List<Vehicle> VehicleList;
         public static System.Collections.Generic.List<Driver> DriverList;
         public static System.Collections.Generic.List<OperationalManager> OperationalManagerList;
+        public static System.Collections.Generic.List<Survey> SurveyList;
+        public static System.Collections.Generic.List<Question> QuestionList;
+        public static System.Collections.Generic.List<Question> ActiveQuestionList; //a list of questions that are not hidden
+        public static System.Collections.Generic.List<Answer> AnswerList; //a list of survey responses
 
         [STAThread]
 

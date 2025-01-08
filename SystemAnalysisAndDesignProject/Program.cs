@@ -18,6 +18,7 @@ namespace SystemAnalysisAndDesignProject
         public static System.Collections.Generic.List<Vehicle> VehicleList;
         public static System.Collections.Generic.List<Driver> DriverList;
         public static System.Collections.Generic.List<OperationalManager> OperationalManagerList;
+        public static System.Collections.Generic.List<Order> OrderList;
 
         [STAThread]
 
@@ -26,7 +27,8 @@ namespace SystemAnalysisAndDesignProject
         {
             InitVehicleList();
             InitDriverList();
-            InitOperationalManager();
+            InitOperationalManagerList();
+            InitOrderList();
         }
 
         public static void InitVehicleList()
@@ -76,7 +78,7 @@ namespace SystemAnalysisAndDesignProject
                 Role role = (Role)Enum.Parse(typeof(Role), rdr.GetValue(11).ToString());
                 PerformanceStatus status = (PerformanceStatus)Enum.Parse(typeof(PerformanceStatus), rdr.GetValue(12).ToString());
 
-                Driver driver = new Driver(firstName, lastName, id, phoneNumber, email, address, userName, password, idCopy, licenseCopy, licenseId, false, role, status );
+                Driver driver = new Driver(firstName, lastName, id, phoneNumber, email, address, userName, password, idCopy, licenseCopy, licenseId, false, role, status);
 
                 DriverList.Add(driver);
             }
@@ -109,6 +111,38 @@ namespace SystemAnalysisAndDesignProject
             }
         }
 
+        public static void InitOrderList()
+        {
+            SqlCommand sp = new SqlCommand();
+            sp.CommandText = "EXECUTE dbo.Get_All_Orders";
+            SQL_CON SC = new SQL_CON();
+            SqlDataReader rdr = SC.execute_query(sp);
+
+            Program.OrderList = new List<Order>();
+            while (rdr.Read())
+            {
+                string id = rdr.GetValue(0).ToString();
+                string customerName = rdr.GetValue(1).ToString();
+                string customerPhoneNamber = rdr.GetValue(2).ToString();
+                string customerPhoneName = rdr.GetValue(3).ToString();
+                string customerEmail = rdr.GetValue(4).ToString();
+                DateTime startDate = Convert.ToDateTime(rdr.GetValue(5).ToString());
+                string departure = rdr.GetValue(6).ToString();
+                string destenation = rdr.GetValue(7).ToString();
+                CargoType cargoType = (CargoType)Enum.Parse(typeof(CargoType), rdr.GetValue(8).ToString());
+                DateTime estimatedFinishDate = Convert.ToDateTime(rdr.GetValue(9).ToString());
+                OrderStatus orderStatus = (OrderStatus)Enum.Parse(typeof(OrderStatus), rdr.GetValue(10).ToString());
+
+                Order order = new Order(id, customerName, customerPhoneNamber, customerPhoneName,
+                    customerEmail, startDate, departure, destenation, cargoType, estimatedFinishDate, orderStatus, false);
+
+
+                Program.OrderList.Add(order);
+            }
+
+        }
+
+
 
         static void Main()
         {
@@ -119,5 +153,6 @@ namespace SystemAnalysisAndDesignProject
         }
     }
 }
+
 
   

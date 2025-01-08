@@ -21,12 +21,12 @@ namespace SystemAnalysisAndDesignProject
         private string licenseCopy; //path of license file
         private string licenseId; //serial number of license
         private Role role;
-        private PerformanceStatus status;
+        private PerformanceStatus performancestatus;
 
 
         public Driver(string firstName, string lastName, string id, string phoneNumber,
             string email, string address, string userName, string password,
-            string idCopy, string licenseCopy, string licenseId, bool is_new, Role role, PerformanceStatus status)
+            string idCopy, string licenseCopy, string licenseId, bool is_new, Role role, PerformanceStatus performancestatus)
         {
             this.firstName = firstName;
             this.lastName = lastName;
@@ -40,7 +40,7 @@ namespace SystemAnalysisAndDesignProject
             this.licenseCopy = licenseCopy;
             this.licenseId = licenseId;
             this.role = role;
-            this.status = status;
+            this.performancestatus = performancestatus;
             if (is_new)
             {
                 this.CreateDriver();
@@ -68,7 +68,7 @@ namespace SystemAnalysisAndDesignProject
             sp.Parameters.AddWithValue("@licenseCopy", this.licenseCopy);
             sp.Parameters.AddWithValue("@licenseId", this.licenseId);
             sp.Parameters.AddWithValue("@role", this.role);
-            sp.Parameters.AddWithValue("@status", this.status);
+            sp.Parameters.AddWithValue("@performancestatus", this.performancestatus);
 
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(sp); 
@@ -150,9 +150,9 @@ namespace SystemAnalysisAndDesignProject
             return this.role;
         }
 
-        public PerformanceStatus GetStatus() 
+        public PerformanceStatus GetPerformanceStatus() 
         {
-            return this.status;
+            return this.performancestatus;
         }
 
         //public bool UpdateOrederStatus(string orederStatus) 

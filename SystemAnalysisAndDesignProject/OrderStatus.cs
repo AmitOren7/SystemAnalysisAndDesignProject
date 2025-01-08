@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace SystemAnalysisAndDesignProject
 {
-    internal enum OrderStatus
+    public enum OrderStatus
     {
         depurtere,
         arruvedToSite,
         taskStarted,
         taskComplited,
         workCertificateSigned,
-        orderColesd
+        orderColesed
 
     }
 }

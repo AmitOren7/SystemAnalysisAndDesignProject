@@ -49,7 +49,7 @@
     <Compile Include="Clerk.cs" />
     <Compile Include="OperationalManager.cs" />
     <Compile Include="Order.cs" />
-    <Compile Include="OrderSatus.cs" />
+    <Compile Include="OrderStatus.cs" />
     <Compile Include="PerformanceStatus.cs" />
     <Compile Include="Role.cs" />
     <Compile Include="DriverMainForm.cs">

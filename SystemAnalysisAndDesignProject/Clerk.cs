@@ -186,6 +186,21 @@ namespace SystemAnalysisAndDesignProject
             this.performanceStatus = performanceStatus;
         }
 
+        public void UpdateOrderStatus(OrderStatus orderStatus, Order order)
+        {
+            order.SetOrderStatus(orderStatus);
+            if (order.GetOrderStatus() == OrderStatus.orderColesed)
+            {
+                SqlCommand sp = new SqlCommand();
+                sp.CommandText = "EXECUTE UpdateOrderStatus @OrderId, @OrderStatus";
+                sp.Parameters.AddWithValue("@OrderStatus", orderStatus);
+
+                SQL_CON SC = new SQL_CON();
+                SC.execute_non_query(sp);
+            }
+        }
+        
+
     }
     
 }

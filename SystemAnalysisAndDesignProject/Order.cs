@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SystemAnalysisAndDesignProject
 {
-    internal class Order
+    public class Order
     {
         private string id;
         private string customerName;

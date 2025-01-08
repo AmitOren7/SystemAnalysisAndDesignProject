@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -156,7 +157,27 @@ namespace SystemAnalysisAndDesignProject
             SC.execute_non_query(sp);
         }
 
+        public void CreateNewDriver(string firstName, string lastName, string id, string phoneNumber,
+            string email, string address, string userName, string password,
+            string idCopy, string licenseCopy, string licenseId, bool is_new, Role role,
+            PerformanceStatus performanceStatus, Vehicle vehicle) 
+        {
+             Driver driver = new Driver(firstName, lastName, id, phoneNumber,
+                                        email, address, userName, password, idCopy, licenseCopy, 
+                                        licenseId, is_new, role, performanceStatus, vehicle);
 
-    }
-    
+            }
+
+        public void CreateNewOperationalManager(string firstName, string lastName, string id, string phoneNumber,
+               string email, string address, string userName, string password,
+               string idCopy, bool is_new, Role role)
+        {
+            OperationalManager operationalManager = new OperationalManager(firstName, lastName, id, phoneNumber,
+                                        email, address, userName, password, idCopy, is_new, role);
+        }
+        
+
+        }   
+
+
 }

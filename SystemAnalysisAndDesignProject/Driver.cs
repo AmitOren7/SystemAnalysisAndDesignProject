@@ -22,11 +22,13 @@ namespace SystemAnalysisAndDesignProject
         private string licenseId; //serial number of license
         private Role role;
         private PerformanceStatus performanceStatus;
+        private Vehicle vehicle;
 
 
         public Driver(string firstName, string lastName, string id, string phoneNumber,
             string email, string address, string userName, string password,
-            string idCopy, string licenseCopy, string licenseId, bool is_new, Role role, PerformanceStatus performanceStatus)
+            string idCopy, string licenseCopy, string licenseId, bool is_new, Role role,
+            PerformanceStatus performanceStatus, Vehicle vehicle)
         {
             this.firstName = firstName;
             this.lastName = lastName;
@@ -41,6 +43,7 @@ namespace SystemAnalysisAndDesignProject
             this.licenseId = licenseId;
             this.role = role;
             this.performanceStatus = performanceStatus;
+            this.vehicle = vehicle;
             if (is_new)
             {
                 this.CreateDriver();
@@ -55,7 +58,7 @@ namespace SystemAnalysisAndDesignProject
         {
             SqlCommand sp = new SqlCommand();
             sp.CommandText = "EXECUTE SP_add_Driver @firstName, @lastName, @id, @phoneNumber" +
-                ", @email, @address, @userName, @password, @idCopy, @licenseCopy, @licenseId, @role, @performanceStatus";
+                ", @email, @address, @userName, @password, @idCopy, @licenseCopy, @licenseId, @role, @performanceStatus, @vehicle";
             sp.Parameters.AddWithValue("@firstName", this.firstName);
             sp.Parameters.AddWithValue("@lastName", this.lastName);
             sp.Parameters.AddWithValue("@id", this.id);
@@ -69,6 +72,7 @@ namespace SystemAnalysisAndDesignProject
             sp.Parameters.AddWithValue("@licenseId", this.licenseId);
             sp.Parameters.AddWithValue("@role", this.role);
             sp.Parameters.AddWithValue("@performanceStatus", this.performanceStatus);
+            sp.Parameters.AddWithValue("@vehicle", this.vehicle.GetID());
 
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(sp); 
@@ -119,30 +123,6 @@ namespace SystemAnalysisAndDesignProject
             return this.licenseId;
         }
 
-        
-        public bool UpdatePassword(string password)
-        {
-            this.password = password;
-            return true;
-        }
-
-        public bool UpdatePhoneNumber(string phoneNumber)
-        {
-            this.phoneNumber = phoneNumber;
-            return true;
-        }
-
-        public bool UpdateAddress(string address)
-        {
-            this.address = address;
-            return true;
-        }
-
-        public bool UpdateLicenseCopy(string licenseCopy)
-        {
-            this.licenseCopy = licenseCopy;
-            return true;
-        }
 
         public Role GetRole()
         {
@@ -153,9 +133,6 @@ namespace SystemAnalysisAndDesignProject
         {
             return this.performanceStatus;
         }
-
-
-
 
         //public void FillWorkCertification() { }
 
@@ -172,6 +149,27 @@ namespace SystemAnalysisAndDesignProject
                 SQL_CON SC = new SQL_CON();
                 SC.execute_non_query(sp);
             }
+        }
+
+        public void UpdateDriverProfile() 
+        {
+            SqlCommand sp = new SqlCommand();
+            sp.CommandText = "EXECUTE SP_update_driver @firstName, @lastName, @id, @phoneNumber" +
+                ", @email, @address, @userName, @password, @idCopy, @licenseCopy, @licenseId, @role";
+            sp.Parameters.AddWithValue("@firstName", this.firstName);
+            sp.Parameters.AddWithValue("@lastName", this.lastName);
+            sp.Parameters.AddWithValue("@phoneNumber", this.phoneNumber);
+            sp.Parameters.AddWithValue("@email", this.email);
+            sp.Parameters.AddWithValue("@address", this.address);
+            sp.Parameters.AddWithValue("@userName", this.userName);
+            sp.Parameters.AddWithValue("@password", this.password);
+            sp.Parameters.AddWithValue("@idCopy", this.idCopy);
+            sp.Parameters.AddWithValue("@licenseCopy", this.licenseCopy);
+            sp.Parameters.AddWithValue("@licenseId", this.licenseId);
+            sp.Parameters.AddWithValue("@role", this.role);
+
+            SQL_CON SC = new SQL_CON();
+            SC.execute_non_query(sp);
         }
 
 

@@ -20,12 +20,14 @@ namespace SystemAnalysisAndDesignProject
         private CargoType cargoType;
         private DateTime estimatedFinishDate;
         private OrderStatus orderStatus;
+        private Driver driver;
+        private Clerk clerk;
 
 
         public Order(string id, string customerName, string customerPhoneNamber,
                      string customerPhoneName, string customerEmail, DateTime startDate,
                      string departure, string destenation, CargoType cargoType,
-                     DateTime estimatedFinishDate, OrderStatus orderStatus, bool is_new)
+                     DateTime estimatedFinishDate, OrderStatus orderStatus, Driver driver, Clerk clerk, bool is_new)
         {
             this.id = id;
             this.customerName = customerName;
@@ -38,11 +40,14 @@ namespace SystemAnalysisAndDesignProject
             this.cargoType = cargoType;
             this.estimatedFinishDate = estimatedFinishDate;
             this.orderStatus = orderStatus;
+            this.driver = driver;
+            this.clerk = clerk;
             if (is_new)
             {
                 this.CreateOrder();
                 Program.OrderList.Add(this);
             }
+
         }
 
         public void CreateOrder()
@@ -51,7 +56,7 @@ namespace SystemAnalysisAndDesignProject
             SqlCommand sp = new SqlCommand();
             sp.CommandText = "EXECUTE SP_add_Order @id, @customerName, @customerPhoneNamber, " +
                              "@customerPhoneName, @customerEmail, @startDate, @departure, @destenation, " +
-                             "@cargoType, @estimatedFinishDate";
+                             "@cargoType, @estimatedFinishDate, @driver, @clerk";
 
             // Add parameters with values from the Order object
             sp.Parameters.AddWithValue("@id", this.id);
@@ -64,6 +69,9 @@ namespace SystemAnalysisAndDesignProject
             sp.Parameters.AddWithValue("@destenation", this.destenation);
             sp.Parameters.AddWithValue("@cargoType", this.cargoType.ToString()); // Assuming CargoType is an Enum
             sp.Parameters.AddWithValue("@estimatedFinishDate", this.estimatedFinishDate);
+            sp.Parameters.AddWithValue("@driver", this.driver.GetId());
+            sp.Parameters.AddWithValue("@clerk", this.clerk.GetId());
+
 
             // Execute the stored procedure to insert the order into the database
             SQL_CON SC = new SQL_CON();

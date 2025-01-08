@@ -4,7 +4,6 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Data;
 using System.Data.SqlClient;
-using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.ComponentModel;
@@ -79,9 +78,14 @@ namespace SystemAnalysisAndDesignProject
                 string licenseId = rdr.GetValue(10).ToString();
                 Role role = (Role)Enum.Parse(typeof(Role), rdr.GetValue(11).ToString());
                 PerformanceStatus status = (PerformanceStatus)Enum.Parse(typeof(PerformanceStatus), rdr.GetValue(12).ToString());
+                string vehicleId = rdr.GetValue(13).ToString();
+                Vehicle vehicle = Program.VehicleList.FirstOrDefault(v => v.GetID() == vehicleId);
 
-                Driver driver = new Driver(firstName, lastName, id, phoneNumber, email, address, userName, password, idCopy, licenseCopy, licenseId, false, role, status);
+                Driver driver = new Driver(firstName, lastName, id, phoneNumber, email, address,
+                                           userName, password, idCopy, licenseCopy, licenseId, 
+                                           false, role, status, vehicle);
 
+               
                 DriverList.Add(driver);
             }
         }
@@ -134,9 +138,14 @@ namespace SystemAnalysisAndDesignProject
                 CargoType cargoType = (CargoType)Enum.Parse(typeof(CargoType), rdr.GetValue(8).ToString());
                 DateTime estimatedFinishDate = Convert.ToDateTime(rdr.GetValue(9).ToString());
                 OrderStatus orderStatus = (OrderStatus)Enum.Parse(typeof(OrderStatus), rdr.GetValue(10).ToString());
+                string driverId = rdr.GetValue(11).ToString();
+                Driver driver = Program.DriverList.FirstOrDefault(d => d.GetId() == driverId);
+                string clerkId = rdr.GetValue(12).ToString();
+                Clerk clerk = Program.ClerkList.FirstOrDefault(c => c.GetId() == clerkId);
+
 
                 Order order = new Order(id, customerName, customerPhoneNamber, customerPhoneName,
-                    customerEmail, startDate, departure, destenation, cargoType, estimatedFinishDate, orderStatus, false);
+                    customerEmail, startDate, departure, destenation, cargoType, estimatedFinishDate, orderStatus,driver, clerk, false);
 
                 Program.OrderList.Add(order);
             }
@@ -164,7 +173,8 @@ namespace SystemAnalysisAndDesignProject
                 string password = rdr.GetValue(7).ToString();
                 string idCopy = rdr.GetValue(8).ToString();
                 Role role = (Role)Enum.Parse(typeof(Role), rdr.GetValue(9).ToString()); 
-                PerformanceStatus performanceStatus = (PerformanceStatus)Enum.Parse(typeof(PerformanceStatus), rdr.GetValue(10).ToString()); 
+                PerformanceStatus performanceStatus = (PerformanceStatus)Enum.Parse(typeof(PerformanceStatus), rdr.GetValue(10).ToString());
+                
 
                 Clerk clerk = new Clerk(firstName, lastName, id, phoneNumber, email, address, userName, password, idCopy, false, role, performanceStatus);
 

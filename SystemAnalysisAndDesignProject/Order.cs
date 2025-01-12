@@ -12,7 +12,6 @@ namespace SystemAnalysisAndDesignProject
         private string id;
         private string customerName;
         private string customerPhoneNamber;
-        private string customerPhoneName;
         private string customerEmail;
         private DateTime startDate;
         private string departure;
@@ -22,17 +21,20 @@ namespace SystemAnalysisAndDesignProject
         private OrderStatus orderStatus;
         private Driver driver;
         private Clerk clerk;
+        private double profit;
+        private VehicleType vehicleType;
+        private int totalWeight;
 
 
         public Order(string id, string customerName, string customerPhoneNamber,
-                     string customerPhoneName, string customerEmail, DateTime startDate,
+                     string customerEmail, DateTime startDate,
                      string departure, string destenation, CargoType cargoType,
-                     DateTime estimatedFinishDate, OrderStatus orderStatus, Driver driver, Clerk clerk, bool is_new)
+                     DateTime estimatedFinishDate, OrderStatus orderStatus, Driver driver, Clerk clerk, 
+                     double profit, VehicleType vehicleType, int totalWeight,  bool is_new)
         {
             this.id = id;
             this.customerName = customerName;
             this.customerPhoneNamber = customerPhoneNamber;
-            this.customerPhoneName = customerPhoneName;
             this.customerEmail = customerEmail;
             this.startDate = startDate;
             this.departure = departure;
@@ -42,6 +44,9 @@ namespace SystemAnalysisAndDesignProject
             this.orderStatus = orderStatus;
             this.driver = driver;
             this.clerk = clerk;
+            this.profit = profit;
+            this.vehicleType = vehicleType;
+            this.totalWeight = totalWeight;
             if (is_new)
             {
                 this.CreateOrder();
@@ -55,22 +60,25 @@ namespace SystemAnalysisAndDesignProject
             // Create a new SqlCommand for the stored procedure
             SqlCommand sp = new SqlCommand();
             sp.CommandText = "EXECUTE SP_add_Order @id, @customerName, @customerPhoneNamber, " +
-                             "@customerPhoneName, @customerEmail, @startDate, @departure, @destenation, " +
-                             "@cargoType, @estimatedFinishDate, @driver, @clerk";
+                             " @customerEmail, @startDate, @departure, @destenation, " +
+                             "@cargoType, @estimatedFinishDate,@orderStatus @driver, @clerk, @profit, @vehicleType, @totalWeight";
 
             // Add parameters with values from the Order object
             sp.Parameters.AddWithValue("@id", this.id);
             sp.Parameters.AddWithValue("@customerName", this.customerName);
             sp.Parameters.AddWithValue("@customerPhoneNamber", this.customerPhoneNamber);
-            sp.Parameters.AddWithValue("@customerPhoneName", this.customerPhoneName);
             sp.Parameters.AddWithValue("@customerEmail", this.customerEmail);
             sp.Parameters.AddWithValue("@startDate", this.startDate);
             sp.Parameters.AddWithValue("@departure", this.departure);
             sp.Parameters.AddWithValue("@destenation", this.destenation);
             sp.Parameters.AddWithValue("@cargoType", this.cargoType.ToString()); // Assuming CargoType is an Enum
             sp.Parameters.AddWithValue("@estimatedFinishDate", this.estimatedFinishDate);
+            sp.Parameters.AddWithValue("@orderStatus", this.orderStatus);
             sp.Parameters.AddWithValue("@driver", this.driver.GetId());
             sp.Parameters.AddWithValue("@clerk", this.clerk.GetId());
+            sp.Parameters.AddWithValue("@profit", this.profit);
+            sp.Parameters.AddWithValue("@vehicleType", this.vehicleType.ToString());
+            sp.Parameters.AddWithValue("@totalWeight", this.totalWeight);
 
 
             // Execute the stored procedure to insert the order into the database
@@ -121,6 +129,21 @@ namespace SystemAnalysisAndDesignProject
         public DateTime GetEstimatedFinishDate() 
         {
             return this.estimatedFinishDate;
+        }
+
+        public double GetProfit()
+        {
+            return this.profit;
+        }
+
+        public VehicleType GetVehicleType()
+        {
+            return this.vehicleType;
+        }
+
+        public int GetTotalWeight()
+        {
+            return this.totalWeight;
         }
 
         public void SetCustomerName(string customerName)

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -14,22 +15,36 @@ namespace SystemAnalysisAndDesignProject
         private bool associatedRole;
         private bool hide;
 
-        public Question(int questionNumber,  string description, bool AssociatedRole, bool is_new)
+        public Question(int questionNumber, string description, bool associatedRole, bool hide, bool is_new)
         {
             this.questionNumber = questionNumber;
             this.description = description;
-            this.associatedRole = AssociatedRole;
-            this.hide = false;
+            this.associatedRole = associatedRole; //clerk = false, driver = true
+            this.hide = hide;
 
             if (is_new)
             {
-                //this.CreateQuestion();
                 Program.QuestionList.Add(this);
             }
 
         }
 
+    
 
+        public int GetQuestionNum() 
+        { 
+            return questionNumber; 
+        }
+
+        public bool IsActive()
+        { 
+            return !this.hide; 
+        }
+
+        public bool GetAssociatedRole()
+        {
+            return this.associatedRole;
+        }
 
 
 

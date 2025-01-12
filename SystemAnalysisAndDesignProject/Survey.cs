@@ -9,19 +9,19 @@ namespace SystemAnalysisAndDesignProject
 {
     public class Survey
     {
-        private string headline; 
+        private string headline;
         private bool completed; //indicated whether the survey was completed or not
-        private string order; //the order id that is associated with the survey
+        private Order order; //the order id that is associated with the survey
         private List<Question> questions;
         private List<Answer> answers;
 
 
-        public Survey(string headline, Order order, List<Question> activeQuestions, bool is_new) 
+        public Survey(string headline, bool completed, Order order,bool is_new)
         {
             this.headline = headline;
-            this.completed = false; 
+            this.completed = false;
             this.order = order;
-            this.questions = new List<Question>(activeQuestions);
+            this.questions = new List<Question>();
             this.answers = new List<Answer>();
 
 
@@ -32,8 +32,6 @@ namespace SystemAnalysisAndDesignProject
 
 
             }
-
-            //need to think about the complexity of the logic of creating a survey!!!*************
         }
 
         public void CreateSurvey()
@@ -42,12 +40,43 @@ namespace SystemAnalysisAndDesignProject
             sp.CommandText = "EXECUTE SP_add_Survey @headline, @completed, @order";
             sp.Parameters.AddWithValue("@headline", this.headline);
             sp.Parameters.AddWithValue("@completed", this.completed);
-            sp.Parameters.AddWithValue("@id", this.id);
-   
+            sp.Parameters.AddWithValue("@order", this.order.GetId());
+
 
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(sp);
         }
 
+        public string GetHeadline()
+        {
+            return this.headline;
+        }
+
+        public void AddAnswer(Answer answer)
+        {
+            this.answers.Add(answer);  
+        }
+
+        public void AddQuestion(Question question)
+        {
+            this.questions.Add(question);
+        }
+
+        public bool IsCompleted()
+        {
+            return this.completed;
+        }
+
+        public bool IsEmployeeAssociated(string employeeId)
+        {
+            return this.order.GetAssignedClerkId().Equals(employeeId) ||
+                this.order.GetAssignedDriverId().Equals(employeeId);
+        }
+
+        public bool IsAssociatedMonth(int month)
+        {
+            return this.order.GetEstimatedFinishDate().Month==month;
+        }
+        
     }
 }

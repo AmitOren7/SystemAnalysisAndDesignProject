@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SystemAnalysisAndDesignProject
 {
-    public class Driver
+    public class Driver : Evaluatable
     {
         private string firstName;
         private string lastName;
@@ -170,6 +170,11 @@ namespace SystemAnalysisAndDesignProject
 
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(sp);
+        }
+
+        public bool GetAssociatedRole()
+        {
+            return true;
         }
 
 

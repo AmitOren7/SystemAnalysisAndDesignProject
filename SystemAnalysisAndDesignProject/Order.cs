@@ -172,6 +172,19 @@ namespace SystemAnalysisAndDesignProject
         {
             this.orderStatus = orderStatus;
         }
+
+        public string GetAssignedClerkId()
+        {
+            return this.clerk.GetId();
+        }
+
+        public string GetAssignedDriverId()
+        {
+            return this.driver.GetId();
+        }
+
+
+
     }
 
 }

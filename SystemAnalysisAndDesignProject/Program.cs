@@ -23,17 +23,23 @@ namespace SystemAnalysisAndDesignProject
         public static System.Collections.Generic.List<Question> QuestionList;
         public static System.Collections.Generic.List<Question> ActiveQuestionList; //a list of questions that are not hidden
         public static System.Collections.Generic.List<Answer> AnswerList; //a list of survey responses
+        public static System.Collections.Generic.List<EmployeeMonthlyEvaluation> EmployeeMonthlyEvaluationList;
 
         [STAThread]
 
 
         public static void InitLists()
         {
+            InitQuestionList();
+            InitSurveyList();
+            InitAnswerList();
             InitVehicleList();
             InitDriverList();
             InitOperationalManagerList();
             InitOrderList();
             InitClerkList();
+            InitActiveQuestionList();
+            InitEmployeeMonthlyEvaluation();
         }
 
         public static void InitVehicleList()
@@ -124,7 +130,7 @@ namespace SystemAnalysisAndDesignProject
         public static void InitOrderList()
         {
             SqlCommand sp = new SqlCommand();
-            sp.CommandText = "EXECUTE dbo.Get_All_Orders";
+            sp.CommandText = "EXECUTE dbo.Get_all_Orders";
             SQL_CON SC = new SQL_CON();
             SqlDataReader rdr = SC.execute_query(sp);
 
@@ -159,7 +165,7 @@ namespace SystemAnalysisAndDesignProject
         public static void InitClerkList()
         {
             SqlCommand sp = new SqlCommand();
-            sp.CommandText = "EXECUTE dbo.Get_All_Clerks";  
+            sp.CommandText = "EXECUTE dbo.Get_all_Clerks";  
             SQL_CON SC = new SQL_CON();
             SqlDataReader rdr = SC.execute_query(sp);
             
@@ -187,7 +193,124 @@ namespace SystemAnalysisAndDesignProject
 
         }
 
+        public static void InitQuestionList()
+        {
+            SqlCommand sp = new SqlCommand();
+            sp.CommandText = "EXECUTE dbo.Get_all_Questions";
+            SQL_CON SC = new SQL_CON();
+            SqlDataReader rdr = SC.execute_query(sp);
 
+
+            QuestionList = new List<Question>();
+            while (rdr.Read())
+            {
+                int questionNumber = Convert.ToInt32(rdr.GetValue(0));
+                string description = rdr.GetValue(1).ToString();
+                bool associatedRole = rdr.GetBoolean(2);
+                bool hide = rdr.GetBoolean(3);
+                Question question = new Question(questionNumber, description, associatedRole, hide, false);
+                QuestionList.Add(question);
+            }
+        }
+
+        public static void InitSurveyList()
+        {
+            SqlCommand sp = new SqlCommand();
+            sp.CommandText = "EXECUTE dbo.Get_all_Surveys";
+            SQL_CON SC = new SQL_CON();
+            SqlDataReader rdr = SC.execute_query(sp);
+
+
+            SurveyList = new List<Survey>();
+            while (rdr.Read())
+            {
+                string headline = rdr.GetValue(0).ToString();
+                bool completed = rdr.GetBoolean(1);
+                string orderId = rdr.GetValue(2).ToString();
+                Order order = Program.OrderList.FirstOrDefault(o => o.GetId() == orderId);
+                
+                Survey survey = new Survey(headline, completed, order, false);
+
+                SurveyList.Add(survey);
+
+                foreach (Question question in QuestionList)
+                {
+                    survey.AddQuestion(question);
+                }
+            }
+        }
+
+
+      
+
+        public static void InitAnswerList()
+        {
+            SqlCommand sp = new SqlCommand();
+            sp.CommandText = "EXECUTE dbo.Get_all_Answers";
+            SQL_CON SC = new SQL_CON();
+            SqlDataReader rdr = SC.execute_query(sp);
+
+
+            AnswerList = new List<Answer>();
+            while (rdr.Read())
+            {
+                int questionNum = Convert.ToInt32(rdr.GetValue(0));
+                Question question = Program.QuestionList.FirstOrDefault(q => q.GetQuestionNum() == questionNum);
+                string headline = rdr.GetValue(1).ToString();
+                Survey survey = Program.SurveyList.FirstOrDefault(s => s.GetHeadline() == headline);
+                int answerValue = Convert.ToInt32(rdr.GetValue(2));
+                Answer answer = new Answer(question, survey, answerValue, false);
+                
+                survey.AddAnswer(answer);               
+            }
+        }
+
+
+        static void InitActiveQuestionList()
+        {
+            List<Question> ActiveQuestionList = new List<Question>();
+            foreach (Question question in QuestionList)
+            {
+                if (question.IsActive())
+                {
+                    ActiveQuestionList.Add(question);
+                }
+            }
+        }
+
+        static void InitEmployeeMonthlyEvaluation()
+        {
+            SqlCommand sp = new SqlCommand();
+            sp.CommandText = "EXECUTE dbo.Get_all_EmployeeMonthlyEvaluation";
+            SQL_CON SC = new SQL_CON();
+            SqlDataReader rdr = SC.execute_query(sp);
+
+
+            EmployeeMonthlyEvaluationList = new List<EmployeeMonthlyEvaluation>();
+            while (rdr.Read())
+            {
+                string personalNote = rdr.GetValue(0).ToString();
+                int associatedMonth = Convert.ToInt32(rdr.GetValue(1));
+                DateTime submissionDate = Convert.ToDateTime(rdr.GetValue(2));
+                int year = Convert.ToInt32(rdr.GetValue(3));
+
+                // combining clerk list and driver list as evaluatables
+                // in order to retrieve appropriate employee
+                List<Evaluatable> EvaluatableList = new List<Evaluatable>();
+                EvaluatableList.AddRange(Program.DriverList); 
+                EvaluatableList.AddRange(Program.ClerkList);
+
+
+                string employeeId = rdr.GetValue(4).ToString();
+
+                // retreiving the associated employee
+                Evaluatable employee = EvaluatableList.FirstOrDefault(d => d.GetId() == employeeId);
+
+                EmployeeMonthlyEvaluation employeeMonthlyEvaluation = new EmployeeMonthlyEvaluation(personalNote, 
+                    associatedMonth, submissionDate, year, employee, false);
+                EmployeeMonthlyEvaluationList.Add(employeeMonthlyEvaluation);
+            }
+        }
 
 
         static void Main()
@@ -197,6 +320,7 @@ namespace SystemAnalysisAndDesignProject
             InitLists();
             Application.Run(new MainForm());
         }
+
     }
 }
 

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SystemAnalysisAndDesignProject
 {
-    public class Clerk
+    public class Clerk : Evaluatable
     {
             private string firstName;
             private string lastName;
@@ -175,9 +175,15 @@ namespace SystemAnalysisAndDesignProject
             OperationalManager operationalManager = new OperationalManager(firstName, lastName, id, phoneNumber,
                                         email, address, userName, password, idCopy, is_new, role);
         }
-        
 
-        }   
+        public bool GetAssociatedRole()
+        {
+            return false;
+        }
+
+
+
+    }
 
 
 }

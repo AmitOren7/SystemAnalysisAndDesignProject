@@ -21,14 +21,25 @@ namespace SystemAnalysisAndDesignProject
 
             if (is_new)
             {
-                //this.CreateAnswer();
                 Program.AnswerList.Add(this);
             }
 
+        }
+
+        public Survey GetSurvey()
+        {
+            return this.survey;
+        }
 
 
-        
+        public bool GetAssociatedRole()
+        {
+            return this.question.GetAssociatedRole();
+        }
+
+        public int GetAnswerValue()
+        {
+            return this.answerValue;
+        }
     }
-
-}
 }

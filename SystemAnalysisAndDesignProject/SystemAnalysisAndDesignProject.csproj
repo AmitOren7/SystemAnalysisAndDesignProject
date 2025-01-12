@@ -48,6 +48,8 @@
   <ItemGroup>
     <Compile Include="Clerk.cs" />
     <Compile Include="Answer.cs" />
+    <Compile Include="EmployeeMonthlyEvaluation.cs" />
+    <Compile Include="Evaluatable.cs" />
     <Compile Include="OperationalManager.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="OrderStatus.cs" />

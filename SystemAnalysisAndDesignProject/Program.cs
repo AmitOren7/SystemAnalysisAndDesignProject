@@ -134,22 +134,36 @@ namespace SystemAnalysisAndDesignProject
                 string id = rdr.GetValue(0).ToString();
                 string customerName = rdr.GetValue(1).ToString();
                 string customerPhoneNamber = rdr.GetValue(2).ToString();
-                string customerPhoneName = rdr.GetValue(3).ToString();
-                string customerEmail = rdr.GetValue(4).ToString();
-                DateTime startDate = Convert.ToDateTime(rdr.GetValue(5).ToString());
-                string departure = rdr.GetValue(6).ToString();
-                string destenation = rdr.GetValue(7).ToString();
-                CargoType cargoType = (CargoType)Enum.Parse(typeof(CargoType), rdr.GetValue(8).ToString());
-                DateTime estimatedFinishDate = Convert.ToDateTime(rdr.GetValue(9).ToString());
-                OrderStatus orderStatus = (OrderStatus)Enum.Parse(typeof(OrderStatus), rdr.GetValue(10).ToString());
-                string driverId = rdr.GetValue(11).ToString();
-                Driver driver = Program.DriverList.FirstOrDefault(d => d.GetId() == driverId);
-                string clerkId = rdr.GetValue(12).ToString();
-                Clerk clerk = Program.ClerkList.FirstOrDefault(c => c.GetId() == clerkId);
+                string customerEmail = rdr.GetValue(3).ToString();
+                DateTime startDate = Convert.ToDateTime(rdr.GetValue(4).ToString());
+                string departure = rdr.GetValue(5).ToString();
+                string destenation = rdr.GetValue(6).ToString();
+                CargoType cargoType = (CargoType)Enum.Parse(typeof(CargoType), rdr.GetValue(7).ToString());
+                DateTime estimatedFinishDate = Convert.ToDateTime(rdr.GetValue(8).ToString());
+                OrderStatus orderStatus = (OrderStatus)Enum.Parse(typeof(OrderStatus), rdr.GetValue(9).ToString());
+                string driverId = null; // הגדרת המשתנה מחוץ לבלוק
+                Driver driver = null;  // הגדרת האובייקט מחוץ לבלוק
+
+                if (!rdr.IsDBNull(10))
+                {
+                    driverId = rdr.GetValue(11).ToString();
+                    driver = Program.DriverList.FirstOrDefault(d => d.GetId() == driverId);
+                }
+                string clerkId = null; // הגדרת המשתנה מחוץ לבלוק
+                Clerk clerk = null;    // הגדרת האובייקט מחוץ לבלוק
+
+                if (!rdr.IsDBNull(12)) // בדיקה אם הערך אינו null
+                {
+                    clerkId = rdr.GetValue(12).ToString(); // קבלת הערך והמרתו למחרוזת
+                    clerk = Program.ClerkList.FirstOrDefault(c => c.GetId() == clerkId); // חיפוש פקיד ברשימה
+                }
+                double profit = Convert.ToDouble(rdr.GetDecimal(12));
+                VehicleType VehicleType = (VehicleType)Enum.Parse(typeof(VehicleType), rdr.GetValue(13).ToString());
+                int totalWeight = rdr.GetInt32(14);
 
 
-                Order order = new Order(id, customerName, customerPhoneNamber, customerPhoneName,
-                    customerEmail, startDate, departure, destenation, cargoType, estimatedFinishDate, orderStatus,driver, clerk, false);
+                Order order = new Order(id, customerName, customerPhoneNamber,
+                    customerEmail, startDate, departure, destenation, cargoType, estimatedFinishDate, orderStatus,driver, clerk,profit, VehicleType, totalWeight, false);
 
                 Program.OrderList.Add(order);
             }

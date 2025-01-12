@@ -8,6 +8,7 @@ namespace SystemAnalysisAndDesignProject
 {
     public enum OrderStatus
     {
+        pendingForAssignment,
         depurtere,
         arruvedToSite,
         taskStarted,

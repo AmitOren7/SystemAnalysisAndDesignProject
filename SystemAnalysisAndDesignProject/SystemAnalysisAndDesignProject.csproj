@@ -50,6 +50,7 @@
     <Compile Include="Answer.cs" />
     <Compile Include="OperationalManager.cs" />
     <Compile Include="Order.cs" />
+    <Compile Include="OrdersManeger.cs" />
     <Compile Include="OrderStatus.cs" />
     <Compile Include="PerformanceStatus.cs" />
     <Compile Include="Question.cs" />

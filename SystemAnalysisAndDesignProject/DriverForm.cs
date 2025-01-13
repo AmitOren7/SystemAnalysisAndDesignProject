@@ -16,5 +16,10 @@ namespace SystemAnalysisAndDesignProject
         {
             InitializeComponent();
         }
+
+        private void DriverForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

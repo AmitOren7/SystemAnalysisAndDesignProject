@@ -8,6 +8,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.ComponentModel;
 using System.Net;
+using System.Runtime.ConstrainedExecution;
 
 
 namespace SystemAnalysisAndDesignProject
@@ -25,7 +26,7 @@ namespace SystemAnalysisAndDesignProject
         public static System.Collections.Generic.List<Answer> AnswerList; //a list of survey responses
         public static System.Collections.Generic.List<object> EmployeeList = new List<object>();
         public static System.Collections.Generic.List<EmployeeMonthlyEvaluation> EmployeeMonthlyEvaluationList;
-        public static OfficeManager OfficeManager;
+        public static System.Collections.Generic.List<OfficeManager> OfficeManagerList;
 
         [STAThread]
 
@@ -43,7 +44,7 @@ namespace SystemAnalysisAndDesignProject
             InitClerkList();
             InitActiveQuestionList();
             InitEmployeeMonthlyEvaluation();
-            InitOfficeManager();
+            InitOfficeManagerList();
             InitEmployeeList();
         }
 
@@ -340,13 +341,13 @@ namespace SystemAnalysisAndDesignProject
             }
         }
 
-        static void InitOfficeManager() 
+        static void InitOfficeManagerList() 
         {
             SqlCommand sp = new SqlCommand();
-            sp.CommandText = "EXECUTE dbo.Get_OfficeMnager"; // Adjust the stored procedure name if needed
+            sp.CommandText = "EXECUTE dbo.Get_OfficeManager"; // Adjust the stored procedure name if needed
             SQL_CON SC = new SQL_CON();
             SqlDataReader rdr = SC.execute_query(sp);
-
+            OfficeManagerList = new List<OfficeManager>();
             while (rdr.Read())
             {
                 string firstName = rdr.GetValue(0).ToString();
@@ -360,8 +361,9 @@ namespace SystemAnalysisAndDesignProject
                 string idCopy = rdr.GetValue(8).ToString();
                 Role role = (Role)Enum.Parse(typeof(Role), rdr.GetValue(9).ToString());
 
+            
                 OfficeManager office_manager = new OfficeManager(firstName, lastName, id, phoneNumber, email, address, userName, password, idCopy, false, role);
- 
+                Program.OfficeManagerList.Add(office_manager);
             }
         }
 
@@ -380,8 +382,8 @@ namespace SystemAnalysisAndDesignProject
             if (OperationalManagerList != null)
                 EmployeeList.AddRange(OperationalManagerList);
 
-            if (OfficeManager != null)
-                EmployeeList.Add(OfficeManager); // Add the single office manager to the list
+            if (OfficeManagerList != null)
+                EmployeeList.AddRange(OfficeManagerList); 
         }
 
 

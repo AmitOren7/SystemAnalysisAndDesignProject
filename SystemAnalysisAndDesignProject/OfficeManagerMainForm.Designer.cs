@@ -1,6 +1,6 @@
 ﻿namespace SystemAnalysisAndDesignProject
 {
-    partial class Form2
+    partial class OfficeManagerMainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -37,7 +37,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "Form2";
             this.Text = "Home Page";
-            this.Load += new System.EventHandler(this.Form2_Load);
+            this.Load += new System.EventHandler(this.OfficeManagerMainForm_Load);
             this.ResumeLayout(false);
 
         }

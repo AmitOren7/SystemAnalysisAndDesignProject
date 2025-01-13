@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SystemAnalysisAndDesignProject
 {
-    public partial class OperationalManagerForm : Form
+    public partial class OperationalManagerMainForm : Form
     {
-        public OperationalManagerForm()
+        public OperationalManagerMainForm()
         {
             InitializeComponent();
         }

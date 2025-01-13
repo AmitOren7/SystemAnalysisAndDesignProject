@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace SystemAnalysisAndDesignProject
 {
-    public partial class Form2 : Form
+    public partial class OfficeManagerMainForm : Form
     {
-        public Form2()
+        public OfficeManagerMainForm()
         {
             InitializeComponent();
         }
 
-        private void Form2_Load(object sender, EventArgs e)
+        private void OfficeManagerMainForm_Load(object sender, EventArgs e)
         {
 
         }

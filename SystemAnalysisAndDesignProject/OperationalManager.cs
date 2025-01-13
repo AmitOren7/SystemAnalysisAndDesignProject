@@ -36,33 +36,33 @@ namespace SystemAnalysisAndDesignProject
             this.password = password;
             this.idCopy = idCopy;
             this.role = role;
-            if (is_new)
-            {
-                this.CreateOperationalManager();
-                Program.OperationalManagerList.Add(this);
-            }
+            //if (is_new)
+            //{
+            //    this.CreateOperationalManager();
+            //    Program.OperationalManagerList.Add(this);
+            //}
 
         }
 
-        public void CreateOperationalManager()
-        {
-            SqlCommand sp = new SqlCommand();
-            sp.CommandText = "EXECUTE SP_add_Driver @firstName, @lastName, @id, @phoneNumber" +
-                ", @email, @address, @userName, @password, @idCopy, @role";
-            sp.Parameters.AddWithValue("@firstName", this.firstName);
-            sp.Parameters.AddWithValue("@lastName", this.lastName);
-            sp.Parameters.AddWithValue("@id", this.id);
-            sp.Parameters.AddWithValue("@phoneNumber", this.phoneNumber);
-            sp.Parameters.AddWithValue("@email", this.email);
-            sp.Parameters.AddWithValue("@address", this.address);
-            sp.Parameters.AddWithValue("@userName", this.userName);
-            sp.Parameters.AddWithValue("@password", this.password);
-            sp.Parameters.AddWithValue("@idCopy", this.idCopy);
-            sp.Parameters.AddWithValue("@role", this.role);
+        //public void CreateOperationalManager()
+        //{
+        //    SqlCommand sp = new SqlCommand();
+        //    sp.CommandText = "EXECUTE dbo.sp_add_operationalManager @firstName, @lastName, @id, @phoneNumber" +
+        //        ", @email, @address, @userName, @password, @idCopy, @role";
+        //    sp.Parameters.AddWithValue("@firstName", this.firstName);
+        //    sp.Parameters.AddWithValue("@lastName", this.lastName);
+        //    sp.Parameters.AddWithValue("@id", this.id);
+        //    sp.Parameters.AddWithValue("@phoneNumber", this.phoneNumber);
+        //    sp.Parameters.AddWithValue("@email", this.email);
+        //    sp.Parameters.AddWithValue("@address", this.address);
+        //    sp.Parameters.AddWithValue("@userName", this.userName);
+        //    sp.Parameters.AddWithValue("@password", this.password);
+        //    sp.Parameters.AddWithValue("@idCopy", this.idCopy);
+        //    sp.Parameters.AddWithValue("@role", this.role);
 
-            SQL_CON SC = new SQL_CON();
-            SC.execute_non_query(sp);
-        }
+        //    SQL_CON SC = new SQL_CON();
+        //    SC.execute_non_query(sp);
+        //}
 
 
         public string GetFirstName()

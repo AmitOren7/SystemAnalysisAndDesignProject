@@ -62,55 +62,6 @@ namespace SystemAnalysisAndDesignProject
             this.Controls.Add(btnLogin);
         }
 
-
-        //    // Add the TextBox to the form
-        //    this.Controls.Add(txtUsername);
-
-        //}
-
-        //private void Username(object sender, EventArgs e)
-        //{
-
-        //}
-        //private void Password(object sender, EventArgs e)
-        //{
-
-        //}
-
-        //private Driver ValidateLogin(string username, string password)
-        //{
-        //    foreach (Driver d in Program.DriverList)
-        //    {
-        //        if (d.GetUserName() == username && d.GetPassword() == password)
-        //        {
-        //            return d;
-        //        }
-        //    }
-
-        //    return null;
-        //}
-
-        //private void LoginButton_Click(object sender, EventArgs e)
-        //{
-
-        //    Driver authenticatedDriver = ValidateLogin(txtUserName.Text, txtPassword.Text);
-
-        //    if (authenticatedDriver != null)
-        //    {
-
-        //        MessageBox.Show("Login successful! Welcome, " + authenticatedDriver.GetFirstName());
-        //        DriverMainForm driverMainForm = new DriverMainForm(authenticatedDriver);
-        //        driverMainForm.Show();
-
-        //    }
-        //    else
-        //    {
-
-        //        MessageBox.Show("Invalid username or password. Please try again.");
-        //    }
-
-        //}
-
         private void LoginButton_Click(object sender, EventArgs e)
         {
             string username = txt_username.Text;
@@ -123,8 +74,11 @@ namespace SystemAnalysisAndDesignProject
                     return true;
                 if (emp is Clerk clerk && clerk.GetUserName() == username)
                     return true;
-                if (emp is OperationalManager manager && manager.GetUserName() == username)
+                if (emp is OperationalManager operational_manager && operational_manager.GetUserName() == username)
                     return true;
+                if (emp is OfficeManager office_manager && office_manager.GetUserName() == username)
+                    return true;
+                //((OfficeManager)emp).GetUserName();
                 return false;
             });
 
@@ -133,12 +87,14 @@ namespace SystemAnalysisAndDesignProject
                 // Check the password
                 if ((employee is Driver driver && driver.GetPassword() == password) ||
                     (employee is Clerk clerk && clerk.GetPassword() == password) ||
-                    (employee is OperationalManager manager && manager.GetPassword() == password))
+                    (employee is OperationalManager operational_manager && operational_manager.GetPassword() == password) ||
+                    (employee is OfficeManager office_manager && office_manager.GetPassword() == password))
                 {
                     // Navigate to the role-specific form
                     string role = employee is Driver ? "Driver" :
                                   employee is Clerk ? "Clerk" :
-                                  employee is OperationalManager ? "Operational Manager" : "Unknown";
+                                  employee is OperationalManager ? "Operational Manager" :
+                                  employee is OfficeManager ? "Office Manager" : "Unknown";
 
                     switch (role)
                     {
@@ -149,7 +105,10 @@ namespace SystemAnalysisAndDesignProject
                             new ClerkForm().Show();
                             break;
                         case "Operational Manager":
-                            new OperationalManagerForm().Show();
+                            new OperationalManagerMainForm().Show();
+                            break;
+                        case "Office Manager":
+                            new OfficeManagerMainForm().Show();
                             break;
                         default:
                             MessageBox.Show("Unknown role!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

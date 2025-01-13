@@ -36,11 +36,10 @@ namespace SystemAnalysisAndDesignProject
             this.password = password;
             this.idCopy = idCopy;
             this.role = role;
-          
+           
         }
 
-
-
+       
         public string GetFirstName()
         {
             return this.firstName;
@@ -94,7 +93,7 @@ namespace SystemAnalysisAndDesignProject
         }
 
 
-        public void UpdateClerkProfile()
+        public void UpdateOfficeManager()
         {
             SqlCommand sp = new SqlCommand();
             sp.CommandText = "EXECUTE SP_update_driver @firstName, @lastName, @id, @phoneNumber" +

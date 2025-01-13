@@ -12,7 +12,7 @@ namespace SystemAnalysisAndDesignProject
         warning, 
         archived,
         onProbation,
-        statisfactory,
+        satisfactory,
         pendingForHearing,
         pendingForResults
 

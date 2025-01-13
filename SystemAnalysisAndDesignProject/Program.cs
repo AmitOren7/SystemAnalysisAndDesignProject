@@ -23,24 +23,28 @@ namespace SystemAnalysisAndDesignProject
         public static System.Collections.Generic.List<Question> QuestionList;
         public static System.Collections.Generic.List<Question> ActiveQuestionList; //a list of questions that are not hidden
         public static System.Collections.Generic.List<Answer> AnswerList; //a list of survey responses
-        public static List<object> EmployeeList = new List<object>();
+        public static System.Collections.Generic.List<object> EmployeeList = new List<object>();
         public static System.Collections.Generic.List<EmployeeMonthlyEvaluation> EmployeeMonthlyEvaluationList;
+        public static OfficeManager OfficeManager;
 
         [STAThread]
 
 
         public static void InitLists()
         {
-            InitQuestionList();
-            InitSurveyList();
-            InitAnswerList();
+            InitClerkList();
             InitVehicleList();
             InitDriverList();
             InitOperationalManagerList();
             InitOrderList();
+            InitQuestionList();
+            InitSurveyList();
+            InitAnswerList();
             InitClerkList();
             InitActiveQuestionList();
             InitEmployeeMonthlyEvaluation();
+            InitOfficeManager();
+            InitEmployeeList();
         }
 
         public static void InitVehicleList()
@@ -104,7 +108,7 @@ namespace SystemAnalysisAndDesignProject
         public static void InitOperationalManagerList()
         {
             SqlCommand sp = new SqlCommand();
-            sp.CommandText = "EXECUTE dbo.Get_All_OperationalManagers"; // Adjust the stored procedure name if needed
+            sp.CommandText = "EXECUTE dbo.Get_all_OperationalManager"; 
             SQL_CON SC = new SQL_CON();
             SqlDataReader rdr = SC.execute_query(sp);
 
@@ -148,16 +152,16 @@ namespace SystemAnalysisAndDesignProject
                 CargoType cargoType = (CargoType)Enum.Parse(typeof(CargoType), rdr.GetValue(7).ToString());
                 DateTime estimatedFinishDate = Convert.ToDateTime(rdr.GetValue(8).ToString());
                 OrderStatus orderStatus = (OrderStatus)Enum.Parse(typeof(OrderStatus), rdr.GetValue(9).ToString());
-                string driverId = null; // הגדרת המשתנה מחוץ לבלוק
-                Driver driver = null;  // הגדרת האובייקט מחוץ לבלוק
+                string driverId = null;
+                Driver driver = null;  
 
                 if (!rdr.IsDBNull(10))
                 {
                     driverId = rdr.GetValue(11).ToString();
                     driver = Program.DriverList.FirstOrDefault(d => d.GetId() == driverId);
                 }
-                string clerkId = null; // הגדרת המשתנה מחוץ לבלוק
-                Clerk clerk = null;    // הגדרת האובייקט מחוץ לבלוק
+                string clerkId = null; 
+                Clerk clerk = null;    
 
                 if (!rdr.IsDBNull(12)) // בדיקה אם הערך אינו null
                 {
@@ -243,7 +247,8 @@ namespace SystemAnalysisAndDesignProject
                 bool completed = rdr.GetBoolean(1);
                 string orderId = rdr.GetValue(2).ToString();
                 Order order = Program.OrderList.FirstOrDefault(o => o.GetId() == orderId);
-                
+
+               
                 Survey survey = new Survey(headline, completed, order, false);
 
                 SurveyList.Add(survey);
@@ -269,11 +274,11 @@ namespace SystemAnalysisAndDesignProject
             AnswerList = new List<Answer>();
             while (rdr.Read())
             {
-                int questionNum = Convert.ToInt32(rdr.GetValue(0));
+                int questionNum = Convert.ToInt32(rdr.GetValue(1));
                 Question question = Program.QuestionList.FirstOrDefault(q => q.GetQuestionNum() == questionNum);
-                string headline = rdr.GetValue(1).ToString();
+                string headline = rdr.GetValue(2).ToString();
                 Survey survey = Program.SurveyList.FirstOrDefault(s => s.GetHeadline() == headline);
-                int answerValue = Convert.ToInt32(rdr.GetValue(2));
+                int answerValue = Convert.ToInt32(rdr.GetValue(0));
                 Answer answer = new Answer(question, survey, answerValue, false);
                 
                 survey.AddAnswer(answer);               
@@ -335,14 +340,59 @@ namespace SystemAnalysisAndDesignProject
             }
         }
 
+        static void InitOfficeManager() 
+        {
+            SqlCommand sp = new SqlCommand();
+            sp.CommandText = "EXECUTE dbo.Get_OfficeMnager"; // Adjust the stored procedure name if needed
+            SQL_CON SC = new SQL_CON();
+            SqlDataReader rdr = SC.execute_query(sp);
+
+            while (rdr.Read())
+            {
+                string firstName = rdr.GetValue(0).ToString();
+                string lastName = rdr.GetValue(1).ToString();
+                string id = rdr.GetValue(2).ToString();
+                string phoneNumber = rdr.GetValue(3).ToString();
+                string email = rdr.GetValue(4).ToString();
+                string address = rdr.GetValue(5).ToString();
+                string userName = rdr.GetValue(6).ToString();
+                string password = rdr.GetValue(7).ToString();
+                string idCopy = rdr.GetValue(8).ToString();
+                Role role = (Role)Enum.Parse(typeof(Role), rdr.GetValue(9).ToString());
+
+                OfficeManager office_manager = new OfficeManager(firstName, lastName, id, phoneNumber, email, address, userName, password, idCopy, false, role);
+ 
+            }
+        }
+
+        static void InitEmployeeList()
+        {
+            // Clear the list to avoid duplicate entries if this is called more than once
+            EmployeeList.Clear();
+
+            // Add all employee types to the list
+            if (DriverList != null)
+                EmployeeList.AddRange(DriverList);
+
+            if (ClerkList != null)
+                EmployeeList.AddRange(ClerkList);
+
+            if (OperationalManagerList != null)
+                EmployeeList.AddRange(OperationalManagerList);
+
+            if (OfficeManager != null)
+                EmployeeList.Add(OfficeManager); // Add the single office manager to the list
+        }
+
+
 
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             InitLists();
-            Application.Run(new MainForm());
             InitializeEmployeeList();
+            Application.Run(new MainForm());
         }
 
     }

@@ -134,13 +134,18 @@ namespace SystemAnalysisAndDesignProject
             return this.performanceStatus;
         }
 
+        public Vehicle GetVehicle()
+        {
+            return this.vehicle;
+        }
+
         //public void FillWorkCertification() { }
 
 
         public void UpdateOrderStatus(OrderStatus orderStatus, Order order)
         {
             order.SetOrderStatus(orderStatus);
-            if (order.GetOrderStatus() == OrderStatus.orderColesed)
+            if (order.GetOrderStatus() == OrderStatus.orderClosed)
             {
                 SqlCommand sp = new SqlCommand();
                 sp.CommandText = "EXECUTE UpdateOrderStatus @OrderId, @OrderStatus";

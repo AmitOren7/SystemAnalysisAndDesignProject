@@ -9,10 +9,10 @@ namespace SystemAnalysisAndDesignProject
 {
     public class OrdersManeger
     {
-        public static List<Order> GetPendingOrders(List<Order> currentOrders)
+        public static List<Order> GetPendingOrders()
         {
             List<Order> pendingOrders = new List<Order>();
-            foreach (var Order in currentOrders)
+            foreach (var Order in Program.OrderList)
             {
                 if (Order.GetOrderStatus() == OrderStatus.pendingForAssignment)
                 {
@@ -25,7 +25,6 @@ namespace SystemAnalysisAndDesignProject
 
         public static List<Order> PrioritizeOrders(List<Order> pendingOrders)
         {
-            List<Order> FilteredOrders = new List<Order>();
             Dictionary<Order, double> OrderGrade = new Dictionary<Order, double>();
             foreach (var order in pendingOrders)
             {
@@ -40,6 +39,24 @@ namespace SystemAnalysisAndDesignProject
             return sortedOrders;
         }
 
-         
+        public static Dictionary<Order, List<Driver>> EligibleDrivers (List<Order> sortedOrders)
+        {
+            Dictionary<Order, List<Driver>> orderDrivers = new Dictionary<Order, List<Driver>>();
+            foreach (var order in sortedOrders)
+            {
+                
+                var suitableDrivers = Program.DriverList.Where(driver =>
+                    driver.GetVehicle().GetVehicleType() == order.GetVehicleType() &&     
+                    driver.GetVehicle().GetMaxCapacity() >= order.GetTotalWeight() &&         
+                    driver.GetVehicle().GetCargoType() == order.GetCargoType()           
+                ).ToList();
+                orderDrivers[order] = suitableDrivers;
+            }
+            return orderDrivers;
+
+
+        }
+
+
     }
 }

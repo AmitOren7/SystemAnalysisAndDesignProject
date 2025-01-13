@@ -81,6 +81,7 @@
     </Compile>
     <Compile Include="EmployeeMonthlyEvaluation.cs" />
     <Compile Include="Evaluatable.cs" />
+    <Compile Include="OfficeManager.cs" />
     <Compile Include="OfficeManagerMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,12 +89,6 @@
       <DependentUpon>OfficeManagerMainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="OperationalManager.cs" />
-    <Compile Include="OperationalOfficerForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="OperationalOfficerForm.Designer.cs">
-      <DependentUpon>OperationalOfficerForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Order.cs" />
     <Compile Include="OrdersManeger.cs" />
     <Compile Include="OrderStatus.cs" />

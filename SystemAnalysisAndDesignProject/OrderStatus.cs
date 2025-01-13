@@ -14,7 +14,6 @@ namespace SystemAnalysisAndDesignProject
         taskStarted,
         taskComplited,
         workCertificateSigned,
-        orderColesed
-
+        orderClosed   
     }
 }

@@ -76,12 +76,6 @@
       <DependentUpon>OfficeManagerMainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="OperationalManager.cs" />
-    <Compile Include="OperationalManagerForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="OperationalManagerForm.Designer.cs">
-      <DependentUpon>OperationalManagerForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Order.cs" />
     <Compile Include="OrdersManeger.cs" />
     <Compile Include="OrderStatus.cs" />

@@ -177,6 +177,11 @@ namespace SystemAnalysisAndDesignProject
             return true;
         }
 
+        public string GetName()
+        {
+            string fullName = this.firstName + " " + this.lastName;
+            return fullName;
+        }
 
     }
 }

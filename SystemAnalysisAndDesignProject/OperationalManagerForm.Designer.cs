@@ -1,6 +1,6 @@
 ﻿namespace SystemAnalysisAndDesignProject
 {
-    partial class OperationalOfficerForm
+    partial class OperationalManagerForm
     {
         /// <summary>
         /// Required designer variable.

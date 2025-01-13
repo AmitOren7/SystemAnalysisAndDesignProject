@@ -134,6 +134,11 @@ namespace SystemAnalysisAndDesignProject
             return this.performanceStatus;
         }
 
+        public Vehicle GetVehicle()
+        {
+            return this.vehicle;
+        }
+
         //public void FillWorkCertification() { }
 
 
@@ -177,6 +182,11 @@ namespace SystemAnalysisAndDesignProject
             return true;
         }
 
+        public string GetName()
+        {
+            string fullName = this.firstName + " " + this.lastName;
+            return fullName;
+        }
 
     }
 }

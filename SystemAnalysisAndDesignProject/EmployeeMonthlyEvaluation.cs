@@ -49,6 +49,20 @@ namespace SystemAnalysisAndDesignProject
             SC.execute_non_query(sp);
         }
 
+        public string GetEmployeeName()
+        {
+            return this.employee.GetName();
+        }
+
+        public string GetAssociatedRole()
+        {
+            if (this.employee.GetAssociatedRole())
+                return "Driver";
+            else
+                return "Clerk";
+
+        }
+
         // function that will calculate the grade of the evaluated employee for the month of this evaluation
         public double GetGradePerMonth()
         {
@@ -66,11 +80,19 @@ namespace SystemAnalysisAndDesignProject
                         counter++;
                         total_score += answer.GetAnswerValue();
                     }
-                    
                 }
             }
-            return ((total_score/counter)*20); // grade between 0 and 100
+            if (counter == 0)
+            {
+                return total_score;
+            }
+            else
+            {
+                return ((total_score / counter)); // grade between 0 and 5
+            }
         }
+
+
 
     }
 }

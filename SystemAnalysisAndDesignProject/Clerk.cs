@@ -181,6 +181,12 @@ namespace SystemAnalysisAndDesignProject
             return false;
         }
 
+        public string GetName()
+        {
+            string fullName = this.firstName + " " + this.lastName;
+            return fullName;
+        }
+
 
 
     }

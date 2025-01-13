@@ -10,5 +10,7 @@ namespace SystemAnalysisAndDesignProject
     {
         string GetId();
         bool GetAssociatedRole();
+
+        string GetName();
     }
 }

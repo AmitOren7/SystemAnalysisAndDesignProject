@@ -134,6 +134,11 @@ namespace SystemAnalysisAndDesignProject
             return this.performanceStatus;
         }
 
+        public Vehicle GetVehicle()
+        {
+            return this.vehicle;
+        }
+
         //public void FillWorkCertification() { }
 
 

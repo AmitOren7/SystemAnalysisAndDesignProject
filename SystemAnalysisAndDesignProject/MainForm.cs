@@ -13,7 +13,11 @@ namespace SystemAnalysisAndDesignProject
 {
     public partial class MainForm : Form
     {
+        private TextBox txt_username;
+        private TextBox txt_password;
         private Label lblError;
+        private Button btnLogin;
+
         public MainForm()
         {
             InitializeComponent();
@@ -24,31 +28,54 @@ namespace SystemAnalysisAndDesignProject
                 Text = "",
                 ForeColor = Color.Red,
                 AutoSize = true,
-                Location = new Point(20, 150) // Adjust location as needed
+                Location = new Point(20, 200)
             };
+            this.Controls.Add(lblError);
 
 
-            txtUsername = new TextBox
+            txt_username = new TextBox
             {
                 Name = "txtUsername",
-                Text = "",
-                Location = new Point(20, 50), // Adjust location as needed
-                Size = new Size(200, 30)      // Adjust size as needed
+                Location = new Point(20, 50),
+                Size = new Size(200, 30)
             };
+            this.Controls.Add(txt_username);
 
-            // Add the TextBox to the form
-            this.Controls.Add(txtUsername);
 
+            txt_password = new TextBox
+            {
+                Name = "txtPassword",
+                Location = new Point(20, 100),
+                Size = new Size(200, 30),
+                PasswordChar = '*'
+            };
+            this.Controls.Add(txt_password);
+
+            btnLogin = new Button
+            {
+                Name = "btnLogin",
+                Text = "Login",
+                Location = new Point(20, 150),
+                Size = new Size(100, 30)
+            };
+            btnLogin.Click += LoginButton_Click;
+            this.Controls.Add(btnLogin);
         }
 
-        private void Username(object sender, EventArgs e)
-        {
 
-        }
-        private void Password(object sender, EventArgs e)
-        {
+        //    // Add the TextBox to the form
+        //    this.Controls.Add(txtUsername);
 
-        }
+        //}
+
+        //private void Username(object sender, EventArgs e)
+        //{
+
+        //}
+        //private void Password(object sender, EventArgs e)
+        //{
+
+        //}
 
         //private Driver ValidateLogin(string username, string password)
         //{
@@ -86,8 +113,8 @@ namespace SystemAnalysisAndDesignProject
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            string username = txtUsername.Text.Trim();
-            string password = txtPassword.Text.Trim();
+            string username = txt_username.Text;
+            string password = txt_password.Text;
 
             // Search for the user in EmployeeList
             object employee = Program.EmployeeList.FirstOrDefault(emp =>
@@ -122,7 +149,7 @@ namespace SystemAnalysisAndDesignProject
                             new ClerkForm().Show();
                             break;
                         case "Operational Manager":
-                            new OperationalOfficerForm().Show();
+                            new OperationalManagerForm().Show();
                             break;
                         default:
                             MessageBox.Show("Unknown role!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -144,6 +171,10 @@ namespace SystemAnalysisAndDesignProject
             }
         }
 
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

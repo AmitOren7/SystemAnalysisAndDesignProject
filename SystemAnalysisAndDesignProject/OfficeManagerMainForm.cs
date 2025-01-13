@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace SystemAnalysisAndDesignProject
 {
-    public partial class OperationalOfficerForm : Form
+    public partial class Form2 : Form
     {
-        public OperationalOfficerForm()
+        public Form2()
         {
             InitializeComponent();
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -12,9 +12,11 @@ namespace SystemAnalysisAndDesignProject
 {
     public partial class OfficeManagerMainForm : Form
     {
-        public OfficeManagerMainForm()
+        private OfficeManager officeManager;
+        public OfficeManagerMainForm(OfficeManager officeManager)
         {
             InitializeComponent();
+            this.officeManager = officeManager;
         }
 
         private void OfficeManagerMainForm_Load(object sender, EventArgs e)

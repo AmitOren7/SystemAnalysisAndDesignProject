@@ -67,73 +67,44 @@ namespace SystemAnalysisAndDesignProject
             string username = txt_username.Text;
             string password = txt_password.Text;
 
-            // Search for the user in EmployeeList
-            object employee = Program.EmployeeList.FirstOrDefault(emp =>
+            //    // Search for the user in EmployeeList
+            Employee employee = Program.EmployeeList.FirstOrDefault(emp => emp.GetUserName() == username);
+            if (employee != null & employee.GetPassword() == password)
             {
-                if (emp is Driver driver && driver.GetUserName() == username)
-                    return true;
-                if (emp is Clerk clerk && clerk.GetUserName() == username)
-                    return true;
-                if (emp is OperationalManager operational_manager && operational_manager.GetUserName() == username)
-                    return true;
-                if (emp is OfficeManager office_manager && office_manager.GetUserName() == username)
-                    return true;
-                //((OfficeManager)emp).GetUserName();
-                return false;
-            });
-
-            if (employee != null)
-            {
-                // Check the password
-                if ((employee is Driver driver && driver.GetPassword() == password) ||
-                    (employee is Clerk clerk && clerk.GetPassword() == password) ||
-                    (employee is OperationalManager operational_manager && operational_manager.GetPassword() == password) ||
-                    (employee is OfficeManager office_manager && office_manager.GetPassword() == password))
+                if (employee is Clerk)
                 {
-                    // Navigate to the role-specific form
-                    string role = employee is Driver ? "Driver" :
-                                  employee is Clerk ? "Clerk" :
-                                  employee is OperationalManager ? "Operational Manager" :
-                                  employee is OfficeManager ? "Office Manager" : "Unknown";
-
-                    switch (role)
-                    {
-                        case "Driver":
-                            DriverForm driver_form = new DriverForm(username).Show();
-                            break;
-                        case "Clerk":
-                            ClerkForm clerk_form = new ClerkForm(username).Show();
-                            break;
-                        case "Operational Manager":
-                            OperationalManagerMainForm oparational_manager_form = new OperationalManagerMainForm(username).Show();
-                            break;
-                        case "Office Manager":
-                            OfficeManagerMainForm office_managaer_form = new OfficeManagerMainForm(username).Show();
-                            break;
-                        default:
-                            MessageBox.Show("Unknown role!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            break;
-                    }
-
-                    this.Hide(); // Hide the login form
+                    Clerk clerk = employee as Clerk;
+                    ClerkMainForm clerkMainForm = new ClerkMainForm(clerk);
+                    clerkMainForm.Show();
                 }
-                else
+                if (employee is Driver)
                 {
-                    lblError.Text = "Invalid password!";
-                    lblError.ForeColor = System.Drawing.Color.Red;
+                    Driver driver = employee as Driver;
+                    DriverMainForm driverMainForm = new DriverMainForm(driver);
+                    driverMainForm.Show();
                 }
+                if (employee is OperationalManager)
+                {
+                    OperationalManager operationalManager = employee as OperationalManager;
+                    OperationalManagerMainForm operationalManagerMainForm = new OperationalManagerMainForm(operationalManager);
+                    operationalManagerMainForm.Show();
+                }
+                if (employee is OfficeManager)
+                {
+                    OfficeManager officeManager = employee as OfficeManager;
+                    OfficeManagerMainForm officeManagerMainForm = new OfficeManagerMainForm(officeManager);
+                    officeManagerMainForm.Show();
+                }
+                this.Hide(); // close the login form
+
             }
-            else
-            {
-                lblError.Text = "Invalid username!";
-                lblError.ForeColor = System.Drawing.Color.Red;
-            }
+            lblError.Text = "Invalid username or password!";
+            lblError.ForeColor = System.Drawing.Color.Red;
         }
-
         private void MainForm_Load(object sender, EventArgs e)
         {
 
         }
     }
+    
 }
-

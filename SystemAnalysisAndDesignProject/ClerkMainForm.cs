@@ -10,11 +10,13 @@ using System.Windows.Forms;
 
 namespace SystemAnalysisAndDesignProject
 {
-    public partial class ClerkForm : Form
+    public partial class ClerkMainForm : Form
     {
-        public ClerkForm()
+        private Clerk clerk;
+        public ClerkMainForm(Clerk clerk)
         {
             InitializeComponent();
+            this.clerk = clerk;
         }
     }
 }

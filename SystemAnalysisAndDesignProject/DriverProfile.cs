@@ -22,7 +22,7 @@ namespace SystemAnalysisAndDesignProject
             phoneNumberTxt.Text = driver.GetPhoneNumber();
             emailTxt.Text = driver.GetEmail();
             addressTxt.Text = driver.GetAddress();
-            licenseIDTxt.Text = driver.GetLicenseId();
+            licenseIDTxt.Text = driver.GetlicenseId();
         }
     }
 }

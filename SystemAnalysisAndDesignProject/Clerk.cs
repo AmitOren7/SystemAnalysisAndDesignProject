@@ -8,48 +8,30 @@ using System.Threading.Tasks;
 
 namespace SystemAnalysisAndDesignProject
 {
-    public class Clerk : Evaluatable
+    public class Clerk : Employee,Evaluatable
     {
-            private string firstName;
-            private string lastName;
-            private string id;
-            private string phoneNumber;
-            private string email;
-            private string address;
-            private string userName;
-            private string password;
-            private string idCopy; //path of id file
-            private Role role;
+
             private PerformanceStatus performanceStatus;
 
         public Clerk(string firstName, string lastName, string id, string phoneNumber,
            string email, string address, string userName, string password,
-           string idCopy, bool is_new, Role role, PerformanceStatus performanceStatus)
+           string idCopy, bool is_new, PerformanceStatus performanceStatus)
+           :base ( firstName, lastName, id, phoneNumber, email, address, userName, password,idCopy)
         {
-            this.firstName = firstName;
-            this.lastName = lastName;
-            this.id = id;
-            this.phoneNumber = phoneNumber;
-            this.email = email;
-            this.address = address;
-            this.userName = userName;
-            this.password = password;
-            this.idCopy = idCopy;
-            this.role = role;
             this.performanceStatus = performanceStatus;
             if (is_new)
             {
-                this.CreateClerk();
+                this.Create();
                 Program.ClerkList.Add(this);
             }
 
         }
 
-        public void CreateClerk()
+        public override void Create()
         {
             SqlCommand sp = new SqlCommand();
-            sp.CommandText = "EXECUTE SP_add_Driver @firstName, @lastName, @id, @phoneNumber" +
-                ", @email, @address, @userName, @password, @idCopy, @licenseCopy, @licenseId, @role, @performanceStatus";
+            sp.CommandText = "EXECUTE SP_add_Clerk @firstName, @lastName, @id, @phoneNumber" +
+                ", @email, @address, @userName, @password, @idCopy, @licenseCopy, @licenseId, @performanceStatus";
             sp.Parameters.AddWithValue("@firstName", this.firstName);
             sp.Parameters.AddWithValue("@lastName", this.lastName);
             sp.Parameters.AddWithValue("@id", this.id);
@@ -59,65 +41,13 @@ namespace SystemAnalysisAndDesignProject
             sp.Parameters.AddWithValue("@userName", this.userName);
             sp.Parameters.AddWithValue("@password", this.password);
             sp.Parameters.AddWithValue("@idCopy", this.idCopy);
-            sp.Parameters.AddWithValue("@role", this.role);
             sp.Parameters.AddWithValue("@performanceStatus", this.performanceStatus);
 
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(sp);
         }
 
-        public string GetFirstName()
-        {
-            return this.firstName;
-        }
-
-        public string GetLastName()
-        {
-            return this.lastName;
-        }
-
-        public string GetId()
-        {
-            return this.id;
-        }
-
- 
-        public string GetPhoneNumber()
-        {
-            return this.phoneNumber;
-        }
-
-        public string GetEmail()
-        {
-            return this.email;
-        }
-
-        public string GetAddress()
-        {
-            return this.address;
-        }
-
-
-        public string GetUserName()
-        {
-            return this.userName;
-        }
-
-        public string GetPassword()
-        {
-            return this.password;
-        }
-
-        public string GetIdCopy()
-        {
-            return this.idCopy;
-        }
-
-        public Role GetRole()
-        {
-            return this.role;
-        }
-
+    
         public PerformanceStatus GetPerformanceStatus()
         {
             return this.performanceStatus;
@@ -138,11 +68,11 @@ namespace SystemAnalysisAndDesignProject
             }
         }
 
-        public void UpdateClerkProfile()
+        public override void Update()
         {
             SqlCommand sp = new SqlCommand();
-            sp.CommandText = "EXECUTE SP_update_driver @firstName, @lastName, @id, @phoneNumber" +
-                ", @email, @address, @userName, @password, @idCopy, @role";
+            sp.CommandText = "EXECUTE SP_update_Clerk @firstName, @lastName, @id, @phoneNumber" +
+                "@email, @address, @userName, @password, @idCopy";
             sp.Parameters.AddWithValue("@firstName", this.firstName);
             sp.Parameters.AddWithValue("@lastName", this.lastName);
             sp.Parameters.AddWithValue("@phoneNumber", this.phoneNumber);
@@ -151,7 +81,6 @@ namespace SystemAnalysisAndDesignProject
             sp.Parameters.AddWithValue("@userName", this.userName);
             sp.Parameters.AddWithValue("@password", this.password);
             sp.Parameters.AddWithValue("@idCopy", this.idCopy);
-            sp.Parameters.AddWithValue("@role", this.role);
 
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(sp);
@@ -159,21 +88,29 @@ namespace SystemAnalysisAndDesignProject
 
         public void CreateNewDriver(string firstName, string lastName, string id, string phoneNumber,
             string email, string address, string userName, string password,
-            string idCopy, string licenseCopy, string licenseId, bool is_new, Role role,
+            string idCopy, string licenseCopy, string licenseId, bool is_new, 
             PerformanceStatus performanceStatus, Vehicle vehicle) 
         {
              Driver driver = new Driver(firstName, lastName, id, phoneNumber,
                                         email, address, userName, password, idCopy, licenseCopy, 
-                                        licenseId, is_new, role, performanceStatus, vehicle);
+                                        licenseId, is_new, performanceStatus, vehicle);
 
             }
 
         public void CreateNewOperationalManager(string firstName, string lastName, string id, string phoneNumber,
                string email, string address, string userName, string password,
-               string idCopy, bool is_new, Role role)
+               string idCopy, bool is_new)
         {
             OperationalManager operationalManager = new OperationalManager(firstName, lastName, id, phoneNumber,
-                                        email, address, userName, password, idCopy, is_new, role);
+                                        email, address, userName, password, idCopy, is_new);
+        }
+
+        public void CreateNewOfficeManager(string firstName, string lastName, string id, string phoneNumber,
+               string email, string address, string userName, string password,
+               string idCopy, bool is_new)
+        {
+            OfficeManager officeManager = new OfficeManager(firstName, lastName, id, phoneNumber,
+                                        email, address, userName, password, idCopy, is_new);
         }
 
         public bool GetAssociatedRole()
@@ -181,14 +118,7 @@ namespace SystemAnalysisAndDesignProject
             return false;
         }
 
-        public string GetName()
-        {
-            string fullName = this.firstName + " " + this.lastName;
-            return fullName;
-        }
-
-
-
+      
     }
 
 

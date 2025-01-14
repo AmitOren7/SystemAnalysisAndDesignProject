@@ -49,11 +49,11 @@
   <ItemGroup>
     <Compile Include="Clerk.cs" />
     <Compile Include="Answer.cs" />
-    <Compile Include="ClerkForm.cs">
+    <Compile Include="ClerkMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ClerkForm.Designer.cs">
-      <DependentUpon>ClerkForm.cs</DependentUpon>
+    <Compile Include="ClerkMainForm.Designer.cs">
+      <DependentUpon>ClerkMainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DriverForm.cs">
       <SubType>Form</SubType>
@@ -61,6 +61,7 @@
     <Compile Include="DriverForm.Designer.cs">
       <DependentUpon>DriverForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Employee.cs" />
     <Compile Include="EmployeeEvaluationCard.cs">
       <SubType>UserControl</SubType>
     </Compile>

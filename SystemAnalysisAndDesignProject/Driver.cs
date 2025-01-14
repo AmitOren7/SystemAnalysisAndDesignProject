@@ -7,58 +7,39 @@ using System.Threading.Tasks;
 
 namespace SystemAnalysisAndDesignProject
 {
-    public class Driver : Evaluatable
+    public class Driver :Employee, Evaluatable
     {
-        private string firstName;
-        private string lastName;
-        private string id;
-        private string phoneNumber;
-        private string email;
-        private string address;
-        private string userName;
-        private string password;
-        private string idCopy; //path of id file
+   
         private string licenseCopy; //path of license file
         private string licenseId; //serial number of license
-        private Role role;
         private PerformanceStatus performanceStatus;
         private Vehicle vehicle;
 
 
         public Driver(string firstName, string lastName, string id, string phoneNumber,
             string email, string address, string userName, string password,
-            string idCopy, string licenseCopy, string licenseId, bool is_new, Role role,
+            string idCopy, string licenseCopy, string licenseId, bool is_new,
             PerformanceStatus performanceStatus, Vehicle vehicle)
+            : base (firstName, lastName, id, phoneNumber,email, address, userName, password,idCopy)
         {
-            this.firstName = firstName;
-            this.lastName = lastName;
-            this.id = id;
-            this.phoneNumber = phoneNumber;
-            this.email = email;
-            this.address = address;
-            this.userName = userName;
-            this.password = password;
-            this.idCopy = idCopy;
+          
             this.licenseCopy = licenseCopy;
             this.licenseId = licenseId;
-            this.role = role;
             this.performanceStatus = performanceStatus;
             this.vehicle = vehicle;
             if (is_new)
             {
-                this.CreateDriver();
+                this.Create();
                 Program.DriverList.Add(this);
             }
 
         }
 
-
-
-        public void CreateDriver()
+        public override void Create()
         {
             SqlCommand sp = new SqlCommand();
             sp.CommandText = "EXECUTE SP_add_Driver @firstName, @lastName, @id, @phoneNumber" +
-                ", @email, @address, @userName, @password, @idCopy, @licenseCopy, @licenseId, @role, @performanceStatus, @vehicle";
+                ", @email, @address, @userName, @password, @idCopy, @licenseCopy, @licenseId, @performanceStatus, @vehicle";
             sp.Parameters.AddWithValue("@firstName", this.firstName);
             sp.Parameters.AddWithValue("@lastName", this.lastName);
             sp.Parameters.AddWithValue("@id", this.id);
@@ -70,7 +51,6 @@ namespace SystemAnalysisAndDesignProject
             sp.Parameters.AddWithValue("@idCopy", this.idCopy);
             sp.Parameters.AddWithValue("@licenseCopy", this.licenseCopy);
             sp.Parameters.AddWithValue("@licenseId", this.licenseId);
-            sp.Parameters.AddWithValue("@role", this.role);
             sp.Parameters.AddWithValue("@performanceStatus", this.performanceStatus);
             sp.Parameters.AddWithValue("@vehicle", this.vehicle.GetID());
 
@@ -80,55 +60,6 @@ namespace SystemAnalysisAndDesignProject
 
 
 
-        public string GetFirstName() 
-        {
-            return this.firstName; 
-        }
-        public string GetLastName() 
-        {
-            return this.lastName; 
-        }
-        public string GetId() 
-        {
-            return this.id; 
-        }
-        public string GetPhoneNumber()
-        {
-
-            return this.phoneNumber;
-        }
-
-        public string GetEmail()
-        {
-            return this.email;
-        }
-
-        public string GetAddress()
-        {
-            return this.address;
-        }
-
-        public string GetUserName()
-        {
-            return this.userName;
-        }
-
-        public string GetPassword()
-        {
-            return this.password;
-        }
-
-        public string GetLicenseId()
-        {
-            return this.licenseId;
-        }
-
-
-        public Role GetRole()
-        {
-            return this.role;
-        }
-
         public PerformanceStatus GetPerformanceStatus() 
         {
             return this.performanceStatus;
@@ -137,6 +68,16 @@ namespace SystemAnalysisAndDesignProject
         public Vehicle GetVehicle()
         {
             return this.vehicle;
+        }
+
+        public string GetlicenseId() 
+        {
+            return this.licenseId;
+        }
+
+        public string GetLisenceCopy() 
+        {
+            return this.licenseCopy;
         }
 
         //public void FillWorkCertification() { }
@@ -156,11 +97,11 @@ namespace SystemAnalysisAndDesignProject
             }
         }
 
-        public void UpdateDriverProfile() 
+        public override void Update() 
         {
             SqlCommand sp = new SqlCommand();
             sp.CommandText = "EXECUTE SP_update_driver @firstName, @lastName, @id, @phoneNumber" +
-                ", @email, @address, @userName, @password, @idCopy, @licenseCopy, @licenseId, @role";
+                ", @email, @address, @userName, @password, @idCopy, @licenseCopy, @licenseId";
             sp.Parameters.AddWithValue("@firstName", this.firstName);
             sp.Parameters.AddWithValue("@lastName", this.lastName);
             sp.Parameters.AddWithValue("@phoneNumber", this.phoneNumber);
@@ -171,8 +112,7 @@ namespace SystemAnalysisAndDesignProject
             sp.Parameters.AddWithValue("@idCopy", this.idCopy);
             sp.Parameters.AddWithValue("@licenseCopy", this.licenseCopy);
             sp.Parameters.AddWithValue("@licenseId", this.licenseId);
-            sp.Parameters.AddWithValue("@role", this.role);
-
+           
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(sp);
         }
@@ -180,12 +120,6 @@ namespace SystemAnalysisAndDesignProject
         public bool GetAssociatedRole()
         {
             return true;
-        }
-
-        public string GetName()
-        {
-            string fullName = this.firstName + " " + this.lastName;
-            return fullName;
         }
 
     }

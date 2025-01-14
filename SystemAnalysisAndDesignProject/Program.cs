@@ -24,7 +24,7 @@ namespace SystemAnalysisAndDesignProject
         public static System.Collections.Generic.List<Question> QuestionList;
         public static System.Collections.Generic.List<Question> ActiveQuestionList; //a list of questions that are not hidden
         public static System.Collections.Generic.List<Answer> AnswerList; //a list of survey responses
-        public static System.Collections.Generic.List<object> EmployeeList = new List<object>();
+        public static System.Collections.Generic.List<Employee> EmployeeList;
         public static System.Collections.Generic.List<EmployeeMonthlyEvaluation> EmployeeMonthlyEvaluationList;
         public static System.Collections.Generic.List<OfficeManager> OfficeManagerList;
 
@@ -92,14 +92,13 @@ namespace SystemAnalysisAndDesignProject
                 string idCopy = rdr.GetValue(8).ToString();
                 string licenseCopy = rdr.GetValue(9).ToString();
                 string licenseId = rdr.GetValue(10).ToString();
-                Role role = (Role)Enum.Parse(typeof(Role), rdr.GetValue(11).ToString());
-                PerformanceStatus status = (PerformanceStatus)Enum.Parse(typeof(PerformanceStatus), rdr.GetValue(12).ToString());
-                string vehicleId = rdr.GetValue(13).ToString();
+                PerformanceStatus status = (PerformanceStatus)Enum.Parse(typeof(PerformanceStatus), rdr.GetValue(11).ToString());
+                string vehicleId = rdr.GetValue(12).ToString();
                 Vehicle vehicle = Program.VehicleList.FirstOrDefault(v => v.GetID() == vehicleId);
 
                 Driver driver = new Driver(firstName, lastName, id, phoneNumber, email, address,
                                            userName, password, idCopy, licenseCopy, licenseId, 
-                                           false, role, status, vehicle);
+                                           false, status, vehicle);
 
                
                 DriverList.Add(driver);
@@ -125,9 +124,8 @@ namespace SystemAnalysisAndDesignProject
                 string userName = rdr.GetValue(6).ToString();
                 string password = rdr.GetValue(7).ToString();
                 string idCopy = rdr.GetValue(8).ToString();
-                Role role = (Role)Enum.Parse(typeof(Role), rdr.GetValue(9).ToString());
 
-                OperationalManager operationalManager = new OperationalManager(firstName, lastName, id, phoneNumber, email, address, userName, password, idCopy, false, role);
+                OperationalManager operationalManager = new OperationalManager(firstName, lastName, id, phoneNumber, email, address, userName, password, idCopy, false);
 
                 Program.OperationalManagerList.Add(operationalManager);
             }
@@ -202,11 +200,10 @@ namespace SystemAnalysisAndDesignProject
                 string userName = rdr.GetValue(6).ToString();
                 string password = rdr.GetValue(7).ToString();
                 string idCopy = rdr.GetValue(8).ToString();
-                Role role = (Role)Enum.Parse(typeof(Role), rdr.GetValue(9).ToString()); 
-                PerformanceStatus performanceStatus = (PerformanceStatus)Enum.Parse(typeof(PerformanceStatus), rdr.GetValue(10).ToString());
+                PerformanceStatus performanceStatus = (PerformanceStatus)Enum.Parse(typeof(PerformanceStatus), rdr.GetValue(9).ToString());
                 
 
-                Clerk clerk = new Clerk(firstName, lastName, id, phoneNumber, email, address, userName, password, idCopy, false, role, performanceStatus);
+                Clerk clerk = new Clerk(firstName, lastName, id, phoneNumber, email, address, userName, password, idCopy, false, performanceStatus);
 
                 Program.ClerkList.Add(clerk);
             }
@@ -359,20 +356,17 @@ namespace SystemAnalysisAndDesignProject
                 string userName = rdr.GetValue(6).ToString();
                 string password = rdr.GetValue(7).ToString();
                 string idCopy = rdr.GetValue(8).ToString();
-                Role role = (Role)Enum.Parse(typeof(Role), rdr.GetValue(9).ToString());
 
             
-                OfficeManager office_manager = new OfficeManager(firstName, lastName, id, phoneNumber, email, address, userName, password, idCopy, false, role);
+                OfficeManager office_manager = new OfficeManager(firstName, lastName, id, phoneNumber, email, address, userName, password, idCopy, false);
                 Program.OfficeManagerList.Add(office_manager);
             }
         }
 
         static void InitEmployeeList()
         {
-            // Clear the list to avoid duplicate entries if this is called more than once
-            EmployeeList.Clear();
+            EmployeeList = new List <Employee>();
 
-            // Add all employee types to the list
             if (DriverList != null)
                 EmployeeList.AddRange(DriverList);
 

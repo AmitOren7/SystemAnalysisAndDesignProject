@@ -12,10 +12,13 @@ namespace SystemAnalysisAndDesignProject
 {
     public partial class OperationalManagerMainForm : Form
     {
-        private OperationalManager operational_manager;
+        private OperationalManager operationalManager;
+        
         public OperationalManagerMainForm(OperationalManager operationalManager)
         {
             InitializeComponent();
+            this.operationalManager = operationalManager;
+
         }
 
         private void button1_Click(object sender, EventArgs e)

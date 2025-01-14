@@ -63,6 +63,16 @@ namespace SystemAnalysisAndDesignProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap done {
+            get {
+                object obj = ResourceManager.GetObject("done", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap final_resized_corrected_image_for_vs_form {
             get {
                 object obj = ResourceManager.GetObject("final_resized_corrected_image_for_vs_form", resourceCulture);
@@ -86,6 +96,26 @@ namespace SystemAnalysisAndDesignProject.Properties {
         internal static System.Drawing.Bitmap unchanged_image {
             get {
                 object obj = ResourceManager.GetObject("unchanged_image", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap user__2_ {
+            get {
+                object obj = ResourceManager.GetObject("user (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap רקע_מהפינטרסט {
+            get {
+                object obj = ResourceManager.GetObject("רקע מהפינטרסט", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -13,13 +13,17 @@ namespace SystemAnalysisAndDesignProject
     public partial class OperationalManagerMainForm : Form
     {
         private OperationalManager operational_manager;
-        public OperationalManagerMainForm(string username)
+        public OperationalManagerMainForm(OperationalManager operationalManager)
         {
             InitializeComponent();
-            operational_manager = Program.EmployeeList.FirstOrDefault(username);
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }

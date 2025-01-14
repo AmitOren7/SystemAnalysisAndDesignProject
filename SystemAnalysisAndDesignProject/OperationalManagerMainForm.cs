@@ -12,6 +12,7 @@ namespace SystemAnalysisAndDesignProject
 {
     public partial class OperationalManagerMainForm : Form
     {
+        private OperationalManager m_manager;
         public OperationalManagerMainForm()
         {
             InitializeComponent();

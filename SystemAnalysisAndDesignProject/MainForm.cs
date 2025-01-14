@@ -99,16 +99,16 @@ namespace SystemAnalysisAndDesignProject
                     switch (role)
                     {
                         case "Driver":
-                            new DriverForm().Show();
+                            DriverForm driver_form = new DriverForm(username).Show();
                             break;
                         case "Clerk":
-                            new ClerkForm().Show();
+                            ClerkForm clerk_form = new ClerkForm(username).Show();
                             break;
                         case "Operational Manager":
-                            new OperationalManagerMainForm().Show();
+                            OperationalManagerMainForm oparational_manager_form = new OperationalManagerMainForm(username).Show();
                             break;
                         case "Office Manager":
-                            new OfficeManagerMainForm().Show();
+                            OfficeManagerMainForm office_managaer_form = new OfficeManagerMainForm(username).Show();
                             break;
                         default:
                             MessageBox.Show("Unknown role!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

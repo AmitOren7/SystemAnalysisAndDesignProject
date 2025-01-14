@@ -68,6 +68,20 @@ namespace SystemAnalysisAndDesignProject
             lblError.Text = "Invalid username or password!";
             lblError.ForeColor = System.Drawing.Color.Red;
         }
-    
+
+        private void txt_username_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

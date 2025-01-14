@@ -12,10 +12,11 @@ namespace SystemAnalysisAndDesignProject
 {
     public partial class OperationalManagerMainForm : Form
     {
-        private OperationalManager m_manager;
-        public OperationalManagerMainForm()
+        private OperationalManager operational_manager;
+        public OperationalManagerMainForm(string username)
         {
             InitializeComponent();
+            operational_manager = Program.EmployeeList.FirstOrDefault(username);
         }
 
         private void button1_Click(object sender, EventArgs e)

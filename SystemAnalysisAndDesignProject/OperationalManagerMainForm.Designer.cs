@@ -28,10 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.greeting_OPM = new System.Windows.Forms.Label();
+            this.signOutButton = new System.Windows.Forms.Button();
             this.AssignmentsBoard = new System.Windows.Forms.Button();
             this.viewProfileButton = new System.Windows.Forms.Button();
-            this.greeting_OPM = new System.Windows.Forms.Label();
             this.SuspendLayout();
+            // 
+            // greeting_OPM
+            // 
+            this.greeting_OPM.AutoSize = true;
+            this.greeting_OPM.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.greeting_OPM.Location = new System.Drawing.Point(70, 50);
+            this.greeting_OPM.Name = "greeting_OPM";
+            this.greeting_OPM.Size = new System.Drawing.Size(0, 29);
+            this.greeting_OPM.TabIndex = 2;
+            // 
+            // signOutButton
+            // 
+            this.signOutButton.BackColor = System.Drawing.Color.SkyBlue;
+            this.signOutButton.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.signOutButton.Image = global::SystemAnalysisAndDesignProject.Properties.Resources.log_out;
+            this.signOutButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.signOutButton.Location = new System.Drawing.Point(681, 22);
+            this.signOutButton.Name = "signOutButton";
+            this.signOutButton.Size = new System.Drawing.Size(97, 28);
+            this.signOutButton.TabIndex = 3;
+            this.signOutButton.Text = "Sign Out";
+            this.signOutButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.signOutButton.UseVisualStyleBackColor = false;
+            this.signOutButton.Click += new System.EventHandler(this.signOutButton_Click);
             // 
             // AssignmentsBoard
             // 
@@ -60,22 +85,13 @@
             this.viewProfileButton.UseVisualStyleBackColor = false;
             this.viewProfileButton.Click += new System.EventHandler(this.button1_Click);
             // 
-            // greeting_OPM
-            // 
-            this.greeting_OPM.AutoSize = true;
-            this.greeting_OPM.Location = new System.Drawing.Point(258, 57);
-            this.greeting_OPM.Name = "greeting_OPM";
-            this.greeting_OPM.Size = new System.Drawing.Size(34, 13);
-            this.greeting_OPM.TabIndex = 2;
-            this.greeting_OPM.Text = "Hello ";
-            this.greeting_OPM.Click += new System.EventHandler(this.label1_Click);
-            // 
             // OperationalManagerMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.signOutButton);
             this.Controls.Add(this.greeting_OPM);
             this.Controls.Add(this.AssignmentsBoard);
             this.Controls.Add(this.viewProfileButton);
@@ -92,5 +108,6 @@
         private System.Windows.Forms.Button viewProfileButton;
         private System.Windows.Forms.Button AssignmentsBoard;
         private System.Windows.Forms.Label greeting_OPM;
+        private System.Windows.Forms.Button signOutButton;
     }
 }

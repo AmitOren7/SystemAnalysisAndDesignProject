@@ -81,6 +81,7 @@
             this.Controls.Add(this.viewProfileButton);
             this.Name = "OperationalManagerMainForm";
             this.Text = "OperationalManagerMainForm";
+            this.Load += new System.EventHandler(this.OperationalManagerMainForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

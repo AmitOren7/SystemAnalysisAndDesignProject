@@ -11,17 +11,13 @@ using System.Windows.Forms;
 
 namespace SystemAnalysisAndDesignProject
 {
-    public partial class MainForm : Form
+    public partial class HomePage : Form
     {
-        private TextBox txt_username;
-        private TextBox txt_password;
         private Label lblError;
         private Button btnLogin;
-
-        public MainForm()
+        public HomePage()
         {
             InitializeComponent();
-
             lblError = new Label
             {
                 Name = "lblError",
@@ -31,45 +27,16 @@ namespace SystemAnalysisAndDesignProject
                 Location = new Point(20, 200)
             };
             this.Controls.Add(lblError);
-
-
-            txt_username = new TextBox
-            {
-                Name = "txtUsername",
-                Location = new Point(20, 50),
-                Size = new Size(200, 30)
-            };
-            this.Controls.Add(txt_username);
-
-
-            txt_password = new TextBox
-            {
-                Name = "txtPassword",
-                Location = new Point(20, 100),
-                Size = new Size(200, 30),
-                PasswordChar = '*'
-            };
-            this.Controls.Add(txt_password);
-
-            btnLogin = new Button
-            {
-                Name = "btnLogin",
-                Text = "Login",
-                Location = new Point(20, 150),
-                Size = new Size(100, 30)
-            };
-            btnLogin.Click += LoginButton_Click;
-            this.Controls.Add(btnLogin);
         }
 
-        private void LoginButton_Click(object sender, EventArgs e)
+        private void logInButton_Click(object sender, EventArgs e)
         {
             string username = txt_username.Text;
             string password = txt_password.Text;
 
             //    // Search for the user in EmployeeList
             Employee employee = Program.EmployeeList.FirstOrDefault(emp => emp.GetUserName() == username);
-            if (employee != null & employee.GetPassword() == password)
+            if (employee != null && employee.GetPassword() == password)
             {
                 if (employee is Clerk)
                 {
@@ -101,10 +68,6 @@ namespace SystemAnalysisAndDesignProject
             lblError.Text = "Invalid username or password!";
             lblError.ForeColor = System.Drawing.Color.Red;
         }
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-
-        }
-    }
     
+    }
 }

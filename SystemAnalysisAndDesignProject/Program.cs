@@ -388,7 +388,7 @@ namespace SystemAnalysisAndDesignProject
             Application.SetCompatibleTextRenderingDefault(false);
             InitLists();
             InitializeEmployeeList();
-            Application.Run(new MainForm());
+            Application.Run(new HomePage());
         }
 
     }

@@ -30,5 +30,10 @@ namespace SystemAnalysisAndDesignProject
         {
 
         }
+
+        private void OperationalManagerMainForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

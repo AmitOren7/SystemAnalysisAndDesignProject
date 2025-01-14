@@ -187,5 +187,14 @@
   <ItemGroup>
     <None Include="Resources\final_resized_corrected_image_for_vs_form.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\רקע מהפינטרסט.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\done.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

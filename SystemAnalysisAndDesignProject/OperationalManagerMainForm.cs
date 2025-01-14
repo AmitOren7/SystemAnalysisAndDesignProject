@@ -26,14 +26,19 @@ namespace SystemAnalysisAndDesignProject
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void OperationalManagerMainForm_Load(object sender, EventArgs e)
         {
+            string personName = operationalManager.GetName();
+            greeting_OPM.Text = $"Hello {personName}!";
+        }
 
+        private void signOutButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            HomePage hm = new HomePage();
+            hm.Show();
         }
     }
 }

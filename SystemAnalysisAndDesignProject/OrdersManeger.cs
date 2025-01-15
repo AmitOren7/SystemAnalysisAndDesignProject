@@ -9,10 +9,12 @@ namespace SystemAnalysisAndDesignProject
 {
     public class OrdersManeger
     {
+        public static List<Order> orders = Program.OrderList;
+        public static List<Driver> drivers = Program.DriverList;
         public static List<Order> GetPendingOrders()
         {
             List<Order> pendingOrders = new List<Order>();
-            foreach (var Order in Program.OrderList)
+            foreach (var Order in orders)
             {
                 if (Order.GetOrderStatus() == OrderStatus.pendingForAssignment)
                 {
@@ -23,8 +25,9 @@ namespace SystemAnalysisAndDesignProject
             return pendingOrders;
         }
 
-        public static List<Order> PrioritizeOrders(List<Order> pendingOrders)
+        public static List<Order> PrioritizeOrders()
         {
+            List<Order> pendingOrders = GetPendingOrders();
             Dictionary<Order, double> OrderGrade = new Dictionary<Order, double>();
             foreach (var order in pendingOrders)
             {
@@ -58,5 +61,10 @@ namespace SystemAnalysisAndDesignProject
         }
 
 
+
+
+
     }
+
+
 }

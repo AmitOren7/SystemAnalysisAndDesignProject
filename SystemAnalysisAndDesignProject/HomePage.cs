@@ -24,7 +24,7 @@ namespace SystemAnalysisAndDesignProject
                 Text = "",
                 ForeColor = Color.Red,
                 AutoSize = true,
-                Location = new Point(20, 200)
+                Font = new Font("Calibri", 14),
             };
             this.Controls.Add(lblError);
         }
@@ -67,6 +67,8 @@ namespace SystemAnalysisAndDesignProject
             }
             lblError.Text = "Invalid username or password!";
             lblError.ForeColor = System.Drawing.Color.Red;
+            int newY = (this.Height - lblError.Height) / 2 + 70; 
+            lblError.Location = new Point((this.Width - lblError.Width) / 2, newY);
         }
 
         private void txt_username_TextChanged(object sender, EventArgs e)

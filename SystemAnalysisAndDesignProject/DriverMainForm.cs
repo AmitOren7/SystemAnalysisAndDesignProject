@@ -19,10 +19,28 @@ namespace SystemAnalysisAndDesignProject
             this.driver = driver;
         }
 
-        private void ViewProfileButton_Click(object sender, EventArgs e)
+       
+        private void button1_Click(object sender, EventArgs e)
         {
-            DriverProfile driverProfileForm = new DriverProfile(driver);
+            DriverAccountForm driverProfileForm = new DriverAccountForm(driver);
             driverProfileForm.Show();
+            this.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DriverMainForm_Load(object sender, EventArgs e)
+        {
+            string personName = driver.GetName();
+            driverLabel.Text = $"Hello {personName}!";
         }
     }
 }

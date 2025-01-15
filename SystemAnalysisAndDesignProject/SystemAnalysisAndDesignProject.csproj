@@ -55,6 +55,12 @@
     <Compile Include="ClerkMainForm.Designer.cs">
       <DependentUpon>ClerkMainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DriverAccountForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DriverAccountForm.Designer.cs">
+      <DependentUpon>DriverAccountForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DriverForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,12 +114,6 @@
     <Compile Include="DriverMainForm.Designer.cs">
       <DependentUpon>DriverMainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DriverProfile.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DriverProfile.Designer.cs">
-      <DependentUpon>DriverProfile.cs</DependentUpon>
-    </Compile>
     <Compile Include="RoundedTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -126,14 +126,15 @@
     <Compile Include="CargoType.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DriverAccountForm.resx">
+      <DependentUpon>DriverAccountForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="DriverForm.resx">
       <DependentUpon>DriverForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DriverMainForm.resx">
       <DependentUpon>DriverMainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DriverProfile.resx">
-      <DependentUpon>DriverProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EmployeeEvaluationCard.resx">
       <DependentUpon>EmployeeEvaluationCard.cs</DependentUpon>

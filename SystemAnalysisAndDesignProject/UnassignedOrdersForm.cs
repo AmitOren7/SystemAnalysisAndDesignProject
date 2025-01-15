@@ -12,11 +12,19 @@ namespace SystemAnalysisAndDesignProject
 {
     public partial class UnassignedOrdersForm : Form
     {
+        private int rowIndexFromMouseDown;
+        private DataGridViewRow draggedRow;
         public UnassignedOrdersForm()
         {
             InitializeComponent();
             CustomizeDataGridView();
             PopulateOrdersGridDiff();
+            SortedOrdersDiff.AllowDrop = true;
+            SortedOrdersDiff.AllowUserToAddRows = false;
+            SortedOrdersDiff.MouseDown += PrioritizedOrderDiff_MouseDown;
+            SortedOrdersDiff.MouseMove += PrioritizedOrderDiff_MouseMove;
+            SortedOrdersDiff.DragOver += PrioritizedOrderDiff_DragOver;
+            SortedOrdersDiff.DragDrop += PrioritizedOrderDiff_DragDrop;
 
         }
 
@@ -56,6 +64,70 @@ namespace SystemAnalysisAndDesignProject
             }
 
         }
-         
+        private void PrioritizedOrderDiff_MouseDown(object sender, MouseEventArgs e)
+        {
+            // Get the index of the row under the mouse pointer
+            rowIndexFromMouseDown = SortedOrdersDiff.HitTest(e.X, e.Y).RowIndex;
+
+            if (rowIndexFromMouseDown >= 0)
+            {
+                draggedRow = SortedOrdersDiff.Rows[rowIndexFromMouseDown];
+            }
+        }
+
+        private void PrioritizedOrderDiff_MouseMove(object sender, MouseEventArgs e)
+        {
+            if ((e.Button & MouseButtons.Left) == MouseButtons.Left && draggedRow != null)
+            {
+                // Initiate the drag-and-drop operation
+                SortedOrdersDiff.DoDragDrop(draggedRow, DragDropEffects.Move);
+            }
+        }
+
+        private void PrioritizedOrderDiff_DragOver(object sender, DragEventArgs e)
+        {
+            // Allow the move operation
+            e.Effect = DragDropEffects.Move;
+        }
+
+        private void PrioritizedOrderDiff_DragDrop(object sender, DragEventArgs e)
+        {
+            // Get the drop location
+            Point clientPoint = SortedOrdersDiff.PointToClient(new Point(e.X, e.Y));
+            int targetRowIndex = SortedOrdersDiff.HitTest(clientPoint.X, clientPoint.Y).RowIndex;
+
+            if (draggedRow != null)
+            {
+                // If dropped below all rows, add to the last position
+                if (targetRowIndex == -1)
+                {
+                    // Remove the row from the current position
+                    SortedOrdersDiff.Rows.RemoveAt(rowIndexFromMouseDown);
+
+                    // Add the row to the end
+                    SortedOrdersDiff.Rows.Add(draggedRow);
+                }
+                else
+                {
+                    // Remove the row from the current position
+                    SortedOrdersDiff.Rows.RemoveAt(rowIndexFromMouseDown);
+
+                    // Insert the row at the new position
+                    SortedOrdersDiff.Rows.Insert(targetRowIndex, draggedRow);
+                }
+
+                // Clear selection and select the moved row
+                SortedOrdersDiff.ClearSelection();
+                if (targetRowIndex == -1)
+                {
+                    SortedOrdersDiff.Rows[SortedOrdersDiff.Rows.Count - 1].Selected = true;
+                }
+                else
+                {
+                    SortedOrdersDiff.Rows[targetRowIndex].Selected = true;
+                }
+            }
+        }
+
     }
 }

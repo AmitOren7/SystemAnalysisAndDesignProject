@@ -383,7 +383,7 @@ namespace SystemAnalysisAndDesignProject
         }
 
 
-
+        [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();

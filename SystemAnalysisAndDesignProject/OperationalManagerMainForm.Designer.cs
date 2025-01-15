@@ -64,12 +64,13 @@
             this.AssignmentsBoard.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.AssignmentsBoard.Image = global::SystemAnalysisAndDesignProject.Properties.Resources.done;
             this.AssignmentsBoard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AssignmentsBoard.Location = new System.Drawing.Point(75, 250);
+            this.AssignmentsBoard.Location = new System.Drawing.Point(75, 239);
             this.AssignmentsBoard.Name = "AssignmentsBoard";
             this.AssignmentsBoard.Size = new System.Drawing.Size(281, 79);
             this.AssignmentsBoard.TabIndex = 1;
             this.AssignmentsBoard.Text = "View Unassigned Orders";
             this.AssignmentsBoard.UseVisualStyleBackColor = false;
+            this.AssignmentsBoard.Click += new System.EventHandler(this.AssignmentsBoard_Click);
             // 
             // viewProfileButton
             // 
@@ -77,7 +78,7 @@
             this.viewProfileButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.viewProfileButton.Image = global::SystemAnalysisAndDesignProject.Properties.Resources.user__2_;
             this.viewProfileButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.viewProfileButton.Location = new System.Drawing.Point(75, 135);
+            this.viewProfileButton.Location = new System.Drawing.Point(75, 130);
             this.viewProfileButton.Name = "viewProfileButton";
             this.viewProfileButton.Size = new System.Drawing.Size(281, 76);
             this.viewProfileButton.TabIndex = 0;

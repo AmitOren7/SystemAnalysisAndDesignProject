@@ -120,6 +120,12 @@
     <Compile Include="SQL_CON.cs" />
     <Compile Include="Driver.cs" />
     <Compile Include="Survey.cs" />
+    <Compile Include="UnassignedOrdersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UnassignedOrdersForm.Designer.cs">
+      <DependentUpon>UnassignedOrdersForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="VehicleType.cs" />
     <Compile Include="VehicleConditionStatus.cs" />
     <Compile Include="Vehicle.cs" />
@@ -160,6 +166,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UnassignedOrdersForm.resx">
+      <DependentUpon>UnassignedOrdersForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

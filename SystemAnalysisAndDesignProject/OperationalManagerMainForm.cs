@@ -23,6 +23,7 @@ namespace SystemAnalysisAndDesignProject
 
         private void button1_Click(object sender, EventArgs e)
         {
+          
 
         }
 
@@ -39,6 +40,13 @@ namespace SystemAnalysisAndDesignProject
             this.Close();
             HomePage hm = new HomePage();
             hm.Show();
+        }
+
+        private void AssignmentsBoard_Click(object sender, EventArgs e)
+        {
+            UnassignedOrdersForm UOF = new UnassignedOrdersForm();
+            UOF.Show();
+            this.Hide();
         }
     }
 }

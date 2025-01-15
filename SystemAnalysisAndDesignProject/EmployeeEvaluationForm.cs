@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,9 +18,8 @@ namespace SystemAnalysisAndDesignProject
         public EmployeeEvaluationForm()
         {
             InitializeComponent();
-            comboBoxMonth.DataSource = new string[] {"January", "February", "March", "April", "May", "June",
-                "July", "August", "September", "October", "November", "December"};
-
+            LoadYears();
+            LoadMonths();
 
         }
 
@@ -178,18 +178,18 @@ namespace SystemAnalysisAndDesignProject
         private void EmployeeEvaluationForm_Load(object sender, EventArgs e)
         {
 
-            foreach (EmployeeMonthlyEvaluation evaluation in evaluations)
-            {
-                var card = new EmployeeEvaluationCard
-                {
-                    EmployeeName = evaluation.GetEmployeeName(),
-                    Role = evaluation.GetAssociatedRole(),
-                    Score = evaluation.GetGradePerMonth().ToString("N1"), // Format to 1 decimal place
-                };
+            //foreach (EmployeeMonthlyEvaluation evaluation in evaluations)
+            //{
+            //    var card = new EmployeeEvaluationCard
+            //    {
+            //        EmployeeName = evaluation.GetEmployeeName(),
+            //        Role = evaluation.GetAssociatedRole(),
+            //        Score = evaluation.GetGradePerMonth().ToString("N1"), // Format to 1 decimal place
+            //    };
 
-                     flowLayoutPanel1.Controls.Add(card);
+            //         flowLayoutPanel1.Controls.Add(card);
             }
-        }
+        
 
 
         //completed evaluations
@@ -219,13 +219,68 @@ namespace SystemAnalysisAndDesignProject
         //retrieving pending evaluations
         private void button1_Click_1(object sender, EventArgs e)
         {
-            foreach(Driver driver in Program.DriverList)
-            {
+         
+            double score;
+            int selectedMonth = int.Parse(comboBoxMonth.SelectedItem.ToString());
+            int selectedYear = int.Parse(comboBoxYear.SelectedItem.ToString());
+            EmployeeEvaluationCard card;
 
+            foreach (Driver driver in Program.DriverList)
+            {
+                if (!IsAlreadyEvaluated(selectedMonth, selectedYear, driver))
+                {
+                    score = GetGradePerMonth(selectedMonth, selectedYear, driver);
+                        if (score != 0)
+                    {
+                        card = new EmployeeEvaluationCard
+                        {
+                            EmployeeName = driver.GetName(),
+                            Role = "Driver",
+                            Score = score.ToString("N1")
+                        };
+                         flowLayoutPanel1.Controls.Add(card);
+
+                    }
+                }           
             }
 
 
+            foreach (Clerk clerk in Program.ClerkList)
+            {
+                if (!IsAlreadyEvaluated(selectedMonth, selectedYear, clerk))
+                {
+                    score = GetGradePerMonth(selectedMonth, selectedYear, clerk);
+                    if (score != 0)
+                    {
+
+                        card = new EmployeeEvaluationCard
+                        {
+                            EmployeeName = clerk.GetName(),
+                            Role = "Clerk",
+                            Score = score.ToString("N1")
+                        };
+                        flowLayoutPanel1.Controls.Add(card);
+                
+                    }
+                }
+            }
+
         }
+
+
+
+        private bool IsAlreadyEvaluated(int month, int year, Evaluatable employee)
+        {
+            foreach (EmployeeMonthlyEvaluation evaluation in Program.EmployeeMonthlyEvaluationList) 
+            {
+                if(evaluation.GetAssociatedYear() ==  year
+                    && evaluation.GetAssociatedMonth() == month
+                    && evaluation.GetAssociatedEmployeeId().Equals(employee.GetId()))
+                    { return true; }
+            }
+            return false;
+        }
+
 
         private void comboBoxMonth_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -238,10 +293,84 @@ namespace SystemAnalysisAndDesignProject
 
         }
 
+        private void LoadYears()
+        {
+            int currentYear = DateTime.Now.Year;
+
+            int startYear = currentYear - 15;
+            int endYear = currentYear;
+
+            for (int year = startYear; year <= endYear; year++)
+            {
+                comboBoxYear.Items.Add(year);
+            }
+            comboBoxYear.SelectedItem = currentYear;
+        }
+
+
+        private void LoadMonths()
+        {
+
+            for (int i = 1; i <= 12; i++)
+            {
+                comboBoxMonth.Items.Add(i); 
+            }
+
+            int currentMonth = DateTime.Now.Month;
+            int previousMonth;
+            if (currentMonth == 1)
+            {
+                previousMonth = 12;
+                comboBoxYear.SelectedItem = DateTime.Now.Year - 1 ;
+            }
+                
+            else
+                previousMonth = currentMonth - 1;
+
+            // default selection - the prior month since the evaluations are filled out for the previous months.
+            comboBoxMonth.SelectedItem = previousMonth; 
+        }
+
+
         private void comboBoxYear_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // need to add a data source for this combo box!!!!
-            int selectedYear = (int)comboBoxYear.SelectedValue; 
+
+            if (comboBoxYear.SelectedItem != null) // Check if an item is selected
+            {
+                int selectedYear = (int)comboBoxYear.SelectedItem; // Cast to int
+            }
+
         }
+
+
+        // function that will calculate the grade of the evaluated employee for the month of this evaluation
+        private double GetGradePerMonth(int Month, int Year, Evaluatable employee)
+        {
+            int counter = 0; //counts the number of answers that were included in the calculation
+            double total_score = 0; //sums the cumulative score from the included answers 
+            foreach (Answer answer in Program.AnswerList)
+            {
+                // check if it is a releavant answer for the month, year and employee 
+                if (answer.GetSurvey().IsCompleted() && answer.GetSurvey().IsEmployeeAssociated(employee.GetId())
+                    && answer.IsEmployeeAssociated(employee)
+                    && answer.GetSurvey().IsAssociatedMonth(Month) && answer.GetSurvey().IsAssociatedYear(Year))
+                {
+                    
+                    // check if the employee is a driver or a clerk
+
+                    counter++;
+                    total_score += answer.GetAnswerValue();
+                }
+            }
+            if (counter == 0)
+            {
+                return total_score;
+            }
+            else
+            {
+                return ((total_score / counter)); // grade between 0 and 5
+            }
+        }
+
     }
 }

@@ -19,7 +19,7 @@ namespace SystemAnalysisAndDesignProject
         public Survey(string headline, bool completed, Order order,bool is_new)
         {
             this.headline = headline;
-            this.completed = false;
+            this.completed = completed;
             this.order = order;
             this.questions = new List<Question>();
             this.answers = new List<Answer>();
@@ -77,6 +77,11 @@ namespace SystemAnalysisAndDesignProject
         {
             return this.order.GetEstimatedFinishDate().Month==month;
         }
-        
+
+        public bool IsAssociatedYear(int year)
+        {
+            return this.order.GetEstimatedFinishDate().Year == year;
+        }
+
     }
 }

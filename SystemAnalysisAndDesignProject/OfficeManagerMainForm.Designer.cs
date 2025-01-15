@@ -28,14 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.ViewEvaluationsButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // Form2
+            // ViewEvaluationsButton
+            // 
+            this.ViewEvaluationsButton.Location = new System.Drawing.Point(594, 335);
+            this.ViewEvaluationsButton.Name = "ViewEvaluationsButton";
+            this.ViewEvaluationsButton.Size = new System.Drawing.Size(142, 67);
+            this.ViewEvaluationsButton.TabIndex = 0;
+            this.ViewEvaluationsButton.Text = "View Evaluations";
+            this.ViewEvaluationsButton.UseVisualStyleBackColor = true;
+            this.ViewEvaluationsButton.Click += new System.EventHandler(this.ViewEvaluationsButton_Click);
+            // 
+            // OfficeManagerMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "Form2";
+            this.Controls.Add(this.ViewEvaluationsButton);
+            this.Name = "OfficeManagerMainForm";
             this.Text = "Home Page";
             this.Load += new System.EventHandler(this.OfficeManagerMainForm_Load);
             this.ResumeLayout(false);
@@ -43,5 +55,7 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.Button ViewEvaluationsButton;
     }
 }

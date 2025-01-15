@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.IO.Pipes;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
@@ -15,15 +16,17 @@ namespace SystemAnalysisAndDesignProject
         private DateTime submissionDate;
         private int year;
         private Evaluatable employee;
+        private double score; 
 
         public EmployeeMonthlyEvaluation(string personalNote, int associatedMonth, DateTime submissionDate, 
-            int year, Evaluatable employee, bool is_new)
+            int year, Evaluatable employee, double score, bool is_new)
         {
             this.personalNote = personalNote;
             this.associatedMonth = associatedMonth;
             this.submissionDate = submissionDate;
             this.year = year;
             this.employee = employee;
+            this.score = score;
 
             if (is_new)
             {
@@ -44,6 +47,7 @@ namespace SystemAnalysisAndDesignProject
             sp.Parameters.AddWithValue("@submissionDate", this.submissionDate);
             sp.Parameters.AddWithValue("@year", this.year);
             sp.Parameters.AddWithValue("@employee", this.employee.GetId());
+            sp.Parameters.AddWithValue("@score", this.score);
 
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(sp);
@@ -63,35 +67,21 @@ namespace SystemAnalysisAndDesignProject
 
         }
 
-        // function that will calculate the grade of the evaluated employee for the month of this evaluation
-        public double GetGradePerMonth()
+
+        public int GetAssociatedMonth()
         {
-            int counter = 0; //counts the number of answers that were included in the calculation
-            double total_score = 0; //sums the cumulative score from the included answers 
-            foreach (Answer answer in Program.AnswerList)
-            {
-                // check if it is a releavant survey
-                if (answer.GetSurvey().IsCompleted() && answer.GetSurvey().IsEmployeeAssociated(this.employee.GetId()) 
-                    && answer.GetSurvey().IsAssociatedMonth(this.associatedMonth))
-                {
-                    // check if the employee is a driver or a clerk
-                    if (this.employee.GetAssociatedRole() == answer.GetAssociatedRole())
-                    {
-                        counter++;
-                        total_score += answer.GetAnswerValue();
-                    }
-                }
-            }
-            if (counter == 0)
-            {
-                return total_score;
-            }
-            else
-            {
-                return ((total_score / counter)); // grade between 0 and 5
-            }
+            return this.associatedMonth;
         }
 
+        public int GetAssociatedYear()
+        {
+            return this.year;
+        }
+
+        public string GetAssociatedEmployeeId()
+        {
+            return this.employee.GetId();
+        }
 
 
     }

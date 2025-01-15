@@ -198,12 +198,16 @@ namespace SystemAnalysisAndDesignProject
 
         public string GetAssignedClerkId()
         {
-            return this.clerk.GetId();
+            if (this.clerk != null)
+                return this.clerk.GetId();
+            else return "";
         }
 
         public string GetAssignedDriverId()
         {
-            return this.driver.GetId();
+            if (this.driver != null)
+                return this.driver.GetId();
+            else return "";
         }
 
 

@@ -113,7 +113,7 @@ namespace SystemAnalysisAndDesignProject
                                         email, address, userName, password, idCopy, is_new);
         }
 
-        public bool GetAssociatedRole()
+        public bool GetAssociatedRole() // indicated associated role for driver and clerk roles in the survey.
         {
             return false;
         }

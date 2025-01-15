@@ -23,5 +23,11 @@ namespace SystemAnalysisAndDesignProject
         {
 
         }
+
+        private void ViewEvaluationsButton_Click(object sender, EventArgs e)
+        {
+            EmployeeEvaluationForm employeeEvaluationForm = new EmployeeEvaluationForm();
+            employeeEvaluationForm.Show();
+        }
     }
 }

@@ -41,5 +41,10 @@ namespace SystemAnalysisAndDesignProject
         {
             return this.answerValue;
         }
+
+        public bool IsEmployeeAssociated(Evaluatable employee)
+        {
+            return this.question.GetAssociatedRole() == employee.GetAssociatedRole();
+        }
     }
 }

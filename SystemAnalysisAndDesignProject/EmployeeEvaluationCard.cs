@@ -40,5 +40,22 @@ namespace SystemAnalysisAndDesignProject
         {
 
         }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblScore_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        // submit button to create a new employee evaluation
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+
+        }
     }
 }

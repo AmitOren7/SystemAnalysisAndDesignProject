@@ -117,7 +117,7 @@ namespace SystemAnalysisAndDesignProject
             SC.execute_non_query(sp);
         }
 
-        public bool GetAssociatedRole()
+        public bool GetAssociatedRole()  // indicated associated role for driver and clerk roles in the survey.
         {
             return true;
         }

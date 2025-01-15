@@ -156,15 +156,15 @@ namespace SystemAnalysisAndDesignProject
 
                 if (!rdr.IsDBNull(10))
                 {
-                    driverId = rdr.GetValue(11).ToString();
+                    driverId = rdr.GetValue(10).ToString();
                     driver = Program.DriverList.FirstOrDefault(d => d.GetId() == driverId);
                 }
                 string clerkId = null; 
                 Clerk clerk = null;    
 
-                if (!rdr.IsDBNull(12)) // בדיקה אם הערך אינו null
+                if (!rdr.IsDBNull(11)) // בדיקה אם הערך אינו null
                 {
-                    clerkId = rdr.GetValue(12).ToString(); // קבלת הערך והמרתו למחרוזת
+                    clerkId = rdr.GetValue(11).ToString(); // קבלת הערך והמרתו למחרוזת
                     clerk = Program.ClerkList.FirstOrDefault(c => c.GetId() == clerkId); // חיפוש פקיד ברשימה
                 }
                 double profit = Convert.ToDouble(rdr.GetDecimal(12));
@@ -278,7 +278,7 @@ namespace SystemAnalysisAndDesignProject
                 Survey survey = Program.SurveyList.FirstOrDefault(s => s.GetHeadline() == headline);
                 int answerValue = Convert.ToInt32(rdr.GetValue(0));
                 Answer answer = new Answer(question, survey, answerValue, false);
-                
+                AnswerList.Add(answer);
                 survey.AddAnswer(answer);               
             }
         }
@@ -319,6 +319,8 @@ namespace SystemAnalysisAndDesignProject
                 int associatedMonth = Convert.ToInt32(rdr.GetValue(1));
                 DateTime submissionDate = Convert.ToDateTime(rdr.GetValue(2));
                 int year = Convert.ToInt32(rdr.GetValue(3));
+                double score = Convert.ToDouble(rdr.GetValue(4));
+
 
                 // combining clerk list and driver list as evaluatables
                 // in order to retrieve appropriate employee
@@ -333,7 +335,7 @@ namespace SystemAnalysisAndDesignProject
                 Evaluatable employee = EvaluatableList.FirstOrDefault(d => d.GetId() == employeeId);
 
                 EmployeeMonthlyEvaluation employeeMonthlyEvaluation = new EmployeeMonthlyEvaluation(personalNote, 
-                    associatedMonth, submissionDate, year, employee, false);
+                    associatedMonth, submissionDate, year, employee, score, false);
                 EmployeeMonthlyEvaluationList.Add(employeeMonthlyEvaluation);
             }
         }
@@ -389,10 +391,6 @@ namespace SystemAnalysisAndDesignProject
             InitLists();
             InitializeEmployeeList();
             Application.Run(new HomePage());
-            
-
-          
-
         }
 
     }

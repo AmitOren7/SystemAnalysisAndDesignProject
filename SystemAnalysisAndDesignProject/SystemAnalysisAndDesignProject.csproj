@@ -67,6 +67,24 @@
     <Compile Include="DriverForm.Designer.cs">
       <DependentUpon>DriverForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DriverIdCopyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DriverIdCopyForm.Designer.cs">
+      <DependentUpon>DriverIdCopyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DriverLicenseCopyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DriverLicenseCopyForm.Designer.cs">
+      <DependentUpon>DriverLicenseCopyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DriverTaskForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DriverTaskForm.Designer.cs">
+      <DependentUpon>DriverTaskForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Employee.cs" />
     <Compile Include="EmployeeEvaluationCard.cs">
       <SubType>UserControl</SubType>
@@ -139,8 +157,17 @@
     <EmbeddedResource Include="DriverForm.resx">
       <DependentUpon>DriverForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DriverIdCopyForm.resx">
+      <DependentUpon>DriverIdCopyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DriverLicenseCopyForm.resx">
+      <DependentUpon>DriverLicenseCopyForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DriverMainForm.resx">
       <DependentUpon>DriverMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DriverTaskForm.resx">
+      <DependentUpon>DriverTaskForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EmployeeEvaluationCard.resx">
       <DependentUpon>EmployeeEvaluationCard.cs</DependentUpon>

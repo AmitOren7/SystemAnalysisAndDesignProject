@@ -93,6 +93,53 @@ namespace SystemAnalysisAndDesignProject
             string fullName = this.firstName + " " + this.lastName;
             return fullName;
         }
+
+        public void SetFirstName(string firstName)
+        {
+            this.firstName = firstName;
+        }
+
+        public void SetLastName(string lastName)
+        {
+            this.lastName = lastName;
+        }
+
+        public void SetId(string id)
+        {
+            this.id = id;
+        }
+
+        public void SetPhoneNumber(string phoneNumber)
+        {
+            this.phoneNumber = phoneNumber;
+        }
+
+        public void SetEmail(string email)
+        {
+            this.email = email;
+        }
+
+        public void SetAddress(string address)
+        {
+            this.address = address;
+        }
+
+        public void SetUserName(string userName)
+        {
+            this.userName = userName;
+        }
+
+        public void SetPassword(string password)
+        {
+            this.password = password;
+        }
+
+        public void SetIdCopy(string idCopy)
+        {
+            this.idCopy = idCopy;
+        }
+
+       
     }
 }
 

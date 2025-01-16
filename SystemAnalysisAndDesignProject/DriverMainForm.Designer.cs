@@ -31,8 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DriverMainForm));
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.taskForm = new System.Windows.Forms.Button();
             this.driverLabel = new System.Windows.Forms.Label();
+            this.back = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -64,23 +65,23 @@
             this.button3.TabIndex = 2;
             this.button3.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // taskForm
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(103, 184);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(435, 109);
-            this.button2.TabIndex = 0;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.taskForm.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.taskForm.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.taskForm.FlatAppearance.BorderSize = 0;
+            this.taskForm.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.taskForm.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.taskForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.taskForm.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.taskForm.Image = ((System.Drawing.Image)(resources.GetObject("taskForm.Image")));
+            this.taskForm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.taskForm.Location = new System.Drawing.Point(103, 184);
+            this.taskForm.Name = "taskForm";
+            this.taskForm.Size = new System.Drawing.Size(435, 109);
+            this.taskForm.TabIndex = 0;
+            this.taskForm.UseVisualStyleBackColor = false;
+            this.taskForm.Click += new System.EventHandler(this.taskForm_Click);
             // 
             // driverLabel
             // 
@@ -91,16 +92,30 @@
             this.driverLabel.Size = new System.Drawing.Size(0, 20);
             this.driverLabel.TabIndex = 4;
             // 
+            // back
+            // 
+            this.back.FlatAppearance.BorderSize = 0;
+            this.back.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.back.Image = ((System.Drawing.Image)(resources.GetObject("back.Image")));
+            this.back.Location = new System.Drawing.Point(699, 12);
+            this.back.Name = "back";
+            this.back.Size = new System.Drawing.Size(43, 37);
+            this.back.TabIndex = 20;
+            this.back.UseVisualStyleBackColor = true;
+            this.back.Click += new System.EventHandler(this.back_Click);
+            // 
             // DriverMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(754, 539);
+            this.Controls.Add(this.back);
             this.Controls.Add(this.driverLabel);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.taskForm);
             this.Name = "DriverMainForm";
             this.Text = "DriverMainForm";
             this.Load += new System.EventHandler(this.DriverMainForm_Load);
@@ -110,9 +125,10 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button taskForm;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label driverLabel;
+        private System.Windows.Forms.Button back;
     }
 }

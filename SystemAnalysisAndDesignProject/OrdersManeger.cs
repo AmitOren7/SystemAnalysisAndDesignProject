@@ -42,7 +42,7 @@ namespace SystemAnalysisAndDesignProject
             return sortedOrders;
         }
 
-        public static Dictionary<Order, List<Driver>> EligibleDrivers (List<Order> sortedOrders)
+        public static Dictionary<Order, List<Driver>> GetEligibleDrivers (List<Order> sortedOrders)
         {
             Dictionary<Order, List<Driver>> orderDrivers = new Dictionary<Order, List<Driver>>();
             foreach (var order in sortedOrders)

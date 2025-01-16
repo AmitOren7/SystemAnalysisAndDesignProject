@@ -44,7 +44,7 @@ namespace SystemAnalysisAndDesignProject
 
         private void AssignmentsBoard_Click(object sender, EventArgs e)
         {
-            UnassignedOrdersForm UOF = new UnassignedOrdersForm();
+            UnassignedOrdersForm UOF = new UnassignedOrdersForm(operationalManager);
             UOF.Show();
             this.Hide();
         }

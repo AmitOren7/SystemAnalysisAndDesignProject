@@ -391,6 +391,7 @@ namespace SystemAnalysisAndDesignProject
             InitLists();
             InitializeEmployeeList();
             Application.Run(new HomePage());
+            
         }
 
     }

@@ -204,5 +204,17 @@
   <ItemGroup>
     <None Include="Resources\log-out.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\original priortization button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\original priortization button1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picture5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picture6.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -104,6 +104,7 @@ namespace SystemAnalysisAndDesignProject
                 ", @email, @address, @userName, @password, @idCopy, @licenseCopy, @licenseId";
             sp.Parameters.AddWithValue("@firstName", this.firstName);
             sp.Parameters.AddWithValue("@lastName", this.lastName);
+            sp.Parameters.AddWithValue("@id", this.id);
             sp.Parameters.AddWithValue("@phoneNumber", this.phoneNumber);
             sp.Parameters.AddWithValue("@email", this.email);
             sp.Parameters.AddWithValue("@address", this.address);

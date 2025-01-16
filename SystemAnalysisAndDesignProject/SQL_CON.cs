@@ -14,7 +14,7 @@ namespace SystemAnalysisAndDesignProject
 
         public SQL_CON()
         {
-            conn = new SqlConnection("Data Source=IEMDBS;Initial Catalog=SADM_14;Integrated Security=True");//update this!!
+            conn = new SqlConnection("Data Source=IEMDBS;Initial Catalog=SADM_14;Integrated Security=True");
         }
 
         public void execute_non_query(SqlCommand cmd)

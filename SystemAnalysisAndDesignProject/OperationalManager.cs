@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SystemAnalysisAndDesignProject
 {
@@ -60,6 +61,18 @@ namespace SystemAnalysisAndDesignProject
             SC.execute_non_query(sp);
         }
 
+        public static void assign_driver (Driver driver, Order order )
+        {
+            order.SetDriver(driver);
+            SqlCommand sp = new SqlCommand();
+            sp.CommandText = "EXECUTE SP_Update_orderDriver @id, @Driver";
+            sp.Parameters.AddWithValue("@id", order.GetId());
+            sp.Parameters.AddWithValue("@Driver", driver.GetId());
+
+
+            SQL_CON SC = new SQL_CON();
+            SC.execute_non_query(sp);
+        }
 
     }
 }

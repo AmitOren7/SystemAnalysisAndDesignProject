@@ -15,9 +15,13 @@ namespace SystemAnalysisAndDesignProject
         private int rowIndexFromMouseDown;
         private DataGridViewRow draggedRow;
         private List<Order> sortedOrders = OrdersManeger.PrioritizeOrders();
+        private Order selectedOrder;
+        private List<Driver> currentDriversList;
+        private OperationalManager operationalManager;
         public UnassignedOrdersForm(OperationalManager operationalManager)
         {
             InitializeComponent(); 
+            this.operationalManager = operationalManager;
             CustomizeDataGridView();
             PopulateOrdersGridDiff();
             SortedOrdersDiff_customise_looking();
@@ -28,6 +32,7 @@ namespace SystemAnalysisAndDesignProject
             SortedOrdersDiff.DragOver += PrioritizedOrderDiff_DragOver;
             SortedOrdersDiff.DragDrop += PrioritizedOrderDiff_DragDrop;
             SortedOrdersDiff.CellClick += SortedOrdersDiff_CellClick;
+            DG_EligibleDrivers.CellClick += DG_EligibleDrivers_CellClick;
 
         }
 
@@ -161,13 +166,13 @@ namespace SystemAnalysisAndDesignProject
             if (e.RowIndex >= 0) // Ensure the click is on a valid row
             {
                 // Retrieve the corresponding Order object
-                Order selectedOrder = sortedOrders[e.RowIndex];
+                 selectedOrder = sortedOrders[e.RowIndex];
 
                 // Fetch the list of eligible drivers for the selected order from the dictionary
                 if (eligibleDrivers.TryGetValue(selectedOrder, out List<Driver> Drivers))
                 {
-                    List<Driver> driversList = eligibleDrivers[selectedOrder];
-                    ShowEligibleDrivers(driversList);
+                     currentDriversList = eligibleDrivers[selectedOrder];
+                    ShowEligibleDrivers(currentDriversList);
                 }
                 else
                 {
@@ -193,6 +198,7 @@ namespace SystemAnalysisAndDesignProject
 
                 DG_EligibleDrivers.Rows.Add(driver.GetFirstName(),
                                             driver.GetLastName(),
+                                            driver.GetId(),
                                             driver.GetPhoneNumber(),
                                             driver.GetEmail(),
                                             driver.GetVehicle().GetVehicleType(),
@@ -206,6 +212,18 @@ namespace SystemAnalysisAndDesignProject
 
             // Set font for the content rows
             DG_EligibleDrivers.DefaultCellStyle.Font = new Font("Segoe UI", 8, FontStyle.Regular);
+        }
+
+        private void DG_EligibleDrivers_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0) // Ensure the click is on a valid row
+            {
+                // Retrieve the corresponding driver object
+                Driver selectedDriver =currentDriversList[e.RowIndex];
+                OperationalManager.assign_driver(selectedDriver , selectedOrder);
+                MessageBox.Show ($"{selectedDriver.GetFirstName()} {selectedDriver.GetLastName()} assigned successfully to order number {selectedOrder.GetId()}");
+                
+            }
         }
 
 

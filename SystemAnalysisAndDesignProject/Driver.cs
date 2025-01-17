@@ -107,49 +107,49 @@ namespace SystemAnalysisAndDesignProject
             }
         }
 
-        //public override void Update() 
-        //{
-        //    SqlCommand sp = new SqlCommand();
-        //    sp.CommandText = "EXECUTE SP_update_driver @firstName, @lastName, @id, @phoneNumber" +
-        //        ",@email, @address, @userName, @password, @idCopy, @licenseCopy, @licenseId";
-        //    sp.Parameters.AddWithValue("@firstName", this.firstName);
-        //    sp.Parameters.AddWithValue("@lastName", this.lastName);
-        //    sp.Parameters.AddWithValue("@id", this.id);
-        //    sp.Parameters.AddWithValue("@phoneNumber", this.phoneNumber);
-        //    sp.Parameters.AddWithValue("@email", this.email);
-        //    sp.Parameters.AddWithValue("@address", this.address);
-        //    sp.Parameters.AddWithValue("@userName", this.userName);
-        //    sp.Parameters.AddWithValue("@password", this.password);
-        //    sp.Parameters.AddWithValue("@idCopy", this.idCopy);
-        //    sp.Parameters.AddWithValue("@licenseCopy", this.licenseCopy);
-        //    sp.Parameters.AddWithValue("@licenseId", this.licenseId);
-
-        //    SQL_CON SC = new SQL_CON();
-        //    SC.execute_non_query(sp);
-        //}
         public override void Update()
         {
             SqlCommand sp = new SqlCommand();
             sp.CommandText = "EXECUTE SP_update_driver @firstName, @lastName, @id, @phoneNumber" +
-                " ,@email, @address, @userName, @password, @idCopy, @licenseCopy, @licenseId";
+                ",@email, @address, @userName, @password, @idCopy, @licenseCopy, @licenseId";
+            sp.Parameters.AddWithValue("@firstName", this.firstName);
+            sp.Parameters.AddWithValue("@lastName", this.lastName);
+            sp.Parameters.AddWithValue("@id", this.id);
+            sp.Parameters.AddWithValue("@phoneNumber", this.phoneNumber);
+            sp.Parameters.AddWithValue("@email", this.email);
+            sp.Parameters.AddWithValue("@address", this.address);
+            sp.Parameters.AddWithValue("@userName", this.userName);
+            sp.Parameters.AddWithValue("@password", this.password);
+            sp.Parameters.AddWithValue("@idCopy", this.idCopy);
+            sp.Parameters.AddWithValue("@licenseCopy", this.licenseCopy);
+            sp.Parameters.AddWithValue("@licenseId", this.licenseId);
 
-            {
-                sp.Parameters.AddWithValue("@firstName", this.firstName);
-                sp.Parameters.AddWithValue("@lastName", this.lastName);
-                sp.Parameters.AddWithValue("@id", this.id);
-                sp.Parameters.AddWithValue("@phoneNumber", this.phoneNumber);
-                sp.Parameters.AddWithValue("@email", this.email);
-                sp.Parameters.AddWithValue("@address", this.address);
-                sp.Parameters.AddWithValue("@userName", this.userName);
-                sp.Parameters.AddWithValue("@password", this.password);
-                sp.Parameters.AddWithValue("@idCopy", this.idCopy);
-                sp.Parameters.AddWithValue("@licenseCopy", this.licenseCopy);
-                sp.Parameters.AddWithValue("@licenseId", this.licenseId);
-
-                SQL_CON SC = new SQL_CON();
-                SC.execute_non_query(sp);
-            }
+            SQL_CON SC = new SQL_CON();
+            SC.execute_non_query(sp);
         }
+        //public override void Update()
+        //{
+        //    SqlCommand sp = new SqlCommand();
+        //    sp.CommandText = "EXECUTE SP_update_driver @firstName, @lastName, @id, @phoneNumber" +
+        //        " ,@email, @address, @userName, @password, @idCopy, @licenseCopy, @licenseId";
+
+        //    {
+        //        sp.Parameters.AddWithValue("@firstName", this.firstName);
+        //        sp.Parameters.AddWithValue("@lastName", this.lastName);
+        //        sp.Parameters.AddWithValue("@id", this.id);
+        //        sp.Parameters.AddWithValue("@phoneNumber", this.phoneNumber);
+        //        sp.Parameters.AddWithValue("@email", this.email);
+        //        sp.Parameters.AddWithValue("@address", this.address);
+        //        sp.Parameters.AddWithValue("@userName", this.userName);
+        //        sp.Parameters.AddWithValue("@password", this.password);
+        //        sp.Parameters.AddWithValue("@idCopy", this.idCopy);
+        //        sp.Parameters.AddWithValue("@licenseCopy", this.licenseCopy);
+        //        sp.Parameters.AddWithValue("@licenseId", this.licenseId);
+
+        //        SQL_CON SC = new SQL_CON();
+        //        SC.execute_non_query(sp);
+        //    }
+        //}
 
         public bool GetAssociatedRole()  // indicated associated role for driver and clerk roles in the survey.
         {

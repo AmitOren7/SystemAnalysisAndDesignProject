@@ -30,7 +30,7 @@ namespace SystemAnalysisAndDesignProject
             }
             catch (Exception ex)
             {
-                MessageBox.Show("שגיאה בביצוע השאילתה", "המשך", MessageBoxButtons.OK);
+                MessageBox.Show($"error in query execution :  {ex.Message}", "המשך", MessageBoxButtons.OK);
             }
             finally
             {
@@ -52,7 +52,7 @@ namespace SystemAnalysisAndDesignProject
             }
             catch (Exception ex)
             {
-                MessageBox.Show("שגיאה בביצוע השאילתה", "המשך", MessageBoxButtons.OK);
+                MessageBox.Show($"error in query execution :  {ex.Message}", "המשך", MessageBoxButtons.OK);
                 return null;
             }
 

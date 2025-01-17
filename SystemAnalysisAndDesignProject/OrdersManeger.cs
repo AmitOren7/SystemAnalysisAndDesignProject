@@ -42,22 +42,55 @@ namespace SystemAnalysisAndDesignProject
             return sortedOrders;
         }
 
-        public static Dictionary<Order, List<Driver>> GetEligibleDrivers (List<Order> sortedOrders)
+        public static Dictionary<Order, List<Driver>> GetEligibleDrivers(List<Order> sortedOrders)
         {
             Dictionary<Order, List<Driver>> orderDrivers = new Dictionary<Order, List<Driver>>();
             foreach (var order in sortedOrders)
             {
-                
+
                 var suitableDrivers = Program.DriverList.Where(driver =>
-                    driver.GetVehicle().GetVehicleType() == order.GetVehicleType() &&     
-                    driver.GetVehicle().GetMaxCapacity() >= order.GetTotalWeight() &&         
-                    driver.GetVehicle().GetCargoType() == order.GetCargoType()           
+                    driver.GetVehicle().GetVehicleType() == order.GetVehicleType() &&
+                    driver.GetVehicle().GetMaxCapacity() >= order.GetTotalWeight() &&
+                    driver.GetVehicle().GetCargoType() == order.GetCargoType()
                 ).ToList();
                 orderDrivers[order] = suitableDrivers;
             }
             return orderDrivers;
 
 
+        }
+        public static Dictionary<string, List<Driver>> GetEligibleDriver(List<Order> sortedOrders)
+        {
+            Dictionary<string, List<Driver>> orderDrivers = new Dictionary<string, List<Driver>>();
+
+            foreach (var order in sortedOrders)
+            {
+                Console.WriteLine($"Checking drivers for Order ID: {order.GetId()}, VehicleType: {order.GetVehicleType()}, TotalWeight: {order.GetTotalWeight()}, CargoType: {order.GetCargoType()}");
+
+                var suitableDrivers = Program.DriverList.Where(driver =>
+                {
+                    Console.WriteLine($"    Checking Driver: {driver.GetName()}, VehicleType: {driver.GetVehicle().GetVehicleType()}, MaxCapacity: {driver.GetVehicle().GetMaxCapacity()}, CargoType: {driver.GetVehicle().GetCargoType()}");
+                    return driver.GetVehicle().GetVehicleType() == order.GetVehicleType() &&
+                           driver.GetVehicle().GetMaxCapacity() >= order.GetTotalWeight() &&
+                           driver.GetVehicle().GetCargoType() == order.GetCargoType();
+                }).ToList();
+
+                orderDrivers[order.GetId()] = suitableDrivers;
+
+                if (suitableDrivers.Any())
+                {
+                    foreach (var driver in suitableDrivers)
+                    {
+                        Console.WriteLine($"    Eligible Driver: {driver.GetName()}");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("    No eligible drivers found.");
+                }
+            }
+
+            return orderDrivers;
         }
 
 

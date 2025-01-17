@@ -186,6 +186,16 @@ namespace SystemAnalysisAndDesignProject
             this.estimatedFinishDate = estimatedFinishDate;
         }
 
+        public void SetDriver (Driver driver)
+        {
+            this.driver = driver;
+        }
+
+        public void SetClerk (Clerk clerk)
+        {
+            this.clerk = clerk;
+        }
+
         public OrderStatus GetOrderStatus() 
         { 
             return this.orderStatus;

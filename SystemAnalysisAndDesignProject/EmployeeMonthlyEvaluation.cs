@@ -40,7 +40,7 @@ namespace SystemAnalysisAndDesignProject
         {
             SqlCommand sp = new SqlCommand();
             sp.CommandText = "EXECUTE SP_add_EmployeeMonthlyEvaluation @personalNote, @associatedMonth," +
-                "@submissionDate, @year, @employee";
+                "@submissionDate, @year, @employee, @score";
 
             sp.Parameters.AddWithValue("@personalNote", this.personalNote);
             sp.Parameters.AddWithValue("@associatedMonth", this.associatedMonth);
@@ -83,6 +83,15 @@ namespace SystemAnalysisAndDesignProject
             return this.employee.GetId();
         }
 
+        public double GetScore()
+        {
+            return this.score;
+        }
+
+        public string GetPersonalNote()
+        {
+            return this.personalNote;
+        }
 
     }
 }

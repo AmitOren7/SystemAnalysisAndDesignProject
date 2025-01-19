@@ -42,12 +42,13 @@
             // 
             this.lblEmployeeName.AutoSize = true;
             this.lblEmployeeName.BackColor = System.Drawing.Color.Transparent;
-            this.lblEmployeeName.Font = new System.Drawing.Font("Segoe UI Symbol", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.lblEmployeeName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmployeeName.Location = new System.Drawing.Point(104, 21);
             this.lblEmployeeName.Name = "lblEmployeeName";
-            this.lblEmployeeName.Size = new System.Drawing.Size(118, 16);
+            this.lblEmployeeName.Size = new System.Drawing.Size(108, 17);
             this.lblEmployeeName.TabIndex = 1;
             this.lblEmployeeName.Text = "Employee Name";
+            this.lblEmployeeName.Click += new System.EventHandler(this.lblEmployeeName_Click);
             // 
             // richTextBox1
             // 
@@ -62,17 +63,18 @@
             // lblRole
             // 
             this.lblRole.AutoSize = true;
-            this.lblRole.Font = new System.Drawing.Font("Segoe UI Symbol", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.lblRole.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRole.ForeColor = System.Drawing.Color.DarkGray;
             this.lblRole.Location = new System.Drawing.Point(104, 47);
             this.lblRole.Name = "lblRole";
-            this.lblRole.Size = new System.Drawing.Size(77, 14);
+            this.lblRole.Size = new System.Drawing.Size(82, 13);
             this.lblRole.TabIndex = 4;
             this.lblRole.Text = "Employee Role";
+            this.lblRole.Click += new System.EventHandler(this.lblRole_Click);
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(132)))), ((int)(((byte)(255)))));
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI Symbol", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
@@ -88,13 +90,13 @@
             // lblScore
             // 
             this.lblScore.AutoSize = true;
-            this.lblScore.BackColor = System.Drawing.Color.Transparent;
+            this.lblScore.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(234)))), ((int)(((byte)(253)))));
             this.lblScore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblScore.Font = new System.Drawing.Font("Segoe UI Symbol", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.lblScore.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblScore.Location = new System.Drawing.Point(405, 33);
+            this.lblScore.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblScore.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(218)))));
+            this.lblScore.Location = new System.Drawing.Point(406, 33);
             this.lblScore.Name = "lblScore";
-            this.lblScore.Size = new System.Drawing.Size(48, 16);
+            this.lblScore.Size = new System.Drawing.Size(41, 17);
             this.lblScore.TabIndex = 6;
             this.lblScore.Text = "Score";
             this.lblScore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

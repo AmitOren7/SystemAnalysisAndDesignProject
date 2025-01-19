@@ -55,6 +55,12 @@
     <Compile Include="ClerkMainForm.Designer.cs">
       <DependentUpon>ClerkMainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CompletedEmployeeEvaluationCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CompletedEmployeeEvaluationCard.Designer.cs">
+      <DependentUpon>CompletedEmployeeEvaluationCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="DriverAccountForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +90,12 @@
     </Compile>
     <Compile Include="DriverTaskForm.Designer.cs">
       <DependentUpon>DriverTaskForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditSurvey.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditSurvey.Designer.cs">
+      <DependentUpon>EditSurvey.cs</DependentUpon>
     </Compile>
     <Compile Include="Employee.cs" />
     <Compile Include="EmployeeEvaluationCard.cs">
@@ -125,6 +137,12 @@
     <Compile Include="OrderStatus.cs" />
     <Compile Include="PerformanceStatus.cs" />
     <Compile Include="Question.cs" />
+    <Compile Include="QuestionCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QuestionCard.Designer.cs">
+      <DependentUpon>QuestionCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Role.cs" />
     <Compile Include="DriverMainForm.cs">
       <SubType>Form</SubType>
@@ -150,6 +168,9 @@
     <Compile Include="CargoType.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CompletedEmployeeEvaluationCard.resx">
+      <DependentUpon>CompletedEmployeeEvaluationCard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DriverAccountForm.resx">
       <DependentUpon>DriverAccountForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -168,6 +189,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DriverTaskForm.resx">
       <DependentUpon>DriverTaskForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditSurvey.resx">
+      <DependentUpon>EditSurvey.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EmployeeEvaluationCard.resx">
       <DependentUpon>EmployeeEvaluationCard.cs</DependentUpon>
@@ -194,6 +218,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="QuestionCard.resx">
+      <DependentUpon>QuestionCard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UnassignedOrdersForm.resx">
       <DependentUpon>UnassignedOrdersForm.cs</DependentUpon>
     </EmbeddedResource>

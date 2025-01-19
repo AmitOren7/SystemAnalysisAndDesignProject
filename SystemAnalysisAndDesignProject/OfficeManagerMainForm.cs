@@ -26,8 +26,17 @@ namespace SystemAnalysisAndDesignProject
 
         private void ViewEvaluationsButton_Click(object sender, EventArgs e)
         {
-            EmployeeEvaluationForm employeeEvaluationForm = new EmployeeEvaluationForm();
+            EmployeeEvaluationForm employeeEvaluationForm = new EmployeeEvaluationForm(this.officeManager);
             employeeEvaluationForm.Show();
+            this.Hide();
+        }
+
+        private void EditSurvey_Click(object sender, EventArgs e)
+        {
+
+            EditSurvey editSurvey = new EditSurvey(this.officeManager);
+            editSurvey.Show();
+            this.Hide();
         }
     }
 }

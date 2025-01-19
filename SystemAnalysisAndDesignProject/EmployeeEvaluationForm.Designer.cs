@@ -24,11 +24,15 @@
         private System.Windows.Forms.Button CompletedEvaluationsButton;
         private System.Windows.Forms.Panel PendingEvaluationsDisplay;
         private System.Windows.Forms.Panel CompletedEvaluationsDisplay;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.ComboBox comboBoxMonth;
         private System.Windows.Forms.ComboBox comboBoxYear;
         private System.Windows.Forms.Button FetchPendEvalButton;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
+        private System.Windows.Forms.Button back;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label1;
     }
 }

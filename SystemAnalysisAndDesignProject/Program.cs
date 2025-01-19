@@ -319,7 +319,7 @@ namespace SystemAnalysisAndDesignProject
                 int associatedMonth = Convert.ToInt32(rdr.GetValue(1));
                 DateTime submissionDate = Convert.ToDateTime(rdr.GetValue(2));
                 int year = Convert.ToInt32(rdr.GetValue(3));
-                double score = Convert.ToDouble(rdr.GetValue(4));
+                double score = Convert.ToDouble(rdr.GetValue(5));
 
 
                 // combining clerk list and driver list as evaluatables

@@ -225,6 +225,16 @@ namespace SystemAnalysisAndDesignProject
             else return "";
         }
 
+        public Driver GetDriver() 
+        {
+            return this.driver;
+        }
+
+        public void SetOrderStatus(OrderStatus orderStatus) 
+        {
+            this.orderStatus = new OrderStatus();
+        }
+
 
 
     }

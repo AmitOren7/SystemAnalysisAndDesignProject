@@ -9,10 +9,10 @@ namespace SystemAnalysisAndDesignProject
     public enum OrderStatus
     {
         pendingForAssignment,
-        depurtere,
-        arruvedToSite,
-        taskStarted,
-        taskComplited,
+        assigned,
+        departure,
+        arrivedToSite,
+        taskCompleted,
         workCertificateSigned,
         orderClosed   
     }

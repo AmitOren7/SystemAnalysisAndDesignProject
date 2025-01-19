@@ -200,11 +200,7 @@ namespace SystemAnalysisAndDesignProject
         { 
             return this.orderStatus;
         }
-
-        public void SetOrderStatus( OrderStatus orderStatus) 
-        {
-            this.orderStatus = orderStatus;
-        }
+      
 
         public string GetAssignedClerkId()
         {
@@ -218,6 +214,16 @@ namespace SystemAnalysisAndDesignProject
             if (this.driver != null)
                 return this.driver.GetId();
             else return "";
+        }
+
+        public Driver GetDriver() 
+        {
+            return this.driver;
+        }
+
+        public void SetOrderStatus(OrderStatus orderStatus) 
+        {
+            this.orderStatus = new OrderStatus();
         }
 
 

@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="blank.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="blank.Designer.cs">
+      <DependentUpon>blank.cs</DependentUpon>
+    </Compile>
     <Compile Include="Clerk.cs" />
     <Compile Include="Answer.cs" />
     <Compile Include="ClerkMainForm.cs">
@@ -66,6 +72,12 @@
     </Compile>
     <Compile Include="DriverAccountForm.Designer.cs">
       <DependentUpon>DriverAccountForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DriverCalendarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DriverCalendarForm.Designer.cs">
+      <DependentUpon>DriverCalendarForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DriverForm.cs">
       <SubType>Form</SubType>
@@ -162,6 +174,12 @@
     <Compile Include="UnassignedOrdersForm.Designer.cs">
       <DependentUpon>UnassignedOrdersForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControlDay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlDay.Designer.cs">
+      <DependentUpon>UserControlDay.cs</DependentUpon>
+    </Compile>
     <Compile Include="VehicleType.cs" />
     <Compile Include="VehicleConditionStatus.cs" />
     <Compile Include="Vehicle.cs" />
@@ -171,9 +189,15 @@
     <EmbeddedResource Include="CompletedEmployeeEvaluationCard.resx">
       <DependentUpon>CompletedEmployeeEvaluationCard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="blank.resx">
+      <DependentUpon>blank.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DriverAccountForm.resx">
       <DependentUpon>DriverAccountForm.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DriverCalendarForm.resx">
+      <DependentUpon>DriverCalendarForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DriverForm.resx">
       <DependentUpon>DriverForm.cs</DependentUpon>
@@ -223,6 +247,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UnassignedOrdersForm.resx">
       <DependentUpon>UnassignedOrdersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlDay.resx">
+      <DependentUpon>UserControlDay.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

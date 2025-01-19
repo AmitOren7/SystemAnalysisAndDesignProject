@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.ViewEvaluationsButton = new System.Windows.Forms.Button();
+            this.EditSurvey = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ViewEvaluationsButton
@@ -41,11 +42,22 @@
             this.ViewEvaluationsButton.UseVisualStyleBackColor = true;
             this.ViewEvaluationsButton.Click += new System.EventHandler(this.ViewEvaluationsButton_Click);
             // 
+            // EditSurvey
+            // 
+            this.EditSurvey.Location = new System.Drawing.Point(594, 248);
+            this.EditSurvey.Name = "EditSurvey";
+            this.EditSurvey.Size = new System.Drawing.Size(142, 67);
+            this.EditSurvey.TabIndex = 1;
+            this.EditSurvey.Text = "Edit Survey";
+            this.EditSurvey.UseVisualStyleBackColor = true;
+            this.EditSurvey.Click += new System.EventHandler(this.EditSurvey_Click);
+            // 
             // OfficeManagerMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.EditSurvey);
             this.Controls.Add(this.ViewEvaluationsButton);
             this.Name = "OfficeManagerMainForm";
             this.Text = "Home Page";
@@ -57,5 +69,6 @@
         #endregion
 
         private System.Windows.Forms.Button ViewEvaluationsButton;
+        private System.Windows.Forms.Button EditSurvey;
     }
 }

@@ -13,39 +13,48 @@ namespace SystemAnalysisAndDesignProject
 {
     public partial class EmployeeEvaluationForm : Form
     {
+        private OfficeManager officeManager;
         List<EmployeeMonthlyEvaluation> evaluations = Program.EmployeeMonthlyEvaluationList;
+        List<EmployeeEvaluationCard> cards = new List<EmployeeEvaluationCard>();
 
-        public EmployeeEvaluationForm()
+        public EmployeeEvaluationForm(OfficeManager officeManager)
         {
+            this.officeManager = officeManager;
             InitializeComponent();
             LoadYears();
             LoadMonths();
+            
 
         }
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeeEvaluationForm));
             this.PendingEvaluationsButton = new System.Windows.Forms.Button();
             this.CompletedEvaluationsButton = new System.Windows.Forms.Button();
             this.PendingEvaluationsDisplay = new System.Windows.Forms.Panel();
-            this.CompletedEvaluationsDisplay = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.comboBoxMonth = new System.Windows.Forms.ComboBox();
             this.comboBoxYear = new System.Windows.Forms.ComboBox();
             this.FetchPendEvalButton = new System.Windows.Forms.Button();
+            this.CompletedEvaluationsDisplay = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.back = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.PendingEvaluationsDisplay.SuspendLayout();
-            this.CompletedEvaluationsDisplay.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // PendingEvaluationsButton
             // 
-            this.PendingEvaluationsButton.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.PendingEvaluationsButton.BackColor = System.Drawing.Color.CornflowerBlue;
             this.PendingEvaluationsButton.FlatAppearance.BorderSize = 0;
-            this.PendingEvaluationsButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.PendingEvaluationsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.PendingEvaluationsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PendingEvaluationsButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.PendingEvaluationsButton.ForeColor = System.Drawing.Color.White;
             this.PendingEvaluationsButton.Location = new System.Drawing.Point(52, 67);
             this.PendingEvaluationsButton.Name = "PendingEvaluationsButton";
             this.PendingEvaluationsButton.Size = new System.Drawing.Size(312, 26);
@@ -56,10 +65,12 @@ namespace SystemAnalysisAndDesignProject
             // 
             // CompletedEvaluationsButton
             // 
-            this.CompletedEvaluationsButton.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.CompletedEvaluationsButton.BackColor = System.Drawing.Color.LightGray;
             this.CompletedEvaluationsButton.FlatAppearance.BorderSize = 0;
-            this.CompletedEvaluationsButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.CompletedEvaluationsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.CompletedEvaluationsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CompletedEvaluationsButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.CompletedEvaluationsButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.CompletedEvaluationsButton.Location = new System.Drawing.Point(364, 67);
             this.CompletedEvaluationsButton.Name = "CompletedEvaluationsButton";
             this.CompletedEvaluationsButton.Size = new System.Drawing.Size(312, 26);
@@ -70,21 +81,12 @@ namespace SystemAnalysisAndDesignProject
             // 
             // PendingEvaluationsDisplay
             // 
-            this.PendingEvaluationsDisplay.Controls.Add(this.CompletedEvaluationsDisplay);
+            this.PendingEvaluationsDisplay.Controls.Add(this.flowLayoutPanel1);
             this.PendingEvaluationsDisplay.Location = new System.Drawing.Point(52, 99);
             this.PendingEvaluationsDisplay.Name = "PendingEvaluationsDisplay";
             this.PendingEvaluationsDisplay.Size = new System.Drawing.Size(624, 307);
             this.PendingEvaluationsDisplay.TabIndex = 2;
-            // 
-            // CompletedEvaluationsDisplay
-            // 
-            this.CompletedEvaluationsDisplay.Controls.Add(this.flowLayoutPanel1);
-            this.CompletedEvaluationsDisplay.Controls.Add(this.comboBox1);
-            this.CompletedEvaluationsDisplay.Location = new System.Drawing.Point(0, 0);
-            this.CompletedEvaluationsDisplay.Name = "CompletedEvaluationsDisplay";
-            this.CompletedEvaluationsDisplay.Size = new System.Drawing.Size(624, 307);
-            this.CompletedEvaluationsDisplay.TabIndex = 0;
-            this.CompletedEvaluationsDisplay.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            this.PendingEvaluationsDisplay.Paint += new System.Windows.Forms.PaintEventHandler(this.PendingEvaluationsDisplay_Paint);
             // 
             // flowLayoutPanel1
             // 
@@ -97,29 +99,12 @@ namespace SystemAnalysisAndDesignProject
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(624, 307);
             this.flowLayoutPanel1.TabIndex = 1;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(190, 15);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(103, 21);
-            this.comboBox1.TabIndex = 0;
-            this.comboBox1.Text = "All Roles";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(131, 28);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "label1";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
             // comboBoxMonth
             // 
-            this.comboBoxMonth.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.comboBoxMonth.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.comboBoxMonth.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.comboBoxMonth.FormattingEnabled = true;
             this.comboBoxMonth.Location = new System.Drawing.Point(3, 3);
             this.comboBoxMonth.Name = "comboBoxMonth";
@@ -130,7 +115,8 @@ namespace SystemAnalysisAndDesignProject
             // 
             // comboBoxYear
             // 
-            this.comboBoxYear.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.comboBoxYear.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.comboBoxYear.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.comboBoxYear.FormattingEnabled = true;
             this.comboBoxYear.Location = new System.Drawing.Point(130, 3);
             this.comboBoxYear.Name = "comboBoxYear";
@@ -141,27 +127,93 @@ namespace SystemAnalysisAndDesignProject
             // 
             // FetchPendEvalButton
             // 
+            this.FetchPendEvalButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(23)))), ((int)(((byte)(70)))));
+            this.FetchPendEvalButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FetchPendEvalButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.FetchPendEvalButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.FetchPendEvalButton.Location = new System.Drawing.Point(257, 3);
             this.FetchPendEvalButton.Name = "FetchPendEvalButton";
             this.FetchPendEvalButton.Size = new System.Drawing.Size(101, 21);
             this.FetchPendEvalButton.TabIndex = 2;
             this.FetchPendEvalButton.Text = "Generate";
-            this.FetchPendEvalButton.UseVisualStyleBackColor = true;
+            this.FetchPendEvalButton.UseVisualStyleBackColor = false;
             this.FetchPendEvalButton.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // CompletedEvaluationsDisplay
+            // 
+            this.CompletedEvaluationsDisplay.Location = new System.Drawing.Point(0, 0);
+            this.CompletedEvaluationsDisplay.Name = "CompletedEvaluationsDisplay";
+            this.CompletedEvaluationsDisplay.Size = new System.Drawing.Size(624, 307);
+            this.CompletedEvaluationsDisplay.TabIndex = 0;
+            this.CompletedEvaluationsDisplay.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // flowLayoutPanel3
+            // 
+            this.flowLayoutPanel3.AutoScroll = true;
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(52, 99);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(624, 307);
+            this.flowLayoutPanel3.TabIndex = 4;
+            this.flowLayoutPanel3.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel3_Paint);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(190, 15);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(103, 21);
+            this.comboBox1.TabIndex = 0;
+            this.comboBox1.Text = "All Roles";
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // back
+            // 
+            this.back.FlatAppearance.BorderSize = 0;
+            this.back.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.back.Image = ((System.Drawing.Image)(resources.GetObject("back.Image")));
+            this.back.Location = new System.Drawing.Point(637, 24);
+            this.back.Name = "back";
+            this.back.Size = new System.Drawing.Size(43, 37);
+            this.back.TabIndex = 20;
+            this.back.UseVisualStyleBackColor = true;
+            this.back.Click += new System.EventHandler(this.back_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(637, 23);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(38, 38);
+            this.button1.TabIndex = 21;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.label1.Location = new System.Drawing.Point(48, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(154, 20);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "Employee Evaluations";
+            this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // EmployeeEvaluationForm
             // 
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(720, 472);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.back);
             this.Controls.Add(this.PendingEvaluationsDisplay);
-            this.Controls.Add(this.CompletedEvaluationsButton);
             this.Controls.Add(this.PendingEvaluationsButton);
+            this.Controls.Add(this.CompletedEvaluationsButton);
+            this.Controls.Add(this.flowLayoutPanel3);
+            this.Controls.Add(this.button1);
             this.Name = "EmployeeEvaluationForm";
             this.Text = "Employee Evaluation Form";
             this.Load += new System.EventHandler(this.EmployeeEvaluationForm_Load);
             this.PendingEvaluationsDisplay.ResumeLayout(false);
-            this.CompletedEvaluationsDisplay.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -173,33 +225,62 @@ namespace SystemAnalysisAndDesignProject
         {
             this.PendingEvaluationsDisplay.Visible = true;
             this.CompletedEvaluationsDisplay.Visible = false;
+            flowLayoutPanel1.Visible = true;
+            flowLayoutPanel3.Visible = false;
+            CompletedEvaluationsButton.BackColor = Color.LightGray;
+            PendingEvaluationsButton.BackColor = Color.CornflowerBlue;
+
         }
 
         private void EmployeeEvaluationForm_Load(object sender, EventArgs e)
         {
 
-            //foreach (EmployeeMonthlyEvaluation evaluation in evaluations)
-            //{
-            //    var card = new EmployeeEvaluationCard
-            //    {
-            //        EmployeeName = evaluation.GetEmployeeName(),
-            //        Role = evaluation.GetAssociatedRole(),
-            //        Score = evaluation.GetGradePerMonth().ToString("N1"), // Format to 1 decimal place
-            //    };
+        }
 
-            //         flowLayoutPanel1.Controls.Add(card);
-            }
-        
 
 
         //completed evaluations
         private void button2_Click(object sender, EventArgs e)
         {
-
             this.PendingEvaluationsDisplay.Visible = false;
             this.CompletedEvaluationsDisplay.Visible = true;
+            CompletedEvaluationsButton.BackColor = Color.CornflowerBlue;
+            PendingEvaluationsButton.BackColor = Color.LightGray;
 
+
+            // Check if there are any completed evaluations 
+            if (Program.EmployeeMonthlyEvaluationList == null || Program.EmployeeMonthlyEvaluationList.Count == 0)
+            {
+                MessageBox.Show("No completed evaluations found.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            // Clear any existing evaluation cards from the panel
+            flowLayoutPanel3.Controls.Clear(); 
+
+            foreach (EmployeeMonthlyEvaluation evaluation in Program.EmployeeMonthlyEvaluationList)
+            {
+                // Create a new card for the current evaluation
+                var card = new CompletedEmployeeEvaluationCard
+                {
+                    EmployeeName = evaluation.GetEmployeeName(),
+                    Role = evaluation.GetAssociatedRole(),
+                    Score = evaluation.GetScore().ToString("N1"),
+                    PersonalNote = evaluation.GetPersonalNote()
+                };
+
+                // Add the card to the panel only if it's not null (for safety)
+                if (card != null)
+                {
+                    flowLayoutPanel3.Controls.Add(card);
+                }
+            }
+
+            // Make sure the panel is visible
+            flowLayoutPanel1.Visible = false;
+            flowLayoutPanel3.Visible = true;
         }
+
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -219,10 +300,17 @@ namespace SystemAnalysisAndDesignProject
         //retrieving pending evaluations
         private void button1_Click_1(object sender, EventArgs e)
         {
-         
+            if (cards != null || cards.Count != 0)
+            {
+                foreach (EmployeeEvaluationCard card1 in cards)
+                flowLayoutPanel1.Controls.Remove(card1 as EmployeeEvaluationCard);
+            }
+
+
             double score;
             int selectedMonth = int.Parse(comboBoxMonth.SelectedItem.ToString());
             int selectedYear = int.Parse(comboBoxYear.SelectedItem.ToString());
+
             EmployeeEvaluationCard card;
 
             foreach (Driver driver in Program.DriverList)
@@ -236,9 +324,11 @@ namespace SystemAnalysisAndDesignProject
                         {
                             EmployeeName = driver.GetName(),
                             Role = "Driver",
-                            Score = score.ToString("N1")
+                            Score = score.ToString("N1"),
+                            Employee = driver
                         };
-                         flowLayoutPanel1.Controls.Add(card);
+                        flowLayoutPanel1.Controls.Add(card);
+                        cards.Add(card);
 
                     }
                 }           
@@ -257,15 +347,18 @@ namespace SystemAnalysisAndDesignProject
                         {
                             EmployeeName = clerk.GetName(),
                             Role = "Clerk",
-                            Score = score.ToString("N1")
+                            Score = score.ToString("N1"),
+                            Employee = clerk
                         };
                         flowLayoutPanel1.Controls.Add(card);
-                
+                        cards.Add(card);
                     }
                 }
             }
 
         }
+
+
 
 
 
@@ -313,7 +406,7 @@ namespace SystemAnalysisAndDesignProject
 
             for (int i = 1; i <= 12; i++)
             {
-                comboBoxMonth.Items.Add(i); 
+                comboBoxMonth.Items.Add(i);
             }
 
             int currentMonth = DateTime.Now.Month;
@@ -322,13 +415,15 @@ namespace SystemAnalysisAndDesignProject
             {
                 previousMonth = 12;
                 comboBoxYear.SelectedItem = DateTime.Now.Year - 1 ;
+     
             }
                 
             else
                 previousMonth = currentMonth - 1;
 
             // default selection - the prior month since the evaluations are filled out for the previous months.
-            comboBoxMonth.SelectedItem = previousMonth; 
+            comboBoxMonth.SelectedItem = previousMonth;
+ 
         }
 
 
@@ -372,5 +467,49 @@ namespace SystemAnalysisAndDesignProject
             }
         }
 
+        //returns the selected month from the combobox for creating the employee evaluation
+        public string GetSelectedMonth()
+        {
+            return this.comboBoxMonth.SelectedItem.ToString();
+        }
+
+
+        //returns the selected year from the combobox for creating the employee evaluation
+        public string GetSelectedYear()
+        {
+            return this.comboBoxYear.SelectedItem.ToString();
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void PendingEvaluationsDisplay_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void flowLayoutPanel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void back_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            OfficeManagerMainForm officerAccountForm = new OfficeManagerMainForm(this.officeManager);
+            officerAccountForm.ShowDialog();
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

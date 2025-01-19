@@ -11,6 +11,7 @@ namespace SystemAnalysisAndDesignProject
     {
         public static List<Order> orders = Program.OrderList;
         public static List<Driver> drivers = Program.DriverList;
+        public static List<Vehicle> vehicles = Program.VehicleList; 
         public static List<Order> GetPendingOrders()
         {
             List<Order> pendingOrders = new List<Order>();
@@ -42,16 +43,22 @@ namespace SystemAnalysisAndDesignProject
             return sortedOrders;
         }
 
-        public static Dictionary<Order, List<Driver>> GetEligibleDrivers(List<Order> sortedOrders)
+        public static Dictionary<Order, List<Driver>> GetEligibleDrivers(List<Order> sortedOrders, Order currentOrder)
         {
             Dictionary<Order, List<Driver>> orderDrivers = new Dictionary<Order, List<Driver>>();
             foreach (var order in sortedOrders)
             {
 
-                var suitableDrivers = Program.DriverList.Where(driver =>
+                var suitableDrivers = drivers.Where(driver =>
                     driver.GetVehicle().GetVehicleType() == order.GetVehicleType() &&
                     driver.GetVehicle().GetMaxCapacity() >= order.GetTotalWeight() &&
-                    driver.GetVehicle().GetCargoType() == order.GetCargoType()
+                    driver.GetVehicle().GetCargoType() == order.GetCargoType() &&
+                    driver.GetVehicle().GetVehicleCondition() == VehicleConditionStatus.proper &&
+                   !orders.Any(o =>
+                               o.GetDriver() == driver && // Same driver is assigned
+                               o.GetStartDate() <= currentOrder.GetEstimatedFinishDate() && // Overlap condition
+                               o.GetEstimatedFinishDate() >= currentOrder.GetStartDate()    // Overlap condition
+                               )
                 ).ToList();
                 orderDrivers[order] = suitableDrivers;
             }
@@ -59,39 +66,32 @@ namespace SystemAnalysisAndDesignProject
 
 
         }
-        public static Dictionary<string, List<Driver>> GetEligibleDriver(List<Order> sortedOrders)
+        public static List<Vehicle> alternativeVehicles ()
         {
-            Dictionary<string, List<Driver>> orderDrivers = new Dictionary<string, List<Driver>>();
-
-            foreach (var order in sortedOrders)
+            List<Vehicle> alternativeVehicles = new List<Vehicle>();
+            foreach (Vehicle vehicle in vehicles )
             {
-                Console.WriteLine($"Checking drivers for Order ID: {order.GetId()}, VehicleType: {order.GetVehicleType()}, TotalWeight: {order.GetTotalWeight()}, CargoType: {order.GetCargoType()}");
-
-                var suitableDrivers = Program.DriverList.Where(driver =>
+                if (vehicle.GetVehicleCondition() == VehicleConditionStatus.alternative)
                 {
-                    Console.WriteLine($"    Checking Driver: {driver.GetName()}, VehicleType: {driver.GetVehicle().GetVehicleType()}, MaxCapacity: {driver.GetVehicle().GetMaxCapacity()}, CargoType: {driver.GetVehicle().GetCargoType()}");
-                    return driver.GetVehicle().GetVehicleType() == order.GetVehicleType() &&
-                           driver.GetVehicle().GetMaxCapacity() >= order.GetTotalWeight() &&
-                           driver.GetVehicle().GetCargoType() == order.GetCargoType();
-                }).ToList();
-
-                orderDrivers[order.GetId()] = suitableDrivers;
-
-                if (suitableDrivers.Any())
-                {
-                    foreach (var driver in suitableDrivers)
-                    {
-                        Console.WriteLine($"    Eligible Driver: {driver.GetName()}");
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("    No eligible drivers found.");
+                    alternativeVehicles.Add(vehicle);
                 }
             }
-
-            return orderDrivers;
+            return alternativeVehicles;
         }
+
+        public static List<Driver> ExtentedDrivers()
+        {
+           List <Driver> extentedDrivers = new List<Driver>();
+            foreach (Driver driver in drivers)
+            {
+                if (driver.GetVehicle().GetVehicleCondition() != VehicleConditionStatus.proper)
+                {
+                    extentedDrivers.Add(driver);
+                }
+            }
+            return extentedDrivers;
+        }
+       
 
 
 

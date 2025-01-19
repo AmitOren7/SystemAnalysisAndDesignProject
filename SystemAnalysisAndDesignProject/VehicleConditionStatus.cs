@@ -11,7 +11,8 @@ namespace SystemAnalysisAndDesignProject
         proper,
         outOfService,
         disposed,
-        maintenance
+        maintenance,
+        alternative
 
     }
 }

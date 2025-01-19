@@ -64,14 +64,32 @@ namespace SystemAnalysisAndDesignProject
         public static void assign_driver (Driver driver, Order order )
         {
             order.SetDriver(driver);
-            SqlCommand sp = new SqlCommand();
-            sp.CommandText = "EXECUTE SP_Update_orderDriver @id, @Driver";
-            sp.Parameters.AddWithValue("@id", order.GetId());
-            sp.Parameters.AddWithValue("@Driver", driver.GetId());
-
-
+            order.SetOrderStatus(OrderStatus.assigned);
+            SqlCommand sp1 = new SqlCommand();
+            sp1.CommandText = "EXECUTE SP_Update_orderDriver @id, @Driver";
+            sp1.Parameters.AddWithValue("@id", order.GetId());
+            sp1.Parameters.AddWithValue("@Driver", driver.GetId());
+            SqlCommand sp2 = new SqlCommand();
+            sp2.CommandText = "EXECUTE SP_Update_orderStatus @id, @orderStatus";
+            sp2.Parameters.AddWithValue("@id", order.GetId());
+            sp2.Parameters.AddWithValue("@orderStatus", OrderStatus.assigned.ToString());
             SQL_CON SC = new SQL_CON();
-            SC.execute_non_query(sp);
+            SC.execute_non_query(sp1);
+            SC.execute_non_query(sp2);
+
+
+        }
+
+        public static void assign_clerk (Clerk clerk , Order order ) 
+        {
+            order.SetClerk(clerk);
+            SqlCommand sp1 = new SqlCommand();
+            sp1.CommandText = "EXECUTE SP_Update_orderClerk @id, @clerkID";
+            sp1.Parameters.AddWithValue("@id", order.GetId());
+            sp1.Parameters.AddWithValue("@clerkID", clerk.GetId());
+            SQL_CON SC = new SQL_CON();
+            SC.execute_non_query(sp1);
+
         }
 
     }

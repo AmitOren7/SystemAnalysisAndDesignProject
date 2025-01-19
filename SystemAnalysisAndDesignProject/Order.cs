@@ -201,6 +201,11 @@ namespace SystemAnalysisAndDesignProject
             return this.orderStatus;
         }
 
+        public Driver GetDriver()
+        {
+            return this.driver;
+        }
+
         public void SetOrderStatus( OrderStatus orderStatus) 
         {
             this.orderStatus = orderStatus;

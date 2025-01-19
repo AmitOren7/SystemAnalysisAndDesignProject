@@ -18,6 +18,7 @@ namespace SystemAnalysisAndDesignProject
         private Order selectedOrder;
         private List<Driver> currentDriversList;
         private OperationalManager operationalManager;
+        private List<Clerk> clerks = Program.ClerkList;
         public UnassignedOrdersForm(OperationalManager operationalManager)
         {
             InitializeComponent(); 
@@ -25,6 +26,7 @@ namespace SystemAnalysisAndDesignProject
             CustomizeDataGridView();
             PopulateOrdersGridDiff();
             SortedOrdersDiff_customise_looking();
+            populateClerksComboBox();
             SortedOrdersDiff.AllowDrop = true;
             SortedOrdersDiff.AllowUserToAddRows = false;
             SortedOrdersDiff.MouseDown += PrioritizedOrderDiff_MouseDown;
@@ -54,8 +56,8 @@ namespace SystemAnalysisAndDesignProject
 
         private void PopulateOrdersGridDiff()
         {
-            
             SortedOrdersDiff.Rows.Clear();
+            sortedOrders = OrdersManeger.PrioritizeOrders();
 
             foreach (var order in sortedOrders)
             {
@@ -162,11 +164,11 @@ namespace SystemAnalysisAndDesignProject
         //}
         private void SortedOrdersDiff_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            Dictionary<Order, List<Driver>> eligibleDrivers = OrdersManeger.GetEligibleDrivers(sortedOrders);
             if (e.RowIndex >= 0) // Ensure the click is on a valid row
             {
                 // Retrieve the corresponding Order object
                  selectedOrder = sortedOrders[e.RowIndex];
+                Dictionary<Order, List<Driver>> eligibleDrivers = OrdersManeger.GetEligibleDrivers(sortedOrders, selectedOrder);
 
                 // Fetch the list of eligible drivers for the selected order from the dictionary
                 if (eligibleDrivers.TryGetValue(selectedOrder, out List<Driver> Drivers))
@@ -176,7 +178,10 @@ namespace SystemAnalysisAndDesignProject
                 }
                 else
                 {
-                    MessageBox.Show("No drivers found for the selected order.");
+                    MessageBox.Show("No drivers found for the selected order, would you like to watch alternative vehicles for this order?","extend options", MessageBoxButtons.OK);
+                    AlternativeVahicles av = new AlternativeVahicles();
+                    av.Show();
+                    this.Hide();
                 }
             }
         }
@@ -226,6 +231,29 @@ namespace SystemAnalysisAndDesignProject
             }
         }
 
+        private void refreshOrdersButton_Click(object sender, EventArgs e)
+        {
+            PopulateOrdersGridDiff();
+        }
 
+        private void populateClerksComboBox ()
+        {
+           foreach ( Clerk clerk  in clerks )
+            {
+                clerkscombobox.Items.Add(clerk);
+            }
+        }
+
+        private void clerkscombobox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Get the selected Clerk object
+            Clerk selectedClerk = (Clerk)clerkscombobox.SelectedItem;
+
+            if (selectedClerk != null)
+            {
+                OperationalManager.assign_clerk(selectedClerk, selectedOrder);
+                MessageBox.Show($"{selectedClerk.GetFirstName()} {selectedClerk.GetLastName()} assigned successfully to order number {selectedOrder.GetId()}");
+            }
+        }
     }
 }

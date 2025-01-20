@@ -38,5 +38,26 @@ namespace SystemAnalysisAndDesignProject
             editSurvey.Show();
             this.Hide();
         }
+
+        private void profile_Click(object sender, EventArgs e)
+        {
+            OfficeManagerAccountForm officeManagerAccountForm = new OfficeManagerAccountForm(officeManager);
+            officeManagerAccountForm.Show();
+            this.Hide();
+        }
+
+        private void calendar_Click(object sender, EventArgs e)
+        {
+            OfficeManagerCalendarForm officeManagerCalendarForm = new OfficeManagerCalendarForm(officeManager);
+            officeManagerCalendarForm.Show();
+            this.Hide();
+        }
+
+        private void back_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            HomePage hm = new HomePage();
+            hm.Show();
+        }
     }
 }

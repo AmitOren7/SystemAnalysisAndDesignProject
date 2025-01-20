@@ -99,6 +99,7 @@
             this.viewCalendar.Size = new System.Drawing.Size(384, 101);
             this.viewCalendar.TabIndex = 6;
             this.viewCalendar.UseVisualStyleBackColor = true;
+            this.viewCalendar.Click += new System.EventHandler(this.viewCalendar_Click);
             // 
             // OperationalManagerMainForm
             // 

@@ -149,6 +149,24 @@
       <DependentUpon>NewQuestionCard.cs</DependentUpon>
     </Compile>
     <Compile Include="OfficeManager.cs" />
+    <Compile Include="OfficeManagerAccountForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OfficeManagerAccountForm.Designer.cs">
+      <DependentUpon>OfficeManagerAccountForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OfficeManagerCalendarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OfficeManagerCalendarForm.Designer.cs">
+      <DependentUpon>OfficeManagerCalendarForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OfficeManagerIdCopyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OfficeManagerIdCopyForm.Designer.cs">
+      <DependentUpon>OfficeManagerIdCopyForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="OfficeManagerMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -264,6 +282,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NewQuestionCard.resx">
       <DependentUpon>NewQuestionCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OfficeManagerAccountForm.resx">
+      <DependentUpon>OfficeManagerAccountForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OfficeManagerCalendarForm.resx">
+      <DependentUpon>OfficeManagerCalendarForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OfficeManagerIdCopyForm.resx">
+      <DependentUpon>OfficeManagerIdCopyForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OfficeManagerMainForm.resx">
       <DependentUpon>OfficeManagerMainForm.cs</DependentUpon>

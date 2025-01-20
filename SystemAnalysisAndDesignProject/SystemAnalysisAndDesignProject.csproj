@@ -156,6 +156,18 @@
       <DependentUpon>OfficeManagerMainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="OperationalManager.cs" />
+    <Compile Include="OperationalManagerAccountForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OperationalManagerAccountForm.Designer.cs">
+      <DependentUpon>OperationalManagerAccountForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OperationalManagerIdCopy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OperationalManagerIdCopy.Designer.cs">
+      <DependentUpon>OperationalManagerIdCopy.cs</DependentUpon>
+    </Compile>
     <Compile Include="OperationalManagerMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -255,6 +267,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="OfficeManagerMainForm.resx">
       <DependentUpon>OfficeManagerMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OperationalManagerAccountForm.resx">
+      <DependentUpon>OperationalManagerAccountForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OperationalManagerIdCopy.resx">
+      <DependentUpon>OperationalManagerIdCopy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OperationalManagerMainForm.resx">
       <DependentUpon>OperationalManagerMainForm.cs</DependentUpon>

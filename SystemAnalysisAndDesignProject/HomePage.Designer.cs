@@ -41,66 +41,66 @@
             // UserNameLabel
             // 
             this.UserNameLabel.AutoSize = true;
-            this.UserNameLabel.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.UserNameLabel.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.UserNameLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.UserNameLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.UserNameLabel.Location = new System.Drawing.Point(293, 185);
             this.UserNameLabel.Name = "UserNameLabel";
-            this.UserNameLabel.Size = new System.Drawing.Size(131, 33);
+            this.UserNameLabel.Size = new System.Drawing.Size(146, 37);
             this.UserNameLabel.TabIndex = 0;
             this.UserNameLabel.Text = "Username";
             // 
             // PasswordLabel
             // 
             this.PasswordLabel.AutoSize = true;
-            this.PasswordLabel.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.PasswordLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.PasswordLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PasswordLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.PasswordLabel.Location = new System.Drawing.Point(293, 313);
             this.PasswordLabel.Name = "PasswordLabel";
-            this.PasswordLabel.Size = new System.Drawing.Size(122, 33);
+            this.PasswordLabel.Size = new System.Drawing.Size(139, 37);
             this.PasswordLabel.TabIndex = 1;
             this.PasswordLabel.Text = "Password";
             // 
             // txt_username
             // 
-            this.txt_username.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.txt_username.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_username.Location = new System.Drawing.Point(297, 221);
             this.txt_username.Name = "txt_username";
-            this.txt_username.Size = new System.Drawing.Size(374, 40);
+            this.txt_username.Size = new System.Drawing.Size(374, 33);
             this.txt_username.TabIndex = 2;
             this.txt_username.TextChanged += new System.EventHandler(this.txt_username_TextChanged);
             // 
             // txt_password
             // 
-            this.txt_password.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.txt_password.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_password.Location = new System.Drawing.Point(297, 349);
             this.txt_password.Name = "txt_password";
             this.txt_password.PasswordChar = '*';
-            this.txt_password.Size = new System.Drawing.Size(374, 38);
+            this.txt_password.Size = new System.Drawing.Size(374, 33);
             this.txt_password.TabIndex = 3;
             // 
             // logInButton
             // 
-            this.logInButton.BackColor = System.Drawing.Color.AliceBlue;
+            this.logInButton.BackColor = System.Drawing.Color.Transparent;
+            this.logInButton.FlatAppearance.BorderSize = 0;
+            this.logInButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.logInButton.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.logInButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.logInButton.Image = ((System.Drawing.Image)(resources.GetObject("logInButton.Image")));
             this.logInButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.logInButton.Location = new System.Drawing.Point(297, 435);
+            this.logInButton.Location = new System.Drawing.Point(454, 429);
             this.logInButton.Name = "logInButton";
-            this.logInButton.Size = new System.Drawing.Size(127, 54);
+            this.logInButton.Size = new System.Drawing.Size(237, 80);
             this.logInButton.TabIndex = 4;
-            this.logInButton.Text = "Log In";
-            this.logInButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.logInButton.UseVisualStyleBackColor = false;
             this.logInButton.Click += new System.EventHandler(this.logInButton_Click);
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(367, 45);
+            this.pictureBox1.Location = new System.Drawing.Point(367, 17);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(215, 147);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.Size = new System.Drawing.Size(209, 165);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
@@ -108,7 +108,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.MenuText;
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(979, 645);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.logInButton);

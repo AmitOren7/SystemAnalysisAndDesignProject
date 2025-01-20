@@ -26,11 +26,11 @@ namespace SystemAnalysisAndDesignProject
                 this.conn.Open();
                 cmd.Connection = conn;
                 cmd.ExecuteNonQuery();
-                MessageBox.Show(" השאילתה בוצעה בהצלחה", "המשך", MessageBoxButtons.OK);
+                MessageBox.Show("The query was successfully performed ", "continue", MessageBoxButtons.OK);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"error in query execution :  {ex.Message}", "המשך", MessageBoxButtons.OK);
+                MessageBox.Show($"error in query execution :  {ex.Message}", "continue", MessageBoxButtons.OK);
             }
             finally
             {

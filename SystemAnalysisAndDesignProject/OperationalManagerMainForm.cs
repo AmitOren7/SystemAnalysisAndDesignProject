@@ -13,7 +13,7 @@ namespace SystemAnalysisAndDesignProject
     public partial class OperationalManagerMainForm : Form
     {
         private OperationalManager operationalManager;
-        
+
         public OperationalManagerMainForm(OperationalManager operationalManager)
         {
             InitializeComponent();
@@ -23,11 +23,11 @@ namespace SystemAnalysisAndDesignProject
 
         private void button1_Click(object sender, EventArgs e)
         {
-          
-
+            OperationalManagerAccountForm operationalManagerAccountForm = new OperationalManagerAccountForm(operationalManager);
+            operationalManagerAccountForm.Show();
+            this.Hide();
         }
 
-      
 
         private void OperationalManagerMainForm_Load(object sender, EventArgs e)
         {
@@ -48,5 +48,14 @@ namespace SystemAnalysisAndDesignProject
             UOF.Show();
             this.Hide();
         }
+
+        private void back_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            HomePage hm = new HomePage();
+            hm.Show();
+        }
+
+
     }
 }

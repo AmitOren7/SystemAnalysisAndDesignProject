@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DriverMainForm));
             this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.viewCalendar = new System.Windows.Forms.Button();
             this.taskForm = new System.Windows.Forms.Button();
             this.driverLabel = new System.Windows.Forms.Label();
             this.back = new System.Windows.Forms.Button();
@@ -52,19 +52,19 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button3
+            // viewCalendar
             // 
-            this.button3.BackColor = System.Drawing.Color.Transparent;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.Location = new System.Drawing.Point(98, 289);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(435, 124);
-            this.button3.TabIndex = 2;
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.viewCalendar.BackColor = System.Drawing.Color.Transparent;
+            this.viewCalendar.FlatAppearance.BorderSize = 0;
+            this.viewCalendar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.viewCalendar.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.viewCalendar.Image = ((System.Drawing.Image)(resources.GetObject("viewCalendar.Image")));
+            this.viewCalendar.Location = new System.Drawing.Point(98, 289);
+            this.viewCalendar.Name = "viewCalendar";
+            this.viewCalendar.Size = new System.Drawing.Size(435, 124);
+            this.viewCalendar.TabIndex = 2;
+            this.viewCalendar.UseVisualStyleBackColor = false;
+            this.viewCalendar.Click += new System.EventHandler(this.button3_Click);
             // 
             // taskForm
             // 
@@ -115,7 +115,7 @@
             this.Controls.Add(this.back);
             this.Controls.Add(this.driverLabel);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.viewCalendar);
             this.Controls.Add(this.taskForm);
             this.Name = "DriverMainForm";
             this.Text = "DriverMainForm";
@@ -127,7 +127,7 @@
 
         #endregion
         private System.Windows.Forms.Button taskForm;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button viewCalendar;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label driverLabel;
         private System.Windows.Forms.Button back;

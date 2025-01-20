@@ -47,9 +47,10 @@ namespace SystemAnalysisAndDesignProject
         {
             SqlCommand sp = new SqlCommand();
             sp.CommandText = "EXECUTE SP_update_OperationalManager @firstName, @lastName, @id, @phoneNumber" +
-                "@email, @address, @userName, @password, @idCopy";
+                ", @email, @address, @userName, @password, @idCopy";
             sp.Parameters.AddWithValue("@firstName", this.firstName);
             sp.Parameters.AddWithValue("@lastName", this.lastName);
+            sp.Parameters.AddWithValue("@id", this.id);
             sp.Parameters.AddWithValue("@phoneNumber", this.phoneNumber);
             sp.Parameters.AddWithValue("@email", this.email);
             sp.Parameters.AddWithValue("@address", this.address);

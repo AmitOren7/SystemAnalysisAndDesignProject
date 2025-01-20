@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UnassignedOrdersForm));
             this.SortedOrdersDiff = new System.Windows.Forms.DataGridView();
             this.headlineLabel = new System.Windows.Forms.Label();
             this.dataGridExplanation = new System.Windows.Forms.Label();
@@ -40,6 +41,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.extendDriverButton = new System.Windows.Forms.Button();
             this.assignungButton = new System.Windows.Forms.Button();
+            this.back = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.SortedOrdersDiff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DG_EligibleDrivers)).BeginInit();
             this.SuspendLayout();
@@ -176,12 +178,26 @@
             this.assignungButton.UseVisualStyleBackColor = false;
             this.assignungButton.Click += new System.EventHandler(this.button2_Click);
             // 
+            // back
+            // 
+            this.back.FlatAppearance.BorderSize = 0;
+            this.back.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.back.Image = ((System.Drawing.Image)(resources.GetObject("back.Image")));
+            this.back.Location = new System.Drawing.Point(794, 12);
+            this.back.Name = "back";
+            this.back.Size = new System.Drawing.Size(43, 37);
+            this.back.TabIndex = 49;
+            this.back.UseVisualStyleBackColor = true;
+            this.back.Click += new System.EventHandler(this.back_Click);
+            // 
             // UnassignedOrdersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(849, 509);
+            this.Controls.Add(this.back);
             this.Controls.Add(this.assignungButton);
             this.Controls.Add(this.extendDriverButton);
             this.Controls.Add(this.label1);
@@ -215,5 +231,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button extendDriverButton;
         private System.Windows.Forms.Button assignungButton;
+        private System.Windows.Forms.Button back;
     }
 }

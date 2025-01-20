@@ -19,9 +19,13 @@ namespace SystemAnalysisAndDesignProject
         private List<Driver> currentDriversList;
         private OperationalManager operationalManager;
         private List<Clerk> clerks = Program.ClerkList;
+        private Driver selectedDriver;
+        private Clerk selectedClerk;
+
         public UnassignedOrdersForm(OperationalManager operationalManager)
         {
-            InitializeComponent(); 
+            InitializeComponent();
+            extendDriverButton.Visible = false;
             this.operationalManager = operationalManager;
             CustomizeDataGridView();
             PopulateOrdersGridDiff();
@@ -169,6 +173,7 @@ namespace SystemAnalysisAndDesignProject
                 // Retrieve the corresponding Order object
                  selectedOrder = sortedOrders[e.RowIndex];
                 Dictionary<Order, List<Driver>> eligibleDrivers = OrdersManeger.GetEligibleDrivers(sortedOrders, selectedOrder);
+                extendDriverButton.Visible = true;
 
                 // Fetch the list of eligible drivers for the selected order from the dictionary
                 if (eligibleDrivers.TryGetValue(selectedOrder, out List<Driver> Drivers))
@@ -178,10 +183,7 @@ namespace SystemAnalysisAndDesignProject
                 }
                 else
                 {
-                    MessageBox.Show("No drivers found for the selected order, would you like to watch alternative vehicles for this order?","extend options", MessageBoxButtons.OK);
-                    AlternativeVahicles av = new AlternativeVahicles(selectedOrder);
-                    av.Show();
-                    this.Hide();
+                    MessageBox.Show("No drivers found for the selected order, please look for other options through extend drivers options","extend options", MessageBoxButtons.OK);
                 }
             }
         }
@@ -224,10 +226,7 @@ namespace SystemAnalysisAndDesignProject
             if (e.RowIndex >= 0) // Ensure the click is on a valid row
             {
                 // Retrieve the corresponding driver object
-                Driver selectedDriver =currentDriversList[e.RowIndex];
-                OperationalManager.assign_driver(selectedDriver , selectedOrder);
-                MessageBox.Show ($"{selectedDriver.GetFirstName()} {selectedDriver.GetLastName()} assigned successfully to order number {selectedOrder.GetId()}");
-                
+                 selectedDriver =currentDriversList[e.RowIndex];   
             }
         }
 
@@ -247,12 +246,27 @@ namespace SystemAnalysisAndDesignProject
         private void clerkscombobox_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Get the selected Clerk object
-            Clerk selectedClerk = (Clerk)clerkscombobox.SelectedItem;
+             selectedClerk = (Clerk)clerkscombobox.SelectedItem;   
+        }
 
-            if (selectedClerk != null)
+        private void extendDriverButton_Click(object sender, EventArgs e)
+        {
+            AlternativeVahicles av = new AlternativeVahicles(selectedOrder);
+            av.Show();
+            this.Hide();
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (selectedClerk != null && selectedDriver!= null)
             {
+
                 OperationalManager.assign_clerk(selectedClerk, selectedOrder);
-                MessageBox.Show($"{selectedClerk.GetFirstName()} {selectedClerk.GetLastName()} assigned successfully to order number {selectedOrder.GetId()}");
+                OperationalManager.assign_driver(selectedDriver, selectedOrder);
+                MessageBox.Show($"{selectedClerk.GetFirstName()} {selectedClerk.GetLastName()} as clerk and {selectedDriver.GetFirstName()} {selectedDriver.GetLastName()} as driver assigned successfully to order number {selectedOrder.GetId()}");
+
+
             }
         }
     }

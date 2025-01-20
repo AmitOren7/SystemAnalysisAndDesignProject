@@ -29,10 +29,13 @@
         private void InitializeComponent()
         {
             this.FormHeadline = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.driversGrid = new System.Windows.Forms.DataGridView();
+            this.vehiclesGrid = new System.Windows.Forms.DataGridView();
+            this.dribersHeadline = new System.Windows.Forms.Label();
+            this.vehiclesHeadkinr = new System.Windows.Forms.Label();
+            this.driversdescription = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.driversGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vehiclesGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // FormHeadline
@@ -46,21 +49,54 @@
             this.FormHeadline.TabIndex = 0;
             this.FormHeadline.Text = "Alternative Options";
             // 
-            // dataGridView1
+            // driversGrid
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(94, 155);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
-            this.dataGridView1.TabIndex = 1;
+            this.driversGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.driversGrid.Location = new System.Drawing.Point(64, 185);
+            this.driversGrid.Name = "driversGrid";
+            this.driversGrid.Size = new System.Drawing.Size(240, 150);
+            this.driversGrid.TabIndex = 1;
             // 
-            // dataGridView2
+            // vehiclesGrid
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(457, 155);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(240, 150);
-            this.dataGridView2.TabIndex = 2;
+            this.vehiclesGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.vehiclesGrid.Location = new System.Drawing.Point(467, 185);
+            this.vehiclesGrid.Name = "vehiclesGrid";
+            this.vehiclesGrid.Size = new System.Drawing.Size(240, 150);
+            this.vehiclesGrid.TabIndex = 2;
+            // 
+            // dribersHeadline
+            // 
+            this.dribersHeadline.AutoSize = true;
+            this.dribersHeadline.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.dribersHeadline.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.dribersHeadline.Location = new System.Drawing.Point(59, 109);
+            this.dribersHeadline.Name = "dribersHeadline";
+            this.dribersHeadline.Size = new System.Drawing.Size(80, 25);
+            this.dribersHeadline.TabIndex = 3;
+            this.dribersHeadline.Text = "Drivers ";
+            // 
+            // vehiclesHeadkinr
+            // 
+            this.vehiclesHeadkinr.AutoSize = true;
+            this.vehiclesHeadkinr.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.vehiclesHeadkinr.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.vehiclesHeadkinr.Location = new System.Drawing.Point(462, 109);
+            this.vehiclesHeadkinr.Name = "vehiclesHeadkinr";
+            this.vehiclesHeadkinr.Size = new System.Drawing.Size(184, 25);
+            this.vehiclesHeadkinr.TabIndex = 4;
+            this.vehiclesHeadkinr.Text = "Alternative Vehicles";
+            // 
+            // driversdescription
+            // 
+            this.driversdescription.AutoSize = true;
+            this.driversdescription.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.driversdescription.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.driversdescription.Location = new System.Drawing.Point(61, 134);
+            this.driversdescription.Name = "driversdescription";
+            this.driversdescription.Size = new System.Drawing.Size(187, 34);
+            this.driversdescription.TabIndex = 5;
+            this.driversdescription.Text = "Presanting drivers attached to \r\nunproper vehicles";
             // 
             // AlternativeVahicles
             // 
@@ -68,13 +104,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dataGridView2);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.driversdescription);
+            this.Controls.Add(this.vehiclesHeadkinr);
+            this.Controls.Add(this.dribersHeadline);
+            this.Controls.Add(this.vehiclesGrid);
+            this.Controls.Add(this.driversGrid);
             this.Controls.Add(this.FormHeadline);
             this.Name = "AlternativeVahicles";
             this.Text = "AlternativeVahicles";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.Load += new System.EventHandler(this.AlternativeVahicles_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.driversGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vehiclesGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -83,7 +123,10 @@
         #endregion
 
         private System.Windows.Forms.Label FormHeadline;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView driversGrid;
+        private System.Windows.Forms.DataGridView vehiclesGrid;
+        private System.Windows.Forms.Label dribersHeadline;
+        private System.Windows.Forms.Label vehiclesHeadkinr;
+        private System.Windows.Forms.Label driversdescription;
     }
 }

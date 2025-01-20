@@ -179,7 +179,7 @@ namespace SystemAnalysisAndDesignProject
                 else
                 {
                     MessageBox.Show("No drivers found for the selected order, would you like to watch alternative vehicles for this order?","extend options", MessageBoxButtons.OK);
-                    AlternativeVahicles av = new AlternativeVahicles();
+                    AlternativeVahicles av = new AlternativeVahicles(selectedOrder);
                     av.Show();
                     this.Hide();
                 }

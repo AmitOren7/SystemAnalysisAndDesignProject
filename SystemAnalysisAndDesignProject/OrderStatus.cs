@@ -10,10 +10,10 @@ namespace SystemAnalysisAndDesignProject
     {
         pendingForAssignment,
         assigned,
-        depurtere,
-        arruvedToSite,
+        departure,
+        arrivedToSite,
         taskStarted,
-        taskComplited,
+        taskCompleted,
         workCertificateSigned,
         orderClosed   
     }

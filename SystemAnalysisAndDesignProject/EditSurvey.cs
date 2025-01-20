@@ -20,9 +20,13 @@ namespace SystemAnalysisAndDesignProject
             InitializeComponent();
         }
 
+
+        // Add a new question to the current survey
         private void button1_Click(object sender, EventArgs e)
         {
-
+            AddNewQuestionForm newQuestion = new AddNewQuestionForm(this.officeManager);
+            newQuestion.Show();
+            this.Hide();
         }
 
         private void EditSurvey_Load(object sender, EventArgs e)
@@ -31,11 +35,10 @@ namespace SystemAnalysisAndDesignProject
             foreach (Question question in Program.QuestionList)
             {
                 // Create a new card for the current evaluation
-                var card = new QuestionCard
+                var card = new QuestionCard(question)
                 {
                     Description = question.GetDescription(),
                     Role = question.GetAssociatedRole() ? "Driver":"Clerk",
-
                 };
 
                 // Add the card to the panel only if it's not null (for safety)
@@ -45,6 +48,13 @@ namespace SystemAnalysisAndDesignProject
                 }
             }
 
+        }
+        ///fix!!!!!!!!!!!
+        private void back_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            OfficeManagerMainForm officerAccountForm = new OfficeManagerMainForm(this.officeManager);
+            officerAccountForm.ShowDialog();
         }
     }
 }

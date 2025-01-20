@@ -49,9 +49,7 @@ namespace SystemAnalysisAndDesignProject
         {
             // Create a new SqlCommand for the stored procedure
             SqlCommand sp = new SqlCommand();
-            sp.CommandText = "EXECUTE SP_add_Order @id, @customerName, @customerPhoneNamber, " +
-                             " @customerEmail, @startDate, @departure, @destenation, " +
-                             "@cargoType, @estimatedFinishDate,@orderStatus @driver, @clerk, @profit, @vehicleType, @totalWeight";
+            sp.CommandText = "EXECUTE SP_add_Question @questionNumber, @description, @associatedRole, @hide";
 
             // Add parameters with values from the Order object
             sp.Parameters.AddWithValue("@questionNumber", this.questionNumber);
@@ -85,8 +83,23 @@ namespace SystemAnalysisAndDesignProject
             return this.description;
         }
 
+        public void Update()
+        {
+            SqlCommand sp = new SqlCommand();
+            sp.CommandText = "EXECUTE SP_update_question @questionNumber, @description, @associatedRole, @hide" ;
+            sp.Parameters.AddWithValue("@questionNumber", this.questionNumber);
+            sp.Parameters.AddWithValue("@description", this.description);
+            sp.Parameters.AddWithValue("@associatedRole", this.associatedRole);
+            sp.Parameters.AddWithValue("@hide", this.hide);
+           
+            SQL_CON SC = new SQL_CON();
+            SC.execute_non_query(sp);
+        }
 
-
+        public void SetHide(Boolean hide)
+        {
+            this.hide = hide;
+        }
 
 
 

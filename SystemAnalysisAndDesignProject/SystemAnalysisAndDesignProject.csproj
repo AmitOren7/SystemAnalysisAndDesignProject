@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddNewQuestionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddNewQuestionForm.Designer.cs">
+      <DependentUpon>AddNewQuestionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AlternativeVahicles.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +142,12 @@
     <Compile Include="HomePage.Designer.cs">
       <DependentUpon>HomePage.cs</DependentUpon>
     </Compile>
+    <Compile Include="NewQuestionCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NewQuestionCard.Designer.cs">
+      <DependentUpon>NewQuestionCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="OfficeManager.cs" />
     <Compile Include="OfficeManagerMainForm.cs">
       <SubType>Form</SubType>
@@ -192,6 +204,9 @@
     <Compile Include="CargoType.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddNewQuestionForm.resx">
+      <DependentUpon>AddNewQuestionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AlternativeVahicles.resx">
       <DependentUpon>AlternativeVahicles.cs</DependentUpon>
     </EmbeddedResource>
@@ -234,6 +249,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HomePage.resx">
       <DependentUpon>HomePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewQuestionCard.resx">
+      <DependentUpon>NewQuestionCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OfficeManagerMainForm.resx">
       <DependentUpon>OfficeManagerMainForm.cs</DependentUpon>

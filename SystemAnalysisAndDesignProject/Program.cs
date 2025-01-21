@@ -27,6 +27,8 @@ namespace SystemAnalysisAndDesignProject
         public static System.Collections.Generic.List<Employee> EmployeeList;
         public static System.Collections.Generic.List<EmployeeMonthlyEvaluation> EmployeeMonthlyEvaluationList;
         public static System.Collections.Generic.List<OfficeManager> OfficeManagerList;
+        public static System.Collections.Generic.List<Order> ArchivedOrderList;
+
 
         [STAThread]
 
@@ -38,6 +40,7 @@ namespace SystemAnalysisAndDesignProject
             InitDriverList();
             InitOperationalManagerList();
             InitOrderList();
+  //          InitArchivedOrderList();
             InitQuestionList();
             InitSurveyList();
             InitAnswerList();
@@ -162,10 +165,10 @@ namespace SystemAnalysisAndDesignProject
                 string clerkId = null; 
                 Clerk clerk = null;    
 
-                if (!rdr.IsDBNull(11)) // בדיקה אם הערך אינו null
+                if (!rdr.IsDBNull(11))
                 {
-                    clerkId = rdr.GetValue(11).ToString(); // קבלת הערך והמרתו למחרוזת
-                    clerk = Program.ClerkList.FirstOrDefault(c => c.GetId() == clerkId); // חיפוש פקיד ברשימה
+                    clerkId = rdr.GetValue(11).ToString(); 
+                    clerk = Program.ClerkList.FirstOrDefault(c => c.GetId() == clerkId); 
                 }
                 double profit = Convert.ToDouble(rdr.GetDecimal(12));
                 VehicleType VehicleType = (VehicleType)Enum.Parse(typeof(VehicleType), rdr.GetValue(13).ToString());
@@ -381,6 +384,55 @@ namespace SystemAnalysisAndDesignProject
             if (OfficeManagerList != null)
                 EmployeeList.AddRange(OfficeManagerList); 
         }
+
+        //static void InitArchivedOrderList()
+        //{
+        //    SqlCommand sp = new SqlCommand();
+        //    sp.CommandText = "EXECUTE dbo.Get_All_Archived_Orders";
+        //    SQL_CON SC = new SQL_CON();
+        //    SqlDataReader rdr = SC.execute_query(sp);
+
+        //    Program.ArchivedOrderList = new List<Order>();
+        //    while (rdr.Read())
+        //    {
+        //        string id = rdr.GetValue(0).ToString();
+        //        string customerName = rdr.GetValue(1).ToString();
+        //        string customerPhoneNamber = rdr.GetValue(2).ToString();
+        //        string customerEmail = rdr.GetValue(3).ToString();
+        //        DateTime startDate = Convert.ToDateTime(rdr.GetValue(4).ToString());
+        //        string departure = rdr.GetValue(5).ToString();
+        //        string destenation = rdr.GetValue(6).ToString();
+        //        CargoType cargoType = (CargoType)Enum.Parse(typeof(CargoType), rdr.GetValue(7).ToString());
+        //        DateTime estimatedFinishDate = Convert.ToDateTime(rdr.GetValue(8).ToString());
+        //        OrderStatus orderStatus = (OrderStatus)Enum.Parse(typeof(OrderStatus), rdr.GetValue(9).ToString());
+        //        string driverId = null;
+        //        Driver driver = null;
+
+        //        if (!rdr.IsDBNull(10))
+        //        {
+        //            driverId = rdr.GetValue(10).ToString();
+        //            driver = Program.DriverList.FirstOrDefault(d => d.GetId() == driverId);
+        //        }
+        //        string clerkId = null;
+        //        Clerk clerk = null;
+
+        //        if (!rdr.IsDBNull(11))
+        //        {
+        //            clerkId = rdr.GetValue(11).ToString();
+        //            clerk = Program.ClerkList.FirstOrDefault(c => c.GetId() == clerkId);
+        //        }
+        //        double profit = Convert.ToDouble(rdr.GetDecimal(12));
+        //        VehicleType VehicleType = (VehicleType)Enum.Parse(typeof(VehicleType), rdr.GetValue(13).ToString());
+        //        int totalWeight = rdr.GetInt32(14);
+
+
+        //        Order order = new Order(id, customerName, customerPhoneNamber,
+        //            customerEmail, startDate, departure, destenation, cargoType, estimatedFinishDate, orderStatus, driver, clerk, profit, VehicleType, totalWeight, false);
+
+        //        Program.ArchivedOrderList.Add(order);
+        //    }
+
+        //}
 
 
         [STAThread]

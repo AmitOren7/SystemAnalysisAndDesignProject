@@ -24,7 +24,7 @@ namespace SystemAnalysisAndDesignProject
         // Add a new question to the current survey
         private void button1_Click(object sender, EventArgs e)
         {
-            AddNewQuestionForm newQuestion = new AddNewQuestionForm(this.officeManager);
+            AddNewQuestionForm newQuestion = new AddNewQuestionForm(this.officeManager, this);
             newQuestion.Show();
             this.Hide();
         }
@@ -49,7 +49,7 @@ namespace SystemAnalysisAndDesignProject
             }
 
         }
-        ///fix!!!!!!!!!!!
+        
         private void back_Click(object sender, EventArgs e)
         {
             this.Close();

@@ -48,8 +48,8 @@ namespace SystemAnalysisAndDesignProject
 
         private void calendar_Click(object sender, EventArgs e)
         {
-            OfficeManagerCalendarForm officeManagerCalendarForm = new OfficeManagerCalendarForm(officeManager);
-            officeManagerCalendarForm.Show();
+            Calendar calendar = new Calendar(officeManager);
+            calendar.Show();
             this.Hide();
         }
 

@@ -23,16 +23,6 @@ namespace SystemAnalysisAndDesignProject
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void DriverAccountForm_Load(object sender, EventArgs e) 
         {
             string driverFirstName = driver.GetFirstName();
@@ -55,14 +45,14 @@ namespace SystemAnalysisAndDesignProject
 
         private void idCopy_Click(object sender, EventArgs e)
         {
-            DriverIdCopyForm driverIdCopyForm = new DriverIdCopyForm(driver);
+            DriverIdCopyForm driverIdCopyForm = new DriverIdCopyForm(driver, this);
             driverIdCopyForm.Show();
             this.Hide();
         }
 
         private void licenseCopy_Click(object sender, EventArgs e)
         {
-            DriverLicenseCopyForm driverLicenseCopyForm = new DriverLicenseCopyForm(driver);
+            DriverLicenseCopyForm driverLicenseCopyForm = new DriverLicenseCopyForm(driver, this);
             driverLicenseCopyForm.Show();
             this.Hide();
         }

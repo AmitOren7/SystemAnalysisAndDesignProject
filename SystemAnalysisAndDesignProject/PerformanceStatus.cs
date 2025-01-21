@@ -16,6 +16,5 @@ namespace SystemAnalysisAndDesignProject
         pendingForHearing,
         pendingForResults,
         awaitingFirstEvaluation
-
     }
 }

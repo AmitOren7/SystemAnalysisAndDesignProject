@@ -73,11 +73,41 @@
     </Compile>
     <Compile Include="Clerk.cs" />
     <Compile Include="Answer.cs" />
+    <Compile Include="ClerkAccountForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClerkAccountForm.Designer.cs">
+      <DependentUpon>ClerkAccountForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClerkCalendarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClerkCalendarForm.Designer.cs">
+      <DependentUpon>ClerkCalendarForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClerkCreateNewEmployeeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClerkCreateNewEmployeeForm.Designer.cs">
+      <DependentUpon>ClerkCreateNewEmployeeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClerkIdCopyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClerkIdCopyForm.Designer.cs">
+      <DependentUpon>ClerkIdCopyForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClerkMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ClerkMainForm.Designer.cs">
       <DependentUpon>ClerkMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClerkTaskForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClerkTaskForm.Designer.cs">
+      <DependentUpon>ClerkTaskForm.cs</DependentUpon>
     </Compile>
     <Compile Include="CompletedEmployeeEvaluationCard.cs">
       <SubType>UserControl</SubType>
@@ -222,6 +252,12 @@
     <Compile Include="SQL_CON.cs" />
     <Compile Include="Driver.cs" />
     <Compile Include="Survey.cs" />
+    <Compile Include="TodayTasks.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TodayTasks.Designer.cs">
+      <DependentUpon>TodayTasks.cs</DependentUpon>
+    </Compile>
     <Compile Include="UnassignedOrdersForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -245,6 +281,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AlternativeVahicles.resx">
       <DependentUpon>AlternativeVahicles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClerkAccountForm.resx">
+      <DependentUpon>ClerkAccountForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClerkCalendarForm.resx">
+      <DependentUpon>ClerkCalendarForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClerkCreateNewEmployeeForm.resx">
+      <DependentUpon>ClerkCreateNewEmployeeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClerkIdCopyForm.resx">
+      <DependentUpon>ClerkIdCopyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClerkMainForm.resx">
+      <DependentUpon>ClerkMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClerkTaskForm.resx">
+      <DependentUpon>ClerkTaskForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Calendar.resx">
       <DependentUpon>Calendar.cs</DependentUpon>
@@ -325,6 +379,9 @@
     </Compile>
     <EmbeddedResource Include="QuestionCard.resx">
       <DependentUpon>QuestionCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TodayTasks.resx">
+      <DependentUpon>TodayTasks.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UnassignedOrdersForm.resx">
       <DependentUpon>UnassignedOrdersForm.cs</DependentUpon>

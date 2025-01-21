@@ -225,7 +225,10 @@ namespace SystemAnalysisAndDesignProject
             else return "";
         }
 
-
+        public Clerk GetClerk() 
+        {
+            return this.clerk;
+        }
 
 
     }

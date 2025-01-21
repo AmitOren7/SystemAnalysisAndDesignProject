@@ -54,7 +54,7 @@
             // 
             this.labelCustomer.AutoSize = true;
             this.labelCustomer.Font = new System.Drawing.Font("Segoe UI Light", 9F);
-            this.labelCustomer.Location = new System.Drawing.Point(38, 178);
+            this.labelCustomer.Location = new System.Drawing.Point(39, 178);
             this.labelCustomer.Name = "labelCustomer";
             this.labelCustomer.Size = new System.Drawing.Size(56, 15);
             this.labelCustomer.TabIndex = 1;
@@ -75,7 +75,7 @@
             // 
             this.labelAddress.AutoSize = true;
             this.labelAddress.Font = new System.Drawing.Font("Segoe UI Light", 9F);
-            this.labelAddress.Location = new System.Drawing.Point(38, 279);
+            this.labelAddress.Location = new System.Drawing.Point(39, 279);
             this.labelAddress.Name = "labelAddress";
             this.labelAddress.Size = new System.Drawing.Size(49, 15);
             this.labelAddress.TabIndex = 3;
@@ -96,7 +96,7 @@
             // 
             this.labelStartDate.AutoSize = true;
             this.labelStartDate.Font = new System.Drawing.Font("Segoe UI Light", 9F);
-            this.labelStartDate.Location = new System.Drawing.Point(38, 379);
+            this.labelStartDate.Location = new System.Drawing.Point(39, 379);
             this.labelStartDate.Name = "labelStartDate";
             this.labelStartDate.Size = new System.Drawing.Size(59, 15);
             this.labelStartDate.TabIndex = 5;

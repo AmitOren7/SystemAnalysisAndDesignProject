@@ -13,10 +13,12 @@ namespace SystemAnalysisAndDesignProject
     public partial class DriverLicenseCopyForm : Form
     {
         private Driver driver;
-        public DriverLicenseCopyForm(Driver driver)
+        private DriverAccountForm driverAccountForm;
+        public DriverLicenseCopyForm(Driver driver, DriverAccountForm driverAccountForm)
         {
             InitializeComponent();
             this.driver = driver;
+            this.driverAccountForm = driverAccountForm;
         }
 
         private void DriverLicenseCopyForm_Load(object sender, EventArgs e)
@@ -29,8 +31,8 @@ namespace SystemAnalysisAndDesignProject
         private void back_Click(object sender, EventArgs e)
         {
             this.Close();
-            DriverAccountForm driverAccountForm = new DriverAccountForm(driver);
-            driverAccountForm.ShowDialog();
+            this.driverAccountForm.Show();
         }
     }
+    
 }

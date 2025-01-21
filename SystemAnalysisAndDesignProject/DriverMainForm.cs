@@ -34,15 +34,9 @@ namespace SystemAnalysisAndDesignProject
             this.Hide();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void DriverMainForm_Load(object sender, EventArgs e)
         {
-            
-            
             String personName = driver.GetName();
             driverLabel.Text = $"Hello {personName}!";
         }

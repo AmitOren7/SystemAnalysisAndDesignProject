@@ -76,20 +76,20 @@ namespace SystemAnalysisAndDesignProject
             officeManager.Update();
 
 
-            string driverFirstName = officeManager.GetFirstName();
-            firstname.Text = $"{driverFirstName}";
-            string driverLastName = officeManager.GetLastName();
-            lastName.Text = $"{driverLastName}";
-            string driverId = officeManager.GetId();
-            id.Text = $"{driverId}";
-            string driverEmail = officeManager.GetEmail();
-            email.Text = $"{driverEmail}";
-            string driverAddress = officeManager.GetAddress();
-            address.Text = $"{driverAddress}";
-            string driverUsername = officeManager.GetUserName();
-            username.Text = $"{driverUsername}";
-            string driverPassword = officeManager.GetPassword();
-            password.Text = $"{driverPassword}";
+            string officeManagerFirstName = officeManager.GetFirstName();
+            firstname.Text = $"{officeManagerFirstName}";
+            string officeManagerLastName = officeManager.GetLastName();
+            lastName.Text = $"{officeManagerLastName}";
+            string officeManagerId = officeManager.GetId();
+            id.Text = $"{officeManagerId}";
+            string officeManagerEmail = officeManager.GetEmail();
+            email.Text = $"{officeManagerEmail}";
+            string officeManagerAddress = officeManager.GetAddress();
+            address.Text = $"{officeManagerAddress}";
+            string officeManagerUsername = officeManager.GetUserName();
+            username.Text = $"{officeManagerUsername}";
+            string officeManagerPassword = officeManager.GetPassword();
+            password.Text = $"{officeManagerPassword}";
 
             save.Visible = false;
             first_name.Visible = false;

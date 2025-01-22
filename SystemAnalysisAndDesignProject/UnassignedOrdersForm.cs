@@ -151,21 +151,7 @@ namespace SystemAnalysisAndDesignProject
             SortedOrdersDiff.DefaultCellStyle.Font = new Font("Segoe UI", 8, FontStyle.Regular);
 
         }
-        //private List<Order> GetCurrentOrder(List<Order> originalOrderList)
-        //{
-        //    List<Order> currentOrder = new List<Order>();
-
-        //    foreach (DataGridViewRow row in SortedOrdersDiff.Rows)
-        //    {
-        //        if (row.Index < originalOrderList.Count) // Ensure the index is within bounds
-        //        {
-        //            // Add the corresponding Order object to the currentOrder list
-        //            currentOrder.Add(originalOrderList[row.Index]);
-        //        }
-        //    }
-
-        //    return currentOrder;
-        //}
+        
         private void SortedOrdersDiff_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0) // Ensure the click is on a valid row
@@ -251,9 +237,9 @@ namespace SystemAnalysisAndDesignProject
 
         private void extendDriverButton_Click(object sender, EventArgs e)
         {
-            AlternativeVahicles av = new AlternativeVahicles(selectedOrder);
+            AlternativeVahicles av = new AlternativeVahicles(selectedOrder , operationalManager);
             av.Show();
-            this.Hide();
+            this.Close();
 
         }
 

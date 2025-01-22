@@ -50,6 +50,7 @@ namespace SystemAnalysisAndDesignProject
             {
 
                 var suitableDrivers = drivers.Where(driver =>
+                    driver.GetPerformanceStatus() != PerformanceStatus.awaitingFirstEvaluation &&
                     driver.GetVehicle().GetVehicleType() == order.GetVehicleType() &&
                     driver.GetVehicle().GetMaxCapacity() >= order.GetTotalWeight() &&
                     driver.GetVehicle().GetCargoType() == order.GetCargoType() &&
@@ -79,19 +80,22 @@ namespace SystemAnalysisAndDesignProject
             return alternativeVehicles;
         }
 
-        public static List<Driver> ExtentedDrivers()
+
+        public static Order overlapCheck(Order clickedOrder, Driver clickedDriver)
         {
-           List <Driver> extentedDrivers = new List<Driver>();
-            foreach (Driver driver in drivers)
+            foreach (Order order in orders)
             {
-                if (driver.GetVehicle().GetVehicleCondition() != VehicleConditionStatus.proper)
+                if (order.GetDriver() == clickedDriver && 
+                    order.GetStartDate() <= clickedOrder.GetEstimatedFinishDate() &&
+                    order.GetEstimatedFinishDate() >= clickedOrder.GetStartDate()
+                    )
                 {
-                    extentedDrivers.Add(driver);
+                    return order;
+
                 }
             }
-            return extentedDrivers;
+            return null;
         }
-
 
     }
 

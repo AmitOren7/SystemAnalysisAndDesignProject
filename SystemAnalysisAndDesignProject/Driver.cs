@@ -157,5 +157,10 @@ namespace SystemAnalysisAndDesignProject
             return true;
         }
 
+        public void SetVehicle (Vehicle vehicle)
+        {
+            this.vehicle = vehicle;
+        }
+
     }
 }

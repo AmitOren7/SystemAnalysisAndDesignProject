@@ -14,7 +14,8 @@ namespace SystemAnalysisAndDesignProject
         onProbation,
         satisfactory,
         pendingForHearing,
-        pendingForResults
+        pendingForResults,
+        awaitingFirstEvaluation
 
     }
 }

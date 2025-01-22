@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UnassignedOrdersForm));
             this.SortedOrdersDiff = new System.Windows.Forms.DataGridView();
             this.headlineLabel = new System.Windows.Forms.Label();
@@ -52,14 +52,14 @@
             this.SortedOrdersDiff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.SortedOrdersDiff.Location = new System.Drawing.Point(74, 79);
             this.SortedOrdersDiff.Name = "SortedOrdersDiff";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.SortedOrdersDiff.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.SortedOrdersDiff.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.SortedOrdersDiff.Size = new System.Drawing.Size(680, 125);
             this.SortedOrdersDiff.TabIndex = 0;
             // 
@@ -101,7 +101,7 @@
             this.refreshOrdersButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.refreshOrdersButton.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.refreshOrdersButton.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.refreshOrdersButton.Location = new System.Drawing.Point(391, 220);
+            this.refreshOrdersButton.Location = new System.Drawing.Point(344, 220);
             this.refreshOrdersButton.Name = "refreshOrdersButton";
             this.refreshOrdersButton.Size = new System.Drawing.Size(119, 33);
             this.refreshOrdersButton.TabIndex = 4;
@@ -161,7 +161,7 @@
             this.extendDriverButton.Name = "extendDriverButton";
             this.extendDriverButton.Size = new System.Drawing.Size(198, 33);
             this.extendDriverButton.TabIndex = 10;
-            this.extendDriverButton.Text = "Extend Drivers Options";
+            this.extendDriverButton.Text = "Select Drivers Manually";
             this.extendDriverButton.UseVisualStyleBackColor = false;
             this.extendDriverButton.Click += new System.EventHandler(this.extendDriverButton_Click);
             // 

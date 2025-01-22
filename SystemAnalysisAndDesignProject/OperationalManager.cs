@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -91,6 +92,40 @@ namespace SystemAnalysisAndDesignProject
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(sp1);
 
+        }
+
+        public static void SetDriverAlternativeVehicle (Driver driver , Vehicle vehicle)
+        {
+            driver.SetVehicle(vehicle);
+            SqlCommand sp1 = new SqlCommand();
+            sp1.CommandText = "EXECUTE SP_Update_driverVehicle @id, @vehicleID";
+            sp1.Parameters.AddWithValue("@id", driver.GetId());
+            sp1.Parameters.AddWithValue("@vehicleID", vehicle.GetID());
+            SQL_CON SC = new SQL_CON();
+            SC.execute_non_query(sp1);
+
+
+
+        }
+
+        public static void UnAssign (Order order)
+        {
+            SqlCommand sp1 = new SqlCommand();
+            sp1.CommandText = "EXECUTE SP_Update_orderDriver @id, @Driver";
+            sp1.Parameters.AddWithValue("@id", order.GetId());
+            sp1.Parameters.AddWithValue("@Driver", DBNull.Value);
+            SqlCommand sp2 = new SqlCommand();
+            sp2.CommandText = "EXECUTE SP_Update_orderStatus @id, @orderStatus";
+            sp2.Parameters.AddWithValue("@id", order.GetId());
+            sp2.Parameters.AddWithValue("@orderStatus", OrderStatus.pendingForAssignment.ToString());
+            SqlCommand sp3 = new SqlCommand();
+            sp3.CommandText = "EXECUTE SP_Update_orderClerk @id, @clerkID";
+            sp3.Parameters.AddWithValue("@id", order.GetId());
+            sp3.Parameters.AddWithValue("@clerkID", DBNull.Value);
+            SQL_CON SC = new SQL_CON();
+            SC.execute_non_query(sp1);
+            SC.execute_non_query(sp2);
+            SC.execute_non_query(sp3);
         }
 
     }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,13 +13,30 @@ namespace SystemAnalysisAndDesignProject
 {
     public partial class AlternativeVahicles : Form
     {
-        private List<Driver> extendedDriversList = OrdersManeger.ExtentedDrivers();
+        private List<Driver> driversList = OrdersManeger.drivers;
         private List<Vehicle> alternativeVehicles = OrdersManeger.alternativeVehicles();
-        public AlternativeVahicles(Order order)
+        private Driver selectedDriver;
+        private Order selectedOrder;
+        private Vehicle selectedVehicle;
+        private int originalIndex;
+        private List<Clerk> clerks = Program.ClerkList;
+        private Clerk selectedClerk;
+        private OperationalManager operationalManager;
+        
+        public AlternativeVahicles(Order order , OperationalManager operationalManager)
         {
             InitializeComponent();
+            this.selectedOrder = order;
             CustomizeDriversGrid();
+            populateDriversGrid_Diff();
             CustomizeVehiclesGrid();
+            vehiclesGrid.Visible = false;
+            vehiclesHeadline.Visible= false;
+            populateClerksComboBox();
+            this.operationalManager = operationalManager;
+            
+
+
 
         }
 
@@ -33,16 +51,14 @@ namespace SystemAnalysisAndDesignProject
             driversGrid.Columns.Add("phoneNumber", "Phone Number");
             driversGrid.Columns.Add("email", "Email");
 
-            foreach (Driver driver in extendedDriversList)
+            //adding an hidden column that saves the original index fo the driver from the drivers list
+            var indexColumn = new DataGridViewTextBoxColumn
             {
+                Name = "Index",
+                Visible = false 
+            };
+            driversGrid.Columns.Add(indexColumn);
 
-                driversGrid.Rows.Add(driver.GetFirstName(),
-                                            driver.GetLastName(),
-                                            driver.GetId(),
-                                            driver.GetPhoneNumber(),
-                                            driver.GetEmail());
-                                            
-            }
         }
 
         private void CustomizeVehiclesGrid()
@@ -62,10 +78,133 @@ namespace SystemAnalysisAndDesignProject
                                             vehicle.GetMaxCapacity());
 
             }
+
+
         }
 
-        private void AlternativeVahicles_Load(object sender, EventArgs e)
+        private void populateDriversGrid_Diff()
         {
+            driversGrid.Rows.Clear();
+            for (int i = 0; i < driversList.Count; i++)
+            {
+                Driver driver = driversList[i];
+                driversGrid.Rows.Add(driver.GetFirstName(),
+                                     driver.GetLastName(),
+                                     driver.GetId(),
+                                     driver.GetPhoneNumber(),
+                                     driver.GetEmail(),
+                                     i); // setting the index to the hidden column
+            }
+
+        }
+
+        private void driversGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                originalIndex = Convert.ToInt32(driversGrid.Rows[e.RowIndex].Cells["Index"].Value);
+                selectedDriver = driversList[originalIndex];
+
+
+                if (selectedDriver.GetVehicle().GetVehicleCondition() != VehicleConditionStatus.proper)
+                {
+                    MessageBox.Show($"{selectedDriver.GetName()}'s vehicle is not in proper condition for assignment. please choose alternative vehicle");
+                    vehiclesHeadline.Visible = true;
+                    vehiclesGrid.Visible = true;
+                }
+            } 
+        }
+
+        private void populateDriverGridByName ()
+        {
+            driversGrid.Rows.Clear();
+            for (int i = 0; i < driversList.Count; i++)
+            {
+                Driver driver = driversList[i];
+                if (driver.GetName() == NameSearch.Text)
+                {
+                    driversGrid.Rows.Add(driver.GetFirstName(),
+                                         driver.GetLastName(),
+                                         driver.GetId(),
+                                         driver.GetPhoneNumber(),
+                                         driver.GetEmail(),
+                                         i); // Add the index to the hidden column
+                }
+            }
+        }
+
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            populateDriverGridByName();
+        }
+
+        private void refreshDriversButton_Click(object sender, EventArgs e)
+        {
+            populateDriversGrid_Diff();
+
+        }
+
+        private void assignButton_Click(object sender, EventArgs e)
+        {
+            Order check = OrdersManeger.overlapCheck (selectedOrder, selectedDriver);    
+            if (selectedDriver != null && selectedClerk != null)
+            {
+                if (check != null)
+                {
+                    DialogResult result = MessageBox.Show($"Are you sure you want to ovveride order {check.GetId()} assignment?",
+                                     "Confirmation", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        OperationalManager.assign_driver(selectedDriver, selectedOrder);
+                        OperationalManager.assign_clerk(selectedClerk , selectedOrder);
+                        OperationalManager.UnAssign (check);
+
+                    }
+                    else
+                    {
+
+                    }
+                }
+                OperationalManager.assign_driver(selectedDriver, selectedOrder);
+                OperationalManager.assign_clerk(selectedClerk, selectedOrder);
+            }
+            if (selectedVehicle != null)
+            {
+                OperationalManager.SetDriverAlternativeVehicle (selectedDriver, selectedVehicle);
+            }
+            MessageBox.Show("they where null");
+
+
+        }
+
+        private void vehiclesGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            {
+                this.selectedVehicle = alternativeVehicles[e.RowIndex];
+            }
+
+        }
+
+        private void populateClerksComboBox()
+        {
+            foreach (Clerk clerk in clerks)
+            {
+                clerksComboBox.Items.Add(clerk);
+            }
+        }
+
+        private void clerkscombobox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Get the selected Clerk object
+            selectedClerk = (Clerk)clerksComboBox.SelectedItem;
+        }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            UnassignedOrdersForm unassignedOrdersForm = new UnassignedOrdersForm(this.operationalManager);
+            unassignedOrdersForm.Show();
+
 
         }
     }

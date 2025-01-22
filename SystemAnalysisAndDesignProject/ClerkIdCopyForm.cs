@@ -10,20 +10,20 @@ using System.Windows.Forms;
 
 namespace SystemAnalysisAndDesignProject
 {
-    public partial class DriverIdCopyForm : Form
+    public partial class ClerkIdCopyForm : Form
     {
-        private Driver driver;
-        private DriverAccountForm driverAccountForm;
-        public DriverIdCopyForm(Driver driver, DriverAccountForm driverAccountForm)
+        private Clerk clerk;
+        private ClerkAccountForm clerkAccountForm;
+        public ClerkIdCopyForm(Clerk clerk, ClerkAccountForm clerkAccountForm)
         {
             InitializeComponent();
-            this.driver = driver;
-            this.driverAccountForm = driverAccountForm;
+            this.clerk = clerk;
+            this.clerkAccountForm = clerkAccountForm;
         }
 
-        private void DriverIdCopyForm_Load(object sender, EventArgs e)
+        private void ClerkIdCopyForm_Load(object sender, EventArgs e)
         {
-            string personName = driver.GetName();
+            string personName = clerk.GetName();
             label1.Text = $"{personName} ID Copy:";
             //pictureBox1.Image = Image.FromFile("C:\\Users\\oren7\\Downloads\\SystemAnalysisAndDesignProject\\IdCopy.jpg");
         }
@@ -31,7 +31,7 @@ namespace SystemAnalysisAndDesignProject
         private void back_Click(object sender, EventArgs e)
         {
             this.Close();
-            this.driverAccountForm.Show();
+            this.clerkAccountForm.Show();
         }
     }
 }

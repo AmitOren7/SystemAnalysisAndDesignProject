@@ -84,20 +84,20 @@ namespace SystemAnalysisAndDesignProject
             operationalManager.Update();
 
 
-            string driverFirstName = operationalManager.GetFirstName();
-            firstname.Text = $"{driverFirstName}";
-            string driverLastName = operationalManager.GetLastName();
-            lastName.Text = $"{driverLastName}";
-            string driverId = operationalManager.GetId();
-            id.Text = $"{driverId}";
-            string driverEmail = operationalManager.GetEmail();
-            email.Text = $"{driverEmail}";
-            string driverAddress = operationalManager.GetAddress();
-            address.Text = $"{driverAddress}";
-            string driverUsername = operationalManager.GetUserName();
-            username.Text = $"{driverUsername}";
-            string driverPassword = operationalManager.GetPassword();
-            password.Text = $"{driverPassword}";
+            string operationalManagerFirstName = operationalManager.GetFirstName();
+            firstname.Text = $"{operationalManagerFirstName}";
+            string operationalManagerLastName = operationalManager.GetLastName();
+            lastName.Text = $"{operationalManagerLastName}";
+            string operationalManagerId = operationalManager.GetId();
+            id.Text = $"{operationalManagerId}";
+            string operationalManagerEmail = operationalManager.GetEmail();
+            email.Text = $"{operationalManagerEmail}";
+            string operationalManagerAddress = operationalManager.GetAddress();
+            address.Text = $"{operationalManagerAddress}";
+            string operationalManagerUsername = operationalManager.GetUserName();
+            username.Text = $"{operationalManagerUsername}";
+            string operationalManagerPassword = operationalManager.GetPassword();
+            password.Text = $"{operationalManagerPassword}";
 
             save.Visible = false;
             first_name.Visible = false;

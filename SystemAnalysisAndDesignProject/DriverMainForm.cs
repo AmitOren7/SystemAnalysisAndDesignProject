@@ -34,15 +34,9 @@ namespace SystemAnalysisAndDesignProject
             this.Hide();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void DriverMainForm_Load(object sender, EventArgs e)
         {
-            
-            
             String personName = driver.GetName();
             driverLabel.Text = $"Hello {personName}!";
         }
@@ -56,9 +50,14 @@ namespace SystemAnalysisAndDesignProject
 
         private void button3_Click(object sender, EventArgs e)
         {
-            DriverCalendarForm driverCalendarForm = new DriverCalendarForm(driver);
+            Calendar driverCalendarForm = new Calendar(driver, this);
             driverCalendarForm.Show();
             this.Hide();
+        }
+
+        private void driverLabel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

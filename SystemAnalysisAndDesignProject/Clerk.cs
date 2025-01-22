@@ -31,7 +31,7 @@ namespace SystemAnalysisAndDesignProject
         {
             SqlCommand sp = new SqlCommand();
             sp.CommandText = "EXECUTE SP_add_Clerk @firstName, @lastName, @id, @phoneNumber" +
-                ", @email, @address, @userName, @password, @idCopy, @licenseCopy, @licenseId, @performanceStatus";
+                ", @email, @address, @userName, @password, @idCopy, @performanceStatus";
             sp.Parameters.AddWithValue("@firstName", this.firstName);
             sp.Parameters.AddWithValue("@lastName", this.lastName);
             sp.Parameters.AddWithValue("@id", this.id);
@@ -41,7 +41,7 @@ namespace SystemAnalysisAndDesignProject
             sp.Parameters.AddWithValue("@userName", this.userName);
             sp.Parameters.AddWithValue("@password", this.password);
             sp.Parameters.AddWithValue("@idCopy", this.idCopy);
-            sp.Parameters.AddWithValue("@performanceStatus", this.performanceStatus);
+            sp.Parameters.AddWithValue("@performanceStatus", this.performanceStatus.ToString());
 
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(sp);
@@ -62,9 +62,12 @@ namespace SystemAnalysisAndDesignProject
                 SqlCommand sp = new SqlCommand();
                 sp.CommandText = "EXECUTE UpdateOrderStatus @OrderId, @OrderStatus";
                 sp.Parameters.AddWithValue("@OrderStatus", orderStatus);
+                sp.Parameters.AddWithValue("@OrderId", orderStatus);
 
                 SQL_CON SC = new SQL_CON();
                 SC.execute_non_query(sp);
+
+                order.Archive();
             }
         }
 
@@ -72,9 +75,10 @@ namespace SystemAnalysisAndDesignProject
         {
             SqlCommand sp = new SqlCommand();
             sp.CommandText = "EXECUTE SP_update_Clerk @firstName, @lastName, @id, @phoneNumber" +
-                "@email, @address, @userName, @password, @idCopy";
+                ", @email, @address, @userName, @password, @idCopy";
             sp.Parameters.AddWithValue("@firstName", this.firstName);
             sp.Parameters.AddWithValue("@lastName", this.lastName);
+            sp.Parameters.AddWithValue("@id", this.id);
             sp.Parameters.AddWithValue("@phoneNumber", this.phoneNumber);
             sp.Parameters.AddWithValue("@email", this.email);
             sp.Parameters.AddWithValue("@address", this.address);
@@ -122,7 +126,6 @@ namespace SystemAnalysisAndDesignProject
         {
             return GetName(); 
         }
-
 
     }
 

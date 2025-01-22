@@ -10,13 +10,13 @@ using System.Windows.Forms;
 
 namespace SystemAnalysisAndDesignProject
 {
-    public partial class DriverCalendarForm : Form
+    public partial class ClerkCalendarForm : Form
     {
-        private Driver driver;
-        public DriverCalendarForm(Driver driver)
+        private Clerk clerk;
+        public ClerkCalendarForm(Clerk clerk)
         {
             InitializeComponent();
-            this.driver = driver;
+            this.clerk = clerk;
         }
     }
 }

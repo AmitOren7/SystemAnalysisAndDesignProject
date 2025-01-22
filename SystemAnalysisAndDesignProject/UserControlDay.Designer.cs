@@ -1,4 +1,7 @@
-﻿namespace SystemAnalysisAndDesignProject
+﻿using System.Drawing;
+using System.Windows.Forms;
+
+namespace SystemAnalysisAndDesignProject
 {
     partial class UserControlDay
     {
@@ -26,37 +29,47 @@
         /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
+
         private void InitializeComponent()
         {
-            this.date = new System.Windows.Forms.Label();
-            this.task = new System.Windows.Forms.Label();
+            this.dayLabel = new System.Windows.Forms.Label();
+            this.eventListBox = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
-            // date
+            // dayLabel
             // 
-            this.date.AutoSize = true;
-            this.date.Location = new System.Drawing.Point(17, 14);
-            this.date.Name = "date";
-            this.date.Size = new System.Drawing.Size(0, 13);
-            this.date.TabIndex = 0;
+            this.dayLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dayLabel.BackColor = System.Drawing.Color.Transparent;
+            this.dayLabel.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dayLabel.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.dayLabel.Location = new System.Drawing.Point(23, 5);
+            this.dayLabel.Name = "dayLabel";
+            this.dayLabel.Size = new System.Drawing.Size(57, 15);
+            this.dayLabel.TabIndex = 0;
+            this.dayLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // task
+            // eventListBox
             // 
-            this.task.AutoSize = true;
-            this.task.Location = new System.Drawing.Point(55, 94);
-            this.task.Name = "task";
-            this.task.Size = new System.Drawing.Size(0, 13);
-            this.task.TabIndex = 1;
+            this.eventListBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.eventListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.eventListBox.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.eventListBox.FormattingEnabled = true;
+            this.eventListBox.Location = new System.Drawing.Point(27, 30);
+            this.eventListBox.Name = "eventListBox";
+            this.eventListBox.Size = new System.Drawing.Size(54, 26);
+            this.eventListBox.TabIndex = 1;
+            this.eventListBox.Visible = false;
+            this.eventListBox.SelectedIndexChanged += new System.EventHandler(this.eventListBox_SelectedIndexChanged);
             // 
             // UserControlDay
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.task);
-            this.Controls.Add(this.date);
+            this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.dayLabel);
+            this.Controls.Add(this.eventListBox);
             this.Name = "UserControlDay";
+            this.Size = new System.Drawing.Size(100, 59);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.DayControl_MouseClick);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -64,5 +77,7 @@
 
         private System.Windows.Forms.Label date;
         private System.Windows.Forms.Label task;
+        private System.Windows.Forms.Label labelDay;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }

@@ -52,7 +52,11 @@ namespace SystemAnalysisAndDesignProject
             sp.Parameters.AddWithValue("@licenseCopy", this.licenseCopy);
             sp.Parameters.AddWithValue("@licenseId", this.licenseId);
             sp.Parameters.AddWithValue("@performanceStatus", this.performanceStatus.ToString());
-            sp.Parameters.AddWithValue("@vehicle", this.vehicle.GetID());
+            if (this.vehicle != null) 
+            {
+                sp.Parameters.AddWithValue("@vehicle", this.vehicle.GetID());
+            }
+            sp.Parameters.AddWithValue("@vehicle", DBNull.Value);
 
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(sp); 

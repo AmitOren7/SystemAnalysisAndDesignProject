@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -31,8 +32,8 @@ namespace SystemAnalysisAndDesignProject
 
         private void OperationalManagerMainForm_Load(object sender, EventArgs e)
         {
-            string personName = operationalManager.GetName();
-            greeting_OPM.Text = $"Hello {personName}!";
+            String personName = operationalManager.GetName();
+            Namelbl.Text = $"Hello {personName}!";
         }
 
         private void signOutButton_Click(object sender, EventArgs e)
@@ -58,7 +59,9 @@ namespace SystemAnalysisAndDesignProject
 
         private void viewCalendar_Click(object sender, EventArgs e)
         {
-
+            Calendar CalendarForm = new Calendar(operationalManager, this);
+            CalendarForm.Show();
+            this.Hide();
         }
     }
 }

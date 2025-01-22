@@ -14,60 +14,60 @@ namespace SystemAnalysisAndDesignProject
     {
         private Clerk clerk;
         private ClerkMainForm clerkMainForm;
-        List<Order> OrderList = Program.OrderList.Where(order => order.GetOrderStatus() != OrderStatus.pendingForAssignment &&
-                    order.GetOrderStatus() != OrderStatus.orderClosed).ToList();
+        List<Order> OrderList = Program.OrderList;
         List<TodayTasks> taskCards = new List<TodayTasks>();
         public ClerkTaskForm(Clerk clerk, ClerkMainForm clerkMainForm)
         {
             InitializeComponent();
             this.clerk = clerk;
             this.clerkMainForm = clerkMainForm;
-            PopulateTodayTasks();
+            //PopulateTodayTasks();
+            //this.Load += ClerkTaskForm_Load;
+        }
+
+        //public void ClerkTaskForm_Load(object sender, EventArgs e) 
+        //{
+        //    PopulateTodayTasks();
+        //}
+
+        private void ClerkTaskForm_Shown(object sender, EventArgs e)
+        {
+            flowLayoutPanel1.Controls.Clear(); 
+            taskCards.Clear(); 
+            PopulateTodayTasks(); 
         }
 
         private void back_Click(object sender, EventArgs e)
         {
             this.Close();
-            this.clerkMainForm.Show();
+            ClerkMainForm clerkAccountForm = new ClerkMainForm(this.clerk);
+            clerkAccountForm.ShowDialog();
         }
 
         private void PopulateTodayTasks()
         {
             DateTime today = DateTime.Today;
-
-
-            List<Order> todayOrders = OrderList.FindAll(order =>
-                order.GetClerk() != null &&
-                order.GetClerk().GetId() == this.clerk.GetId() &&
-                order.GetStartDate() <= today &&
-                order.GetEstimatedFinishDate() >= today
-            );
-
-            TodayTasks taskCard;
-
-            foreach (Order order in todayOrders)
+            List <Order> filteredOrderList = new List<Order>();
+            foreach (Order order in OrderList)
             {
-
-                string taskDetails = $"Order ID: {order.GetId()}\n" +
-                                     $"Customer: {order.GetCustomerName()}\n" +
-                                     $"Customer Phone: {order.GetCustomertPhoneNumber()}\n" +
-                                     $"From: {order.GetDeparture()}\n" +
-                                     $"To: {order.GetDestination()}\n" +
-                                     $"Driver: {order.GetDriver()?.GetFirstName() + " " + order.GetDriver()?.GetLastName()}\n" +
-                                     $"Vehicle: {order.GetDriver()?.GetVehicle()?.GetID()} \n";
-
-
-                taskCard = new TodayTasks(taskDetails);
-
- 
+                if (order.GetClerk() != null &&
+                    order.GetOrderStatus() != OrderStatus.pendingForAssignment &&
+                    order.GetClerk().GetId() == this.clerk.GetId() &&
+                    order.GetStartDate().Date <= today &&
+                    order.GetEstimatedFinishDate().Date >= today)
+                {
+                    filteredOrderList.Add(order);
+                }
+            }
+            TodayTasks taskCard;
+            foreach (Order order1 in filteredOrderList)
+            {
+                taskCard = new TodayTasks(order1, this.clerk);
                 flowLayoutPanel1.Controls.Add(taskCard);
-
-   
                 taskCards.Add(taskCard);
             }
         }
+
     }
 
-
-   
 }

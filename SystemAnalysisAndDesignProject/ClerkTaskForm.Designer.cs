@@ -51,13 +51,13 @@ namespace SystemAnalysisAndDesignProject
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(79, 94);
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(31, 84);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(645, 317);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(741, 339);
             this.flowLayoutPanel1.TabIndex = 27;
-            this.flowLayoutPanel1.AutoScroll = true; 
-            this.flowLayoutPanel1.FlowDirection = FlowDirection.TopDown; 
-            this.flowLayoutPanel1.WrapContents = false; 
+            this.flowLayoutPanel1.WrapContents = false;
             // 
             // label1
             // 
@@ -81,6 +81,7 @@ namespace SystemAnalysisAndDesignProject
             this.Controls.Add(this.back);
             this.Name = "ClerkTaskForm";
             this.Text = "ClerkTaskForm";
+            this.Shown += new System.EventHandler(this.ClerkTaskForm_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -91,5 +92,7 @@ namespace SystemAnalysisAndDesignProject
         private System.Windows.Forms.Button back;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label label1;
+     
+
     }
 }

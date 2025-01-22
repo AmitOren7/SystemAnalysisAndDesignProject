@@ -62,6 +62,7 @@ namespace SystemAnalysisAndDesignProject
                 SqlCommand sp = new SqlCommand();
                 sp.CommandText = "EXECUTE UpdateOrderStatus @OrderId, @OrderStatus";
                 sp.Parameters.AddWithValue("@OrderStatus", orderStatus);
+                sp.Parameters.AddWithValue("@OrderId", orderStatus);
 
                 SQL_CON SC = new SQL_CON();
                 SC.execute_non_query(sp);
@@ -123,7 +124,6 @@ namespace SystemAnalysisAndDesignProject
         {
             return GetName(); 
         }
-
 
     }
 

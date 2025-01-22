@@ -49,7 +49,7 @@ namespace SystemAnalysisAndDesignProject
 
         private void viewCalendar_Click(object sender, EventArgs e)
         {
-            ClerkCalendarForm clerkCalendarForm = new ClerkCalendarForm(clerk);
+            Calendar clerkCalendarForm = new Calendar(clerk, this);
             clerkCalendarForm.Show();
             this.Hide();
         }
@@ -57,7 +57,7 @@ namespace SystemAnalysisAndDesignProject
         private void ClerkMainForm_Load(object sender, EventArgs e)
         {
             String personName = clerk.GetName();
-            driverLabel.Text = $"Hello {personName}!";
+            Namelbl.Text = $"Hello {personName}!";
         }
     }
 

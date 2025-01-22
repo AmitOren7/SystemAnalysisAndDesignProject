@@ -231,6 +231,26 @@ namespace SystemAnalysisAndDesignProject
         }
 
 
+        // archives orders when called
+        public void Archive()
+        {
+
+            // Create a new SqlCommand for the stored procedure
+            SqlCommand sp = new SqlCommand();
+            sp.CommandText = "EXECUTE SP_archive_order @id";
+
+            sp.Parameters.AddWithValue("@id", this.id);
+
+            // Execute the stored procedure to insert the order into the database
+            SQL_CON SC = new SQL_CON();
+            SC.execute_non_query(sp); // Call the method to execute the command (assuming it handles the database connection)
+
+            Program.ArchivedOrderList.Add(this);
+            Program.OrderList.Remove(this);
+
+        }
+
+
     }
 
 }

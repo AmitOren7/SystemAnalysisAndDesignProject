@@ -31,7 +31,6 @@ namespace SystemAnalysisAndDesignProject
         private void back_Click(object sender, EventArgs e)
         {
             this.Close();
-            //EditSurvey editSurvey = new EditSurvey(this.officeManager);
             this.originEditSurveyForm.Show();
         }
     }

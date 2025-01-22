@@ -21,7 +21,8 @@ namespace SystemAnalysisAndDesignProject
 
         private void OfficeManagerMainForm_Load(object sender, EventArgs e)
         {
-
+            String personName = officeManager.GetName();
+            Namelbl.Text = $"Hello {personName}!";
         }
 
         private void ViewEvaluationsButton_Click(object sender, EventArgs e)
@@ -48,7 +49,7 @@ namespace SystemAnalysisAndDesignProject
 
         private void calendar_Click(object sender, EventArgs e)
         {
-            Calendar calendar = new Calendar(officeManager);
+            Calendar calendar = new Calendar(officeManager, this);
             calendar.Show();
             this.Hide();
         }

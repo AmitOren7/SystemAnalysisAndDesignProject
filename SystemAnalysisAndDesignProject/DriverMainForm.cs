@@ -50,9 +50,14 @@ namespace SystemAnalysisAndDesignProject
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Calendar driverCalendarForm = new Calendar(driver);
+            Calendar driverCalendarForm = new Calendar(driver, this);
             driverCalendarForm.Show();
             this.Hide();
+        }
+
+        private void driverLabel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

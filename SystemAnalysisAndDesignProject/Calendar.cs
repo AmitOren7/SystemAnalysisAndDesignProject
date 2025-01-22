@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,12 +17,16 @@ namespace SystemAnalysisAndDesignProject
         private Employee employee;
         private int currentYear;
         private int currentMonth;
-        public Calendar(Employee employee)
+        private Form employeeAccountForm;
+
+
+        public Calendar(Employee employee, Form employeeAccountForm)
         {
             InitializeComponent();
             this.employee = employee;
             currentYear = DateTime.Now.Year;
             currentMonth = DateTime.Now.Month;
+            this.employeeAccountForm = employeeAccountForm;
         }
 
 
@@ -75,8 +80,10 @@ namespace SystemAnalysisAndDesignProject
         {
             List<string> events = new List<string>();
             DateTime currentDay = new DateTime(year, month, day); // Create a DateTime object for the current day
-
-            foreach (Order order in Program.OrderList)
+            List<Order> orders = new List<Order>();
+            orders.AddRange(Program.OrderList);
+            orders.AddRange(Program.ArchivedOrderList);
+            foreach (Order order in orders)
             {
                 // Check if the current day is within the order's date range
                 if (currentDay.Date >= order.GetStartDate().Date && currentDay.Date <= order.GetEstimatedFinishDate().Date)
@@ -131,6 +138,13 @@ namespace SystemAnalysisAndDesignProject
 
         private void calendarTable_Paint(object sender, PaintEventArgs e)
         {
+
+        }
+
+        private void back_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            this.employeeAccountForm.Show();
 
         }
     }

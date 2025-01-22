@@ -46,6 +46,7 @@
             this.back.Size = new System.Drawing.Size(43, 37);
             this.back.TabIndex = 50;
             this.back.UseVisualStyleBackColor = false;
+            this.back.Click += new System.EventHandler(this.back_Click);
             // 
             // panel1
             // 

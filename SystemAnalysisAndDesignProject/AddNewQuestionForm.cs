@@ -13,10 +13,12 @@ namespace SystemAnalysisAndDesignProject
     public partial class AddNewQuestionForm : Form
     {
         private OfficeManager officeManager;
+        private EditSurvey originEditSurveyForm;
 
-        public AddNewQuestionForm(OfficeManager officeManager)
+        public AddNewQuestionForm(OfficeManager officeManager, EditSurvey originEditSurveyForm)
         {
             this.officeManager = officeManager;
+            this.originEditSurveyForm = originEditSurveyForm;
             InitializeComponent();
         }
 
@@ -24,6 +26,12 @@ namespace SystemAnalysisAndDesignProject
         {
             NewQuestionCard card = new NewQuestionCard();
             flowLayoutPanel1.Controls.Add(card);
+        }
+
+        private void back_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            this.originEditSurveyForm.Show();
         }
     }
 }

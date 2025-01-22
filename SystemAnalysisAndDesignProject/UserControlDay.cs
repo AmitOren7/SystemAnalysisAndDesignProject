@@ -17,32 +17,76 @@ namespace SystemAnalysisAndDesignProject
             InitializeComponent();
         }
 
-        public void days(int day) 
+        private int dayNumber;
+        private List<string> events;
+
+        public int DayNumber
         {
-            date.Text = day.ToString();
+            get { return dayNumber; }
+            set { dayNumber = value; dayLabel.Text = value.ToString(); }
         }
 
-        public void displayTask() 
+        public List<string> Events
         {
-            foreach (Order order in Program.OrderList) 
+            get { return events; }
+            set { events = value; UpdateEventsList(); }
+        }
+
+        private Label dayLabel;
+        private ListBox eventListBox;
+
+        private void UpdateEventsList()
+        {
+            eventListBox.Items.Clear();
+            if (events != null && events.Count > 0)
             {
-                if (int.Parse(date.Text) == order.GetStartDate().Day && order.GetStartDate().Month == DateTime.Now.Month) 
+                eventListBox.Visible = true; // Show the list box if there are events
+                foreach (string eventText in events)
                 {
-                    task.Text = "Task";
+                    eventListBox.Items.Add(eventText);
+                }
+            }
+            else
+            {
+                eventListBox.Visible = false; // Hide the list box if there are no events
+            }
+        }
+
+        private void DayControl_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (events != null && events.Count > 0)
+            {
+                eventListBox.Visible = !eventListBox.Visible; // Toggle the visibility of the list box on click
+            }
+        }
+
+        private void eventListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Check if an item is selected
+            if (eventListBox.SelectedIndex != -1)
+            {
+                // Get the selected item
+                string selectedItem = eventListBox.SelectedItem.ToString();
+
+                // Find the order object based on the selected item (e.g., order ID)
+                Order selectedOrder = Program.OrderList.FirstOrDefault(o => o.GetId() == selectedItem);
+
+                if (selectedOrder != null)
+                {
+                    // Create an instance of the order details form
+                    OrderDetailsForm orderDetailsForm = new OrderDetailsForm(selectedOrder); // Pass the order object to the constructor
+
+                    // Show the order details form
+                    orderDetailsForm.ShowDialog(); // Use ShowDialog to make it a modal form (prevents interaction with the main form)
+                                                   // or orderDetailsForm.Show() to make it a non-modal form
+                }
+                else
+                {
+                    MessageBox.Show("Order not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
-        public void UserControlDay_Click()
-        {
-            foreach (Order order in Program.OrderList)
-            {
-                if (int.Parse(date.Text) == order.GetStartDate().Day && order.GetStartDate().Month == DateTime.Now.Month)
-                {
-                    //TaskDetails task = new TaskDetails(task);
-                    //task.Show();
-                }
-            }
-        }
+
     }
 }

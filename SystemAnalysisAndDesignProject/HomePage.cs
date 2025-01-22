@@ -69,6 +69,8 @@ namespace SystemAnalysisAndDesignProject
             lblError.ForeColor = System.Drawing.Color.Red;
             int newY = (this.Height - lblError.Height) / 2 + 70; 
             lblError.Location = new Point((this.Width - lblError.Width) / 2, newY);
+            labelError.Text = "Invalid username or password!";
+
         }
 
         private void txt_username_TextChanged(object sender, EventArgs e)
@@ -82,6 +84,16 @@ namespace SystemAnalysisAndDesignProject
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void HomePage_Load(object sender, EventArgs e)
         {
 
         }

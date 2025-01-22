@@ -65,6 +65,12 @@
     <Compile Include="blank.Designer.cs">
       <DependentUpon>blank.cs</DependentUpon>
     </Compile>
+    <Compile Include="Calendar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Calendar.Designer.cs">
+      <DependentUpon>Calendar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Clerk.cs" />
     <Compile Include="Answer.cs" />
     <Compile Include="ClerkAccountForm.cs">
@@ -114,12 +120,6 @@
     </Compile>
     <Compile Include="DriverAccountForm.Designer.cs">
       <DependentUpon>DriverAccountForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DriverCalendarForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DriverCalendarForm.Designer.cs">
-      <DependentUpon>DriverCalendarForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DriverForm.cs">
       <SubType>Form</SubType>
@@ -223,6 +223,12 @@
       <DependentUpon>OperationalManagerMainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Order.cs" />
+    <Compile Include="OrderDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderDetailsForm.Designer.cs">
+      <DependentUpon>OrderDetailsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="OrdersManeger.cs" />
     <Compile Include="OrderStatus.cs" />
     <Compile Include="PerformanceStatus.cs" />
@@ -294,6 +300,9 @@
     <EmbeddedResource Include="ClerkTaskForm.resx">
       <DependentUpon>ClerkTaskForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Calendar.resx">
+      <DependentUpon>Calendar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CompletedEmployeeEvaluationCard.resx">
       <DependentUpon>CompletedEmployeeEvaluationCard.cs</DependentUpon>
     </EmbeddedResource>
@@ -303,9 +312,6 @@
     <EmbeddedResource Include="DriverAccountForm.resx">
       <DependentUpon>DriverAccountForm.cs</DependentUpon>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DriverCalendarForm.resx">
-      <DependentUpon>DriverCalendarForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DriverForm.resx">
       <DependentUpon>DriverForm.cs</DependentUpon>
@@ -357,6 +363,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="OperationalManagerMainForm.resx">
       <DependentUpon>OperationalManagerMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderDetailsForm.resx">
+      <DependentUpon>OrderDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

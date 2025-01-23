@@ -34,6 +34,7 @@ namespace SystemAnalysisAndDesignProject
             if (this.order == null)
             {
                 MessageBox.Show("No order found for the selected driver and date.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+             
             }
             fillTaskStatus();
         }
@@ -75,7 +76,12 @@ namespace SystemAnalysisAndDesignProject
 
 
         private void task_status_SelectedIndexChanged(object sender, EventArgs e) {
-
+            if (this.order == null) 
+            {
+                this.Close();
+                DriverMainForm driverAccountForm = new DriverMainForm(driver);
+                driverAccountForm.ShowDialog();
+            }
             var selectedStatus = (OrderStatus)task_status.SelectedItem;
             this.driver.UpdateOrderStatus(selectedStatus, this.order);
             if (selectedStatus == OrderStatus.departure)
@@ -95,6 +101,7 @@ namespace SystemAnalysisAndDesignProject
             }
             if (selectedStatus == OrderStatus.workCertificateSigned) 
             {
+
                 task_status5.Visible = true;
                task_status4.Visible= false;
            }
@@ -107,5 +114,7 @@ namespace SystemAnalysisAndDesignProject
             DriverMainForm driverAccountForm = new DriverMainForm(driver);
             driverAccountForm.ShowDialog();
         }
+
+        
     }
 }

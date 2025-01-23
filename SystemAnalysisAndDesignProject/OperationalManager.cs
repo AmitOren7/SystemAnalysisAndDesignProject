@@ -128,7 +128,7 @@ namespace SystemAnalysisAndDesignProject
             SC.execute_non_query(sp3);
         }
 
-        public static void ChengeDriverStatus (Driver driver)
+        public static void ChangeDriverStatus (Driver driver)
         {
             driver.changeStatus(PerformanceStatus.assignedToOrder);
         }

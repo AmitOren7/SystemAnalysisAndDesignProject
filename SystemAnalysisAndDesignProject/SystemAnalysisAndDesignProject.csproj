@@ -145,6 +145,12 @@
     <Compile Include="DriverTaskForm.Designer.cs">
       <DependentUpon>DriverTaskForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DriverWorkCertification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DriverWorkCertification.Designer.cs">
+      <DependentUpon>DriverWorkCertification.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditSurvey.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -327,6 +333,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DriverTaskForm.resx">
       <DependentUpon>DriverTaskForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DriverWorkCertification.resx">
+      <DependentUpon>DriverWorkCertification.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditSurvey.resx">
       <DependentUpon>EditSurvey.cs</DependentUpon>

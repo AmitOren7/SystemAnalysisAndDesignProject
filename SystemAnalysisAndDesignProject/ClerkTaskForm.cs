@@ -68,6 +68,10 @@ namespace SystemAnalysisAndDesignProject
             }
         }
 
+        private void ClerkTaskForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

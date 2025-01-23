@@ -77,8 +77,7 @@ namespace SystemAnalysisAndDesignProject
                     OrderDetailsForm orderDetailsForm = new OrderDetailsForm(selectedOrder); // Pass the order object to the constructor
 
                     // Show the order details form
-                    orderDetailsForm.ShowDialog(); // Use ShowDialog to make it a modal form (prevents interaction with the main form)
-                                                   // or orderDetailsForm.Show() to make it a non-modal form
+                    orderDetailsForm.ShowDialog(); 
                 }
                 else
                 {

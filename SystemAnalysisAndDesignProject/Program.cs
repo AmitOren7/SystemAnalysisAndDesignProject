@@ -28,6 +28,8 @@ namespace SystemAnalysisAndDesignProject
         public static System.Collections.Generic.List<EmployeeMonthlyEvaluation> EmployeeMonthlyEvaluationList;
         public static System.Collections.Generic.List<OfficeManager> OfficeManagerList;
         public static System.Collections.Generic.List<Order> ArchivedOrderList;
+        public static System.Collections.Generic.List<Employee> ArchivedEmployeeList;
+
 
 
         [STAThread]
@@ -49,6 +51,7 @@ namespace SystemAnalysisAndDesignProject
             InitEmployeeMonthlyEvaluation();
             InitOfficeManagerList();
             InitEmployeeList();
+            InitArchivedEmployeeList();
         }
 
         public static void InitVehicleList()
@@ -434,6 +437,84 @@ namespace SystemAnalysisAndDesignProject
 
         }
 
+        static void InitArchivedEmployeeList()
+        {
+  
+
+            SqlCommand sp1 = new SqlCommand();
+            sp1.CommandText = "SP_Get_All_Archived_Drivers";
+            Program.ArchivedEmployeeList = new List<Employee>();
+            ArchivedClerks(ArchivedEmployeeList);
+            ArchivedDrivers(ArchivedEmployeeList);
+
+   
+        }
+
+        static void ArchivedClerks(List<Employee> ArchivedEmployeeList)
+        {
+            SqlCommand sp = new SqlCommand();
+            sp.CommandText = "SP_Get_All_Archived_Clerks";
+            SQL_CON SC = new SQL_CON();
+            SqlDataReader rdr = SC.execute_query(sp);
+
+            while (rdr.Read())
+            {
+
+                string firstName = rdr.GetValue(0).ToString();
+                string lastName = rdr.GetValue(1).ToString();
+                string id = rdr.GetValue(2).ToString();
+                string phoneNumber = rdr.GetValue(3).ToString();
+                string email = rdr.GetValue(4).ToString();
+                string address = rdr.GetValue(5).ToString();
+                string userName = rdr.GetValue(6).ToString();
+                string password = rdr.GetValue(7).ToString();
+                string idCopy = rdr.GetValue(8).ToString();
+                PerformanceStatus performanceStatus = (PerformanceStatus)Enum.Parse(typeof(PerformanceStatus), rdr.GetValue(9).ToString());
+
+
+                Clerk clerk = new Clerk(firstName, lastName, id, phoneNumber, email, address, userName, password, idCopy, false, performanceStatus);
+                Program.ArchivedEmployeeList.Add(clerk);
+            }
+        }
+
+        static void ArchivedDrivers(List<Employee> ArchivedEmployeeList)
+        {
+            SqlCommand sp = new SqlCommand();
+            sp.CommandText = "SP_Get_All_Archived_Drivers";
+            SQL_CON SC = new SQL_CON();
+            SqlDataReader rdr = SC.execute_query(sp);
+
+
+            while (rdr.Read())
+            {
+
+
+                {
+                    string firstName = rdr.GetValue(0).ToString();
+                    string lastName = rdr.GetValue(1).ToString();
+                    string id = rdr.GetValue(2).ToString();
+                    string phoneNumber = rdr.GetValue(3).ToString();
+                    string email = rdr.GetValue(4).ToString();
+                    string address = rdr.GetValue(5).ToString();
+                    string userName = rdr.GetValue(6).ToString();
+                    string password = rdr.GetValue(7).ToString();
+                    string idCopy = rdr.GetValue(8).ToString();
+                    string licenseCopy = rdr.GetValue(9).ToString();
+                    string licenseId = rdr.GetValue(10).ToString();
+                    PerformanceStatus status = (PerformanceStatus)Enum.Parse(typeof(PerformanceStatus), rdr.GetValue(11).ToString());
+                    string vehicleId = rdr.GetValue(12).ToString();
+                    Vehicle vehicle = Program.VehicleList.FirstOrDefault(v => v.GetID() == vehicleId);
+
+                    Driver driver = new Driver(firstName, lastName, id, phoneNumber, email, address,
+                                               userName, password, idCopy, licenseCopy, licenseId,
+                                               false, status, vehicle);
+
+
+                    ArchivedEmployeeList.Add(driver);
+                }
+
+            }
+        }
 
         [STAThread]
         static void Main()

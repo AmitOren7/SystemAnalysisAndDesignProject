@@ -40,11 +40,14 @@ namespace SystemAnalysisAndDesignProject
             this.CompletedEvaluationsDisplay = new System.Windows.Forms.Panel();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.back = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.back = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PendingEvaluationsDisplay.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // PendingEvaluationsButton
@@ -166,22 +169,9 @@ namespace SystemAnalysisAndDesignProject
             this.comboBox1.Text = "All Roles";
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // back
-            // 
-            this.back.FlatAppearance.BorderSize = 0;
-            this.back.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.back.Image = ((System.Drawing.Image)(resources.GetObject("back.Image")));
-            this.back.Location = new System.Drawing.Point(637, 14);
-            this.back.Name = "back";
-            this.back.Size = new System.Drawing.Size(43, 37);
-            this.back.TabIndex = 20;
-            this.back.UseVisualStyleBackColor = true;
-            this.back.Click += new System.EventHandler(this.back_Click);
-            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(637, 13);
+            this.button1.Location = new System.Drawing.Point(633, 17);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(38, 38);
             this.button1.TabIndex = 21;
@@ -200,6 +190,41 @@ namespace SystemAnalysisAndDesignProject
             this.label1.Text = "Employee Evaluations";
             this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(552, 423);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 23;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
+            // back
+            // 
+            this.back.FlatAppearance.BorderSize = 0;
+            this.back.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.back.Image = ((System.Drawing.Image)(resources.GetObject("back.Image")));
+            this.back.Location = new System.Drawing.Point(633, 18);
+            this.back.Name = "back";
+            this.back.Size = new System.Drawing.Size(43, 37);
+            this.back.TabIndex = 20;
+            this.back.UseVisualStyleBackColor = true;
+            this.back.Click += new System.EventHandler(this.back_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(497, 412);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(179, 61);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.button2_Click_1);
+            // 
             // EmployeeEvaluationForm
             // 
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -207,15 +232,17 @@ namespace SystemAnalysisAndDesignProject
             this.Controls.Add(this.label1);
             this.Controls.Add(this.back);
             this.Controls.Add(this.PendingEvaluationsDisplay);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.PendingEvaluationsButton);
             this.Controls.Add(this.CompletedEvaluationsButton);
             this.Controls.Add(this.flowLayoutPanel3);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.button2);
             this.Name = "EmployeeEvaluationForm";
-            this.Text = "Employee Evaluation Form";
             this.Load += new System.EventHandler(this.EmployeeEvaluationForm_Load);
             this.PendingEvaluationsDisplay.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -521,6 +548,16 @@ namespace SystemAnalysisAndDesignProject
         private void IssueWarningButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+        // change employee status
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            // Create an instance of the form
+            ManageEmployeeStatusForm statusForm = new ManageEmployeeStatusForm(); 
+
+            // Show the form
+            statusForm.ShowDialog();
         }
     }
 }

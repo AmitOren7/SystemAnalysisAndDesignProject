@@ -32,12 +32,12 @@
             this.lblScore = new System.Windows.Forms.Label();
             this.lblRole = new System.Windows.Forms.Label();
             this.lblEmployeeName = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.pictureBoxIsuueWarning = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIsuueWarning)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // lblScore
@@ -47,7 +47,7 @@
             this.lblScore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblScore.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblScore.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(218)))));
-            this.lblScore.Location = new System.Drawing.Point(412, 33);
+            this.lblScore.Location = new System.Drawing.Point(413, 43);
             this.lblScore.Name = "lblScore";
             this.lblScore.Size = new System.Drawing.Size(41, 17);
             this.lblScore.TabIndex = 12;
@@ -60,7 +60,7 @@
             this.lblRole.AutoSize = true;
             this.lblRole.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRole.ForeColor = System.Drawing.Color.DarkGray;
-            this.lblRole.Location = new System.Drawing.Point(110, 47);
+            this.lblRole.Location = new System.Drawing.Point(53, 52);
             this.lblRole.Name = "lblRole";
             this.lblRole.Size = new System.Drawing.Size(82, 13);
             this.lblRole.TabIndex = 10;
@@ -72,33 +72,22 @@
             this.lblEmployeeName.AutoSize = true;
             this.lblEmployeeName.BackColor = System.Drawing.Color.Transparent;
             this.lblEmployeeName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmployeeName.Location = new System.Drawing.Point(110, 21);
+            this.lblEmployeeName.Location = new System.Drawing.Point(53, 26);
             this.lblEmployeeName.Name = "lblEmployeeName";
             this.lblEmployeeName.Size = new System.Drawing.Size(108, 17);
             this.lblEmployeeName.TabIndex = 8;
             this.lblEmployeeName.Text = "Employee Name";
             this.lblEmployeeName.Click += new System.EventHandler(this.lblEmployeeName_Click);
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(-4, -12);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(515, 202);
-            this.pictureBox2.TabIndex = 13;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
-            // 
             // richTextBox1
             // 
             this.richTextBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.richTextBox1.Location = new System.Drawing.Point(33, 73);
+            this.richTextBox1.Location = new System.Drawing.Point(56, 78);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(330, 54);
+            this.richTextBox1.Size = new System.Drawing.Size(307, 54);
             this.richTextBox1.TabIndex = 15;
             this.richTextBox1.Text = "";
             this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
@@ -107,7 +96,7 @@
             // 
             this.pictureBoxIsuueWarning.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxIsuueWarning.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxIsuueWarning.Image")));
-            this.pictureBoxIsuueWarning.Location = new System.Drawing.Point(369, 80);
+            this.pictureBoxIsuueWarning.Location = new System.Drawing.Point(369, 89);
             this.pictureBoxIsuueWarning.Name = "pictureBoxIsuueWarning";
             this.pictureBoxIsuueWarning.Size = new System.Drawing.Size(89, 45);
             this.pictureBoxIsuueWarning.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -128,6 +117,17 @@
             this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(4, -4);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(494, 173);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 28;
+            this.pictureBox2.TabStop = false;
+            // 
             // CompletedEmployeeEvaluationCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -141,9 +141,9 @@
             this.Controls.Add(this.lblEmployeeName);
             this.Controls.Add(this.pictureBox2);
             this.Name = "CompletedEmployeeEvaluationCard";
-            this.Size = new System.Drawing.Size(500, 150);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.Size = new System.Drawing.Size(519, 201);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIsuueWarning)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -154,9 +154,9 @@
         private System.Windows.Forms.Label lblScore;
         private System.Windows.Forms.Label lblRole;
         private System.Windows.Forms.Label lblEmployeeName;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.PictureBox pictureBoxIsuueWarning;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

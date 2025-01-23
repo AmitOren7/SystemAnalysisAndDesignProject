@@ -59,7 +59,7 @@ namespace SystemAnalysisAndDesignProject
 
         private void edit_Click(object sender, EventArgs e)
         {
-            save.Visible = true;
+            pictureBox2.Visible = true;
             first_name.Visible = true;
             last_name.Visible = true;
             email_.Visible = true;
@@ -111,7 +111,7 @@ namespace SystemAnalysisAndDesignProject
             licenseId.Text = $"{driverLicenseId}";
 
 
-            save.Visible = false;
+            pictureBox2.Visible = false;
             first_name.Visible = false;
             last_name.Visible = false;
             email_.Visible = false;

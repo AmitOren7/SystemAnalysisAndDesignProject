@@ -68,66 +68,66 @@
             // customer
             // 
             this.customer.AutoSize = true;
-            this.customer.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customer.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customer.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.customer.Location = new System.Drawing.Point(174, 79);
             this.customer.Name = "customer";
-            this.customer.Size = new System.Drawing.Size(45, 17);
+            this.customer.Size = new System.Drawing.Size(39, 17);
             this.customer.TabIndex = 2;
             this.customer.Text = "label1";
             // 
             // customerPhone
             // 
             this.customerPhone.AutoSize = true;
-            this.customerPhone.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customerPhone.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customerPhone.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.customerPhone.Location = new System.Drawing.Point(173, 114);
             this.customerPhone.Name = "customerPhone";
-            this.customerPhone.Size = new System.Drawing.Size(45, 17);
+            this.customerPhone.Size = new System.Drawing.Size(39, 17);
             this.customerPhone.TabIndex = 3;
             this.customerPhone.Text = "label1";
             // 
             // from
             // 
             this.from.AutoSize = true;
-            this.from.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.from.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.from.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.from.Location = new System.Drawing.Point(173, 149);
             this.from.Name = "from";
-            this.from.Size = new System.Drawing.Size(45, 17);
+            this.from.Size = new System.Drawing.Size(39, 17);
             this.from.TabIndex = 4;
             this.from.Text = "label1";
             // 
             // to
             // 
             this.to.AutoSize = true;
-            this.to.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.to.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.to.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.to.Location = new System.Drawing.Point(173, 184);
             this.to.Name = "to";
-            this.to.Size = new System.Drawing.Size(45, 17);
+            this.to.Size = new System.Drawing.Size(39, 17);
             this.to.TabIndex = 5;
             this.to.Text = "label1";
             // 
             // driver
             // 
             this.driver.AutoSize = true;
-            this.driver.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.driver.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.driver.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.driver.Location = new System.Drawing.Point(514, 153);
             this.driver.Name = "driver";
-            this.driver.Size = new System.Drawing.Size(45, 17);
+            this.driver.Size = new System.Drawing.Size(39, 17);
             this.driver.TabIndex = 6;
             this.driver.Text = "label1";
             // 
             // vehicle
             // 
             this.vehicle.AutoSize = true;
-            this.vehicle.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.vehicle.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.vehicle.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.vehicle.Location = new System.Drawing.Point(514, 188);
             this.vehicle.Name = "vehicle";
-            this.vehicle.Size = new System.Drawing.Size(45, 17);
+            this.vehicle.Size = new System.Drawing.Size(39, 17);
             this.vehicle.TabIndex = 7;
             this.vehicle.Text = "label1";
             // 
@@ -143,11 +143,11 @@
             // status
             // 
             this.status.AutoSize = true;
-            this.status.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.status.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.status.ForeColor = System.Drawing.Color.CornflowerBlue;
             this.status.Location = new System.Drawing.Point(514, 79);
             this.status.Name = "status";
-            this.status.Size = new System.Drawing.Size(81, 17);
+            this.status.Size = new System.Drawing.Size(73, 17);
             this.status.TabIndex = 9;
             this.status.Text = "Select Satus";
             // 
@@ -162,7 +162,6 @@
             this.save.Size = new System.Drawing.Size(47, 47);
             this.save.TabIndex = 21;
             this.save.UseVisualStyleBackColor = true;
-            this.save.Visible = true;
             this.save.Click += new System.EventHandler(this.save_Click);
             // 
             // TodayTasks

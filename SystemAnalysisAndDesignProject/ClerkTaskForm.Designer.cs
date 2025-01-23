@@ -80,7 +80,7 @@ namespace SystemAnalysisAndDesignProject
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.back);
             this.Name = "ClerkTaskForm";
-            this.Text = "ClerkTaskForm";
+            this.Load += new System.EventHandler(this.ClerkTaskForm_Load);
             this.Shown += new System.EventHandler(this.ClerkTaskForm_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();

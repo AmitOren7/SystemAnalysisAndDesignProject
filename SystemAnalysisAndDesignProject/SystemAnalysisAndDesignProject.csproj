@@ -172,6 +172,12 @@
     <Compile Include="HomePage.Designer.cs">
       <DependentUpon>HomePage.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManageEmployeeStatusForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageEmployeeStatusForm.Designer.cs">
+      <DependentUpon>ManageEmployeeStatusForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="NewQuestionCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -339,6 +345,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HomePage.resx">
       <DependentUpon>HomePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageEmployeeStatusForm.resx">
+      <DependentUpon>ManageEmployeeStatusForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewQuestionCard.resx">
       <DependentUpon>NewQuestionCard.cs</DependentUpon>

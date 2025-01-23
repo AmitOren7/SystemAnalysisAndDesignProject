@@ -31,7 +31,7 @@ namespace SystemAnalysisAndDesignProject
             return this.survey;
         }
 
-
+        // retrieves the associated role of the question which the answer is about. true - driver. false - clerk.
         public bool GetAssociatedRole()
         {
             return this.question.GetAssociatedRole();
@@ -42,6 +42,8 @@ namespace SystemAnalysisAndDesignProject
             return this.answerValue;
         }
 
+        // indicated whether the role of the employee is matched with the target employee of the question which the answer is about. 
+        // true - driver. false - clerk
         public bool IsEmployeeAssociated(Evaluatable employee)
         {
             return this.question.GetAssociatedRole() == employee.GetAssociatedRole();

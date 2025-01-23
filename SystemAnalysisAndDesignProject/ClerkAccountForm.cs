@@ -114,5 +114,9 @@ namespace SystemAnalysisAndDesignProject
             clerkAccountForm.ShowDialog();
         }
 
+        private void FormHeadline_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

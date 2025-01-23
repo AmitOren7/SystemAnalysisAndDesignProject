@@ -175,7 +175,7 @@
             this.back.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.back.Image = ((System.Drawing.Image)(resources.GetObject("back.Image")));
-            this.back.Location = new System.Drawing.Point(717, 22);
+            this.back.Location = new System.Drawing.Point(721, 19);
             this.back.Name = "back";
             this.back.Size = new System.Drawing.Size(43, 37);
             this.back.TabIndex = 46;
@@ -193,13 +193,13 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.label2.Font = new System.Drawing.Font("Segoe UI Light", 15F);
             this.label2.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.label2.Location = new System.Drawing.Point(73, 28);
+            this.label2.Location = new System.Drawing.Point(56, 23);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(221, 21);
+            this.label2.Size = new System.Drawing.Size(235, 28);
             this.label2.TabIndex = 49;
-            this.label2.Text = "Your Task Details For Today:";
+            this.label2.Text = "Your Task Details For Today";
             // 
             // task_status1
             // 

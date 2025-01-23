@@ -108,16 +108,18 @@ namespace SystemAnalysisAndDesignProject
 
         private void back_Click(object sender, EventArgs e)
         {
-            this.Close();
-            OfficeManagerMainForm officeManagerAccountForm = new OfficeManagerMainForm(officeManager);
-            officeManagerAccountForm.ShowDialog();
+            this.Hide();
+            OfficeManagerMainForm officeManagerMainForm = new OfficeManagerMainForm(officeManager);
+            officeManagerMainForm.ShowDialog();
         }
 
         private void idCopy_Click(object sender, EventArgs e)
         {
             OfficeManagerIdCopyForm officeManagerIdCopy = new OfficeManagerIdCopyForm(officeManager);
-            officeManagerIdCopy.Show();
             this.Hide();
+            officeManagerIdCopy.Show();
+            this.Close();
+            
         }
     }
 }

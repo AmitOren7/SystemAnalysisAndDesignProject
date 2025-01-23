@@ -117,10 +117,11 @@ namespace SystemAnalysisAndDesignProject
 
         private void back_Click(object sender, EventArgs e)
         {
+            OperationalManagerMainForm operationalManagerForm = new OperationalManagerMainForm(operationalManager);
+            this.Hide();
+            operationalManagerForm.ShowDialog();
             this.Close();
-            OperationalManagerMainForm operationalManagerAccountForm = new OperationalManagerMainForm(operationalManager);
-            operationalManagerAccountForm.ShowDialog();
-        }
 
+        }
     }
 }

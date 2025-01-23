@@ -75,6 +75,8 @@ namespace SystemAnalysisAndDesignProject
                 SendSurveyEmail(order);
                 Driver driver = order.GetDriver();
                 Clerk clerk = order.GetClerk();
+                string headline = $"Customer Service Survey for Order Number {order.GetId()}";
+                Survey survey = new Survey(headline, false, order, true);
 
                 // Check if driver has any assigned orders (excluding the closed one)
                 bool driverHasOtherOrders = Program.OrderList.Any(o => o.GetDriver() == driver && o.GetId() != order.GetId());

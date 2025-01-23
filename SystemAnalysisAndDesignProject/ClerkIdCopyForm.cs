@@ -26,7 +26,7 @@ namespace SystemAnalysisAndDesignProject
         private void ClerkIdCopyForm_Load(object sender, EventArgs e)
         {
             string personName = clerk.GetName();
-            label1.Text = $"{personName} ID Copy:";
+            label1.Text = $"{personName} ID Copy";
             string imageUrl = this.clerk.GetIdCopy();
             using (WebClient client = new WebClient())
             {
@@ -42,6 +42,16 @@ namespace SystemAnalysisAndDesignProject
         {
             this.Close();
             this.clerkAccountForm.Show();
+        }
+
+        private void FormHeadline_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

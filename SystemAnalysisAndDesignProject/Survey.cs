@@ -30,7 +30,6 @@ namespace SystemAnalysisAndDesignProject
                 this.CreateSurvey();
                 Program.SurveyList.Add(this);
 
-
             }
         }
 

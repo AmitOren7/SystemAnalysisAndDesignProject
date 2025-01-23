@@ -56,14 +56,17 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.FormHeadline = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // password_
             // 
-            this.password_.Location = new System.Drawing.Point(275, 238);
+            this.password_.Location = new System.Drawing.Point(282, 247);
             this.password_.Name = "password_";
             this.password_.Size = new System.Drawing.Size(180, 20);
             this.password_.TabIndex = 56;
@@ -71,7 +74,7 @@
             // 
             // last_name
             // 
-            this.last_name.Location = new System.Drawing.Point(275, 91);
+            this.last_name.Location = new System.Drawing.Point(282, 100);
             this.last_name.Name = "last_name";
             this.last_name.Size = new System.Drawing.Size(180, 20);
             this.last_name.TabIndex = 55;
@@ -79,7 +82,7 @@
             // 
             // email_
             // 
-            this.email_.Location = new System.Drawing.Point(42, 317);
+            this.email_.Location = new System.Drawing.Point(49, 326);
             this.email_.Name = "email_";
             this.email_.Size = new System.Drawing.Size(180, 20);
             this.email_.TabIndex = 53;
@@ -87,7 +90,7 @@
             // 
             // username_
             // 
-            this.username_.Location = new System.Drawing.Point(43, 238);
+            this.username_.Location = new System.Drawing.Point(50, 247);
             this.username_.Name = "username_";
             this.username_.Size = new System.Drawing.Size(180, 20);
             this.username_.TabIndex = 52;
@@ -95,7 +98,7 @@
             // 
             // address_
             // 
-            this.address_.Location = new System.Drawing.Point(43, 164);
+            this.address_.Location = new System.Drawing.Point(50, 173);
             this.address_.Name = "address_";
             this.address_.Size = new System.Drawing.Size(180, 20);
             this.address_.TabIndex = 51;
@@ -103,7 +106,7 @@
             // 
             // first_name
             // 
-            this.first_name.Location = new System.Drawing.Point(43, 92);
+            this.first_name.Location = new System.Drawing.Point(50, 101);
             this.first_name.Name = "first_name";
             this.first_name.Size = new System.Drawing.Size(180, 20);
             this.first_name.TabIndex = 50;
@@ -130,7 +133,7 @@
             this.back.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.back.Image = ((System.Drawing.Image)(resources.GetObject("back.Image")));
-            this.back.Location = new System.Drawing.Point(745, 12);
+            this.back.Location = new System.Drawing.Point(716, 12);
             this.back.Name = "back";
             this.back.Size = new System.Drawing.Size(43, 37);
             this.back.TabIndex = 48;
@@ -165,9 +168,9 @@
             // 
             this.firstname.AutoSize = true;
             this.firstname.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.firstname.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.firstname.Font = new System.Drawing.Font("Segoe UI Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.firstname.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.firstname.Location = new System.Drawing.Point(39, 90);
+            this.firstname.Location = new System.Drawing.Point(46, 99);
             this.firstname.Name = "firstname";
             this.firstname.Size = new System.Drawing.Size(0, 20);
             this.firstname.TabIndex = 37;
@@ -178,7 +181,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.label2.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.label2.Location = new System.Drawing.Point(39, 63);
+            this.label2.Location = new System.Drawing.Point(46, 72);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(80, 21);
             this.label2.TabIndex = 30;
@@ -187,9 +190,9 @@
             // password
             // 
             this.password.AutoSize = true;
-            this.password.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.password.Font = new System.Drawing.Font("Segoe UI Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.password.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.password.Location = new System.Drawing.Point(271, 239);
+            this.password.Location = new System.Drawing.Point(278, 248);
             this.password.Name = "password";
             this.password.Size = new System.Drawing.Size(0, 20);
             this.password.TabIndex = 43;
@@ -198,9 +201,9 @@
             // username
             // 
             this.username.AutoSize = true;
-            this.username.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.username.Font = new System.Drawing.Font("Segoe UI Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.username.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.username.Location = new System.Drawing.Point(39, 239);
+            this.username.Location = new System.Drawing.Point(46, 248);
             this.username.Name = "username";
             this.username.Size = new System.Drawing.Size(0, 20);
             this.username.TabIndex = 42;
@@ -209,9 +212,9 @@
             // address
             // 
             this.address.AutoSize = true;
-            this.address.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.address.Font = new System.Drawing.Font("Segoe UI Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.address.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.address.Location = new System.Drawing.Point(39, 165);
+            this.address.Location = new System.Drawing.Point(46, 174);
             this.address.Name = "address";
             this.address.Size = new System.Drawing.Size(0, 20);
             this.address.TabIndex = 41;
@@ -220,9 +223,9 @@
             // email
             // 
             this.email.AutoSize = true;
-            this.email.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.email.Font = new System.Drawing.Font("Segoe UI Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.email.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.email.Location = new System.Drawing.Point(39, 315);
+            this.email.Location = new System.Drawing.Point(46, 324);
             this.email.Name = "email";
             this.email.Size = new System.Drawing.Size(0, 20);
             this.email.TabIndex = 40;
@@ -231,9 +234,9 @@
             // id
             // 
             this.id.AutoSize = true;
-            this.id.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.id.Font = new System.Drawing.Font("Segoe UI Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.id.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.id.Location = new System.Drawing.Point(271, 165);
+            this.id.Location = new System.Drawing.Point(278, 174);
             this.id.Name = "id";
             this.id.Size = new System.Drawing.Size(0, 20);
             this.id.TabIndex = 39;
@@ -243,9 +246,9 @@
             // 
             this.lastName.AutoSize = true;
             this.lastName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lastName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.lastName.Font = new System.Drawing.Font("Segoe UI Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.lastName.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lastName.Location = new System.Drawing.Point(271, 90);
+            this.lastName.Location = new System.Drawing.Point(278, 99);
             this.lastName.Name = "lastName";
             this.lastName.Size = new System.Drawing.Size(0, 20);
             this.lastName.TabIndex = 38;
@@ -256,7 +259,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.label7.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.label7.Location = new System.Drawing.Point(271, 213);
+            this.label7.Location = new System.Drawing.Point(278, 222);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(72, 21);
             this.label7.TabIndex = 35;
@@ -267,7 +270,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.label6.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.label6.Location = new System.Drawing.Point(39, 138);
+            this.label6.Location = new System.Drawing.Point(46, 147);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(63, 21);
             this.label6.TabIndex = 34;
@@ -278,7 +281,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.label5.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.label5.Location = new System.Drawing.Point(39, 288);
+            this.label5.Location = new System.Drawing.Point(46, 297);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(45, 21);
             this.label5.TabIndex = 33;
@@ -289,7 +292,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.label4.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.label4.Location = new System.Drawing.Point(271, 135);
+            this.label4.Location = new System.Drawing.Point(278, 144);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(25, 21);
             this.label4.TabIndex = 32;
@@ -300,7 +303,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.label3.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.label3.Location = new System.Drawing.Point(271, 63);
+            this.label3.Location = new System.Drawing.Point(278, 72);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 21);
             this.label3.TabIndex = 31;
@@ -311,7 +314,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.label1.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.label1.Location = new System.Drawing.Point(39, 213);
+            this.label1.Location = new System.Drawing.Point(46, 222);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(77, 21);
             this.label1.TabIndex = 29;
@@ -334,7 +337,7 @@
             // 
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(547, 152);
+            this.pictureBox1.Location = new System.Drawing.Point(546, 152);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(217, 94);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -346,13 +349,34 @@
             // 
             this.pictureBox5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(547, 65);
+            this.pictureBox5.Location = new System.Drawing.Point(546, 65);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(217, 94);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 84;
             this.pictureBox5.TabStop = false;
             this.pictureBox5.Click += new System.EventHandler(this.edit_Click);
+            // 
+            // FormHeadline
+            // 
+            this.FormHeadline.AutoSize = true;
+            this.FormHeadline.Font = new System.Drawing.Font("Segoe UI Light", 15F);
+            this.FormHeadline.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.FormHeadline.Location = new System.Drawing.Point(43, 16);
+            this.FormHeadline.Name = "FormHeadline";
+            this.FormHeadline.Size = new System.Drawing.Size(95, 28);
+            this.FormHeadline.TabIndex = 96;
+            this.FormHeadline.Text = "My Profile";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(16, -15);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(769, 481);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 97;
+            this.pictureBox3.TabStop = false;
             // 
             // OperationalManagerAccountForm
             // 
@@ -387,11 +411,14 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.FormHeadline);
+            this.Controls.Add(this.pictureBox3);
             this.Name = "OperationalManagerAccountForm";
             this.Load += new System.EventHandler(this.OperationalManagerAccountForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -426,5 +453,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Label FormHeadline;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }

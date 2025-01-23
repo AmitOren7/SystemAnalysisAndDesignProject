@@ -65,6 +65,8 @@ namespace SystemAnalysisAndDesignProject
             }
 
             save.Visible = true;
+            pictureBox2.Visible = true;
+
 
         }
 
@@ -137,6 +139,21 @@ namespace SystemAnalysisAndDesignProject
         }
 
         private void ClerkCreateNewEmployeeForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormHeadline_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lisenceCopy_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void email__TextChanged(object sender, EventArgs e)
         {
 
         }

@@ -49,9 +49,9 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI Symbol", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.button1.ForeColor = System.Drawing.Color.FloralWhite;
-            this.button1.Location = new System.Drawing.Point(587, 246);
+            this.button1.Location = new System.Drawing.Point(562, 277);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(15, 25);
+            this.button1.Size = new System.Drawing.Size(21, 10);
             this.button1.TabIndex = 7;
             this.button1.Text = "Submit";
             this.button1.UseVisualStyleBackColor = false;
@@ -62,7 +62,7 @@
             this.richTextBoxQuestion.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBoxQuestion.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.richTextBoxQuestion.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.richTextBoxQuestion.Location = new System.Drawing.Point(154, 128);
+            this.richTextBoxQuestion.Location = new System.Drawing.Point(129, 128);
             this.richTextBoxQuestion.Name = "richTextBoxQuestion";
             this.richTextBoxQuestion.Size = new System.Drawing.Size(445, 98);
             this.richTextBoxQuestion.TabIndex = 6;
@@ -74,7 +74,7 @@
             this.comboBoxRoles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxRoles.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.comboBoxRoles.FormattingEnabled = true;
-            this.comboBoxRoles.Location = new System.Drawing.Point(157, 71);
+            this.comboBoxRoles.Location = new System.Drawing.Point(132, 71);
             this.comboBoxRoles.Name = "comboBoxRoles";
             this.comboBoxRoles.Size = new System.Drawing.Size(150, 21);
             this.comboBoxRoles.TabIndex = 8;
@@ -86,7 +86,7 @@
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.label1.ForeColor = System.Drawing.Color.DimGray;
-            this.label1.Location = new System.Drawing.Point(154, 55);
+            this.label1.Location = new System.Drawing.Point(129, 55);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 13);
             this.label1.TabIndex = 10;
@@ -99,7 +99,7 @@
             this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.label2.ForeColor = System.Drawing.Color.DimGray;
-            this.label2.Location = new System.Drawing.Point(154, 105);
+            this.label2.Location = new System.Drawing.Point(129, 105);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(90, 13);
             this.label2.TabIndex = 11;
@@ -111,9 +111,9 @@
             this.pictureBox2.BackColor = System.Drawing.Color.White;
             this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(525, 243);
+            this.pictureBox2.Location = new System.Drawing.Point(523, 261);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(77, 47);
+            this.pictureBox2.Size = new System.Drawing.Size(106, 39);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 9;
             this.pictureBox2.TabStop = false;
@@ -122,7 +122,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(-1, 15);
+            this.pictureBox1.Location = new System.Drawing.Point(-26, 19);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(755, 317);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -133,7 +133,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(151, 122);
+            this.pictureBox3.Location = new System.Drawing.Point(126, 122);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(451, 118);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

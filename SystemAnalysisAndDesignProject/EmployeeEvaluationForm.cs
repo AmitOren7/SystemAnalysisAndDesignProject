@@ -173,7 +173,7 @@ namespace SystemAnalysisAndDesignProject
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(720, 18);
+            this.button1.Location = new System.Drawing.Point(720, 14);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(38, 38);
             this.button1.TabIndex = 21;
@@ -183,20 +183,20 @@ namespace SystemAnalysisAndDesignProject
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Light", 13.75F);
+            this.label1.Font = new System.Drawing.Font("Segoe UI Light", 15F);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(108)))), ((int)(((byte)(225)))));
-            this.label1.Location = new System.Drawing.Point(50, 23);
+            this.label1.Location = new System.Drawing.Point(58, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(187, 25);
+            this.label1.Size = new System.Drawing.Size(192, 28);
             this.label1.TabIndex = 22;
             this.label1.Text = "Employee Evaluations";
             this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(551, 414);
+            this.button2.Location = new System.Drawing.Point(640, 402);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(75, 13);
             this.button2.TabIndex = 23;
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
@@ -208,7 +208,7 @@ namespace SystemAnalysisAndDesignProject
             this.back.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.back.Image = ((System.Drawing.Image)(resources.GetObject("back.Image")));
-            this.back.Location = new System.Drawing.Point(720, 19);
+            this.back.Location = new System.Drawing.Point(720, 15);
             this.back.Name = "back";
             this.back.Size = new System.Drawing.Size(43, 37);
             this.back.TabIndex = 20;
@@ -219,9 +219,9 @@ namespace SystemAnalysisAndDesignProject
             // 
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(551, 393);
+            this.pictureBox1.Location = new System.Drawing.Point(610, 397);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(161, 44);
+            this.pictureBox1.Size = new System.Drawing.Size(153, 41);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;

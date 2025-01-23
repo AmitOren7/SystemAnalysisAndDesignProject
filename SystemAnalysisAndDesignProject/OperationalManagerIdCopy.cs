@@ -25,7 +25,7 @@ namespace SystemAnalysisAndDesignProject
         private void DriverIdCopyForm_Load(object sender, EventArgs e)
         {
             string personName =operationalManager.GetName();
-            label1.Text = $"{personName} ID Copy:";
+            label1.Text = $"{personName} ID Copy";
             string imageUrl = this.operationalManager.GetIdCopy();
             using (WebClient client = new WebClient())
             {
@@ -39,9 +39,11 @@ namespace SystemAnalysisAndDesignProject
 
         private void back_Click(object sender, EventArgs e)
         {
-            this.Close();
             OperationalManagerAccountForm operationalManagerAccountForm = new OperationalManagerAccountForm(operationalManager);
+            this.Hide();
             operationalManagerAccountForm.ShowDialog();
+            this.Close();
+
         }
     }
 }

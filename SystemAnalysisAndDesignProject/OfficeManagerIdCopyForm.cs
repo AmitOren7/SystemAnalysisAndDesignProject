@@ -24,7 +24,7 @@ namespace SystemAnalysisAndDesignProject
         private void OfficeManagerIdCopyForm_Load(object sender, EventArgs e)
         {
             string personName = officeManager.GetName();
-            label1.Text = $"{personName} ID Copy:";
+            label1.Text = $"{personName} ID Copy";
             string imageUrl = this.officeManager.GetIdCopy();
             using (WebClient client = new WebClient())
             {
@@ -38,9 +38,11 @@ namespace SystemAnalysisAndDesignProject
 
         private void back_Click(object sender, EventArgs e)
         {
-            this.Close();
             OfficeManagerAccountForm officelManagerAccountForm = new OfficeManagerAccountForm(officeManager);
+            this.Hide();
             officelManagerAccountForm.ShowDialog();
+            this.Close();
+
         }
     }
 }

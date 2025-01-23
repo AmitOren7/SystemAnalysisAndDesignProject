@@ -33,7 +33,7 @@ namespace SystemAnalysisAndDesignProject
         private void DriverIdCopyForm_Load(object sender, EventArgs e)
         {
             string personName = driver.GetName();
-            label1.Text = $"{personName} ID Copy:";
+            label1.Text = $"{personName} ID Copy";
             string imageUrl = this.driver.GetIdCopy();
                        using (WebClient client = new WebClient())
             {

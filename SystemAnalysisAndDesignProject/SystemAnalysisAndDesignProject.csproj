@@ -79,12 +79,6 @@
     <Compile Include="ClerkAccountForm.Designer.cs">
       <DependentUpon>ClerkAccountForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ClerkCalendarForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ClerkCalendarForm.Designer.cs">
-      <DependentUpon>ClerkCalendarForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="ClerkCreateNewEmployeeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,12 +145,6 @@
     <Compile Include="DriverTaskForm.Designer.cs">
       <DependentUpon>DriverTaskForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DriverWorkCertification.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DriverWorkCertification.Designer.cs">
-      <DependentUpon>DriverWorkCertification.cs</DependentUpon>
-    </Compile>
     <Compile Include="EditSurvey.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,12 +190,6 @@
     </Compile>
     <Compile Include="OfficeManagerAccountForm.Designer.cs">
       <DependentUpon>OfficeManagerAccountForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="OfficeManagerCalendarForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="OfficeManagerCalendarForm.Designer.cs">
-      <DependentUpon>OfficeManagerCalendarForm.cs</DependentUpon>
     </Compile>
     <Compile Include="OfficeManagerIdCopyForm.cs">
       <SubType>Form</SubType>
@@ -303,9 +285,6 @@
     <EmbeddedResource Include="ClerkAccountForm.resx">
       <DependentUpon>ClerkAccountForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ClerkCalendarForm.resx">
-      <DependentUpon>ClerkCalendarForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ClerkCreateNewEmployeeForm.resx">
       <DependentUpon>ClerkCreateNewEmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -349,9 +328,6 @@
     <EmbeddedResource Include="DriverTaskForm.resx">
       <DependentUpon>DriverTaskForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DriverWorkCertification.resx">
-      <DependentUpon>DriverWorkCertification.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="EditSurvey.resx">
       <DependentUpon>EditSurvey.cs</DependentUpon>
     </EmbeddedResource>
@@ -372,9 +348,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="OfficeManagerAccountForm.resx">
       <DependentUpon>OfficeManagerAccountForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="OfficeManagerCalendarForm.resx">
-      <DependentUpon>OfficeManagerCalendarForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OfficeManagerIdCopyForm.resx">
       <DependentUpon>OfficeManagerIdCopyForm.cs</DependentUpon>

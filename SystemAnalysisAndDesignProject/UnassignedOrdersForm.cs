@@ -26,6 +26,7 @@ namespace SystemAnalysisAndDesignProject
         {
             InitializeComponent();
             extendDriverButton.Visible = false;
+            pictureBox3.Visible = false;
             this.operationalManager = operationalManager;
             CustomizeDataGridView();
             PopulateOrdersGridDiff();
@@ -160,6 +161,7 @@ namespace SystemAnalysisAndDesignProject
                  selectedOrder = sortedOrders[e.RowIndex];
                 Dictionary<Order, List<Driver>> eligibleDrivers = OrdersManeger.GetEligibleDrivers(sortedOrders, selectedOrder);
                 extendDriverButton.Visible = true;
+                pictureBox3.Visible = true;
                 currentDriversList = eligibleDrivers[selectedOrder];
                 // Fetch the list of eligible drivers for the selected order from the dictionary
                 if (currentDriversList.Count > 0)
@@ -250,7 +252,7 @@ namespace SystemAnalysisAndDesignProject
 
                 OperationalManager.assign_clerk(selectedClerk, selectedOrder);
                 OperationalManager.assign_driver(selectedDriver, selectedOrder);
-                OperationalManager.ChengeDriverStatus(selectedDriver);
+                OperationalManager.ChangeDriverStatus(selectedDriver);
                 OperationalManager.ChangeClerkStatus(selectedClerk);    
                 MessageBox.Show($"{selectedClerk.GetFirstName()} {selectedClerk.GetLastName()} as clerk and {selectedDriver.GetFirstName()} {selectedDriver.GetLastName()} as driver assigned successfully to order number {selectedOrder.GetId()}");
 
@@ -263,6 +265,16 @@ namespace SystemAnalysisAndDesignProject
             this.Close();
             OperationalManagerMainForm operationalManagerAccountForm = new OperationalManagerMainForm(operationalManager);
             operationalManagerAccountForm.ShowDialog();
+        }
+
+        private void UnassignedOrdersForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void driversdatagridheadline_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

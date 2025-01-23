@@ -63,5 +63,12 @@ namespace SystemAnalysisAndDesignProject
             CalendarForm.Show();
             this.Hide();
         }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            CreateVehicle createVehicleForm = new CreateVehicle( this);
+            createVehicleForm.Show();
+            this.Hide();
+        }
     }
 }

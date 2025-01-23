@@ -33,10 +33,16 @@ namespace SystemAnalysisAndDesignProject
             }
             if (this.order == null)
             {
+                this.Hide();
                 MessageBox.Show("No order found for the selected driver and date.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             fillTaskStatus();
         }
+
+        public Order GetOrder()
+        {
+            return this.order;
+        } 
 
         private void DriverTaskForm_Load(object sender, EventArgs e)
         {
@@ -76,28 +82,31 @@ namespace SystemAnalysisAndDesignProject
 
         private void task_status_SelectedIndexChanged(object sender, EventArgs e) {
 
-            var selectedStatus = (OrderStatus)task_status.SelectedItem;
-            this.driver.UpdateOrderStatus(selectedStatus, this.order);
-            if (selectedStatus == OrderStatus.departure)
+            if (this.order != null)
+            {
+                var selectedStatus = (OrderStatus)task_status.SelectedItem;
+                this.driver.UpdateOrderStatus(selectedStatus, this.order);
+                if (selectedStatus == OrderStatus.departure)
                 {
-                task_status2.Visible = true;
-                task_status1.Visible = false;
+                    task_status2.Visible = true;
+                    task_status1.Visible = false;
                 }
-            if (selectedStatus == OrderStatus.arrivedToSite)
-            { 
-                task_status3.Visible = true;
-                task_status2.Visible= false;
+                if (selectedStatus == OrderStatus.arrivedToSite)
+                {
+                    task_status3.Visible = true;
+                    task_status2.Visible = false;
+                }
+                if (selectedStatus == OrderStatus.taskCompleted)
+                {
+                    task_status4.Visible = true;
+                    task_status3.Visible = false;
+                }
+                if (selectedStatus == OrderStatus.workCertificateSigned)
+                {
+                    task_status5.Visible = true;
+                    task_status4.Visible = false;
+                }
             }
-            if (selectedStatus == OrderStatus.taskCompleted) 
-            {
-                task_status4.Visible = true;
-                task_status3.Visible= false;
-            }
-            if (selectedStatus == OrderStatus.workCertificateSigned) 
-            {
-                task_status5.Visible = true;
-               task_status4.Visible= false;
-           }
 
         }
 

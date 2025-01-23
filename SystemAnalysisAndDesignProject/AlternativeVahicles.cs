@@ -157,6 +157,8 @@ namespace SystemAnalysisAndDesignProject
                     {
                         OperationalManager.assign_driver(selectedDriver, selectedOrder);
                         OperationalManager.assign_clerk(selectedClerk , selectedOrder);
+                        OperationalManager.ChengeDriverStatus(selectedDriver);
+                        OperationalManager.ChangeClerkStatus(selectedClerk);
                         OperationalManager.UnAssign (check);
 
                     }
@@ -167,6 +169,8 @@ namespace SystemAnalysisAndDesignProject
                 }
                 OperationalManager.assign_driver(selectedDriver, selectedOrder);
                 OperationalManager.assign_clerk(selectedClerk, selectedOrder);
+                OperationalManager.ChengeDriverStatus(selectedDriver);
+                OperationalManager.ChangeClerkStatus(selectedClerk);
             }
             if (selectedVehicle != null)
             {

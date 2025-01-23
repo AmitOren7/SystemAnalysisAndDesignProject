@@ -115,6 +115,12 @@
     <Compile Include="CompletedEmployeeEvaluationCard.Designer.cs">
       <DependentUpon>CompletedEmployeeEvaluationCard.cs</DependentUpon>
     </Compile>
+    <Compile Include="CreateVehicle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateVehicle.Designer.cs">
+      <DependentUpon>CreateVehicle.cs</DependentUpon>
+    </Compile>
     <Compile Include="DriverAccountForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -308,6 +314,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="blank.resx">
       <DependentUpon>blank.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateVehicle.resx">
+      <DependentUpon>CreateVehicle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DriverAccountForm.resx">
       <DependentUpon>DriverAccountForm.cs</DependentUpon>

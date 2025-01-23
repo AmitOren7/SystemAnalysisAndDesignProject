@@ -29,9 +29,20 @@ namespace SystemAnalysisAndDesignProject
 
         private void taskForm_Click(object sender, EventArgs e)
         {
+            // Assuming the `driver` object is passed to the form
             DriverTaskForm driverTaskForm = new DriverTaskForm(driver);
-            driverTaskForm.Show();
-            this.Hide();
+
+            // Check if there are tasks for today
+            if (driverTaskForm.GetOrder() == null) // Assuming `Task` is a property in DriverTaskForm
+            {
+                MessageBox.Show("There are no tasks for today.", "No Tasks", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Show(); // Show the main form again
+            }
+            else
+            {
+                driverTaskForm.Show(); // Show the task form
+                this.Hide();           // Hide the main form
+            }
         }
 
 
@@ -55,9 +66,6 @@ namespace SystemAnalysisAndDesignProject
             this.Hide();
         }
 
-        private void driverLabel_Click(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }

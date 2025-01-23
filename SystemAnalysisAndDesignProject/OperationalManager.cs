@@ -84,7 +84,7 @@ namespace SystemAnalysisAndDesignProject
 
         public static void assign_clerk (Clerk clerk , Order order ) 
         {
-            order.  (clerk);
+            order.SetClerk(clerk);
             SqlCommand sp1 = new SqlCommand();
             sp1.CommandText = "EXECUTE SP_Update_orderClerk @id, @clerkID";
             sp1.Parameters.AddWithValue("@id", order.GetId());
@@ -126,6 +126,16 @@ namespace SystemAnalysisAndDesignProject
             SC.execute_non_query(sp1);
             SC.execute_non_query(sp2);
             SC.execute_non_query(sp3);
+        }
+
+        public static void ChengeDriverStatus (Driver driver)
+        {
+            driver.changeStatus(PerformanceStatus.assignedToOrder);
+        }
+
+        public static void ChangeClerkStatus (Clerk clerk)
+        {
+            clerk.changeStatus(PerformanceStatus.assignedToOrder);
         }
 
     }

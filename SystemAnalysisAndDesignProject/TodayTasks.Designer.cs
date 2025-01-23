@@ -40,6 +40,7 @@
             this.orderStatusCombo = new System.Windows.Forms.ComboBox();
             this.status = new System.Windows.Forms.Label();
             this.save = new System.Windows.Forms.Button();
+            this.currentorderstatus = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -114,7 +115,7 @@
             this.driver.AutoSize = true;
             this.driver.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.driver.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.driver.Location = new System.Drawing.Point(514, 153);
+            this.driver.Location = new System.Drawing.Point(514, 123);
             this.driver.Name = "driver";
             this.driver.Size = new System.Drawing.Size(45, 17);
             this.driver.TabIndex = 6;
@@ -125,7 +126,7 @@
             this.vehicle.AutoSize = true;
             this.vehicle.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.vehicle.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.vehicle.Location = new System.Drawing.Point(514, 188);
+            this.vehicle.Location = new System.Drawing.Point(514, 153);
             this.vehicle.Name = "vehicle";
             this.vehicle.Size = new System.Drawing.Size(45, 17);
             this.vehicle.TabIndex = 7;
@@ -134,7 +135,7 @@
             // orderStatusCombo
             // 
             this.orderStatusCombo.FormattingEnabled = true;
-            this.orderStatusCombo.Location = new System.Drawing.Point(514, 114);
+            this.orderStatusCombo.Location = new System.Drawing.Point(514, 86);
             this.orderStatusCombo.Name = "orderStatusCombo";
             this.orderStatusCombo.Size = new System.Drawing.Size(121, 21);
             this.orderStatusCombo.TabIndex = 8;
@@ -145,7 +146,7 @@
             this.status.AutoSize = true;
             this.status.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.status.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.status.Location = new System.Drawing.Point(514, 79);
+            this.status.Location = new System.Drawing.Point(511, 44);
             this.status.Name = "status";
             this.status.Size = new System.Drawing.Size(81, 17);
             this.status.TabIndex = 9;
@@ -162,14 +163,25 @@
             this.save.Size = new System.Drawing.Size(47, 47);
             this.save.TabIndex = 21;
             this.save.UseVisualStyleBackColor = true;
-            this.save.Visible = true;
             this.save.Click += new System.EventHandler(this.save_Click);
+            // 
+            // currentorderstatus
+            // 
+            this.currentorderstatus.AutoSize = true;
+            this.currentorderstatus.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.currentorderstatus.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.currentorderstatus.Location = new System.Drawing.Point(514, 183);
+            this.currentorderstatus.Name = "currentorderstatus";
+            this.currentorderstatus.Size = new System.Drawing.Size(45, 17);
+            this.currentorderstatus.TabIndex = 22;
+            this.currentorderstatus.Text = "label1";
             // 
             // TodayTasks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.currentorderstatus);
             this.Controls.Add(this.save);
             this.Controls.Add(this.status);
             this.Controls.Add(this.orderStatusCombo);
@@ -202,5 +214,6 @@
         private System.Windows.Forms.ComboBox orderStatusCombo;
         private System.Windows.Forms.Label status;
         private System.Windows.Forms.Button save;
+        private System.Windows.Forms.Label currentorderstatus;
     }
 }

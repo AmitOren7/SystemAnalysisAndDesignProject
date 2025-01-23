@@ -34,9 +34,7 @@ namespace SystemAnalysisAndDesignProject
         {
             string personName = driver.GetName();
             label1.Text = $"{personName} Lisence Copy:";
-            string imageUrl = "https://github.com/AmitOren7/SystemAnalysisAndDesignProject/blob/master/driverLisenceIdCopy.jpg";
-
-            //string imageUrl = this.driver.GetLisenceCopy();
+            string imageUrl = this.driver.GetLisenceCopy();
             using (WebClient client = new WebClient())
             {
                 byte[] imageBytes = client.DownloadData(imageUrl);

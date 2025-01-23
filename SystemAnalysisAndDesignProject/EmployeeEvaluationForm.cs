@@ -45,9 +45,11 @@ namespace SystemAnalysisAndDesignProject
             this.button2 = new System.Windows.Forms.Button();
             this.back = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.PendingEvaluationsDisplay.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // PendingEvaluationsButton
@@ -58,7 +60,7 @@ namespace SystemAnalysisAndDesignProject
             this.PendingEvaluationsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PendingEvaluationsButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.PendingEvaluationsButton.ForeColor = System.Drawing.Color.White;
-            this.PendingEvaluationsButton.Location = new System.Drawing.Point(52, 67);
+            this.PendingEvaluationsButton.Location = new System.Drawing.Point(91, 57);
             this.PendingEvaluationsButton.Name = "PendingEvaluationsButton";
             this.PendingEvaluationsButton.Size = new System.Drawing.Size(312, 26);
             this.PendingEvaluationsButton.TabIndex = 0;
@@ -74,7 +76,7 @@ namespace SystemAnalysisAndDesignProject
             this.CompletedEvaluationsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CompletedEvaluationsButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.CompletedEvaluationsButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.CompletedEvaluationsButton.Location = new System.Drawing.Point(364, 67);
+            this.CompletedEvaluationsButton.Location = new System.Drawing.Point(403, 57);
             this.CompletedEvaluationsButton.Name = "CompletedEvaluationsButton";
             this.CompletedEvaluationsButton.Size = new System.Drawing.Size(312, 26);
             this.CompletedEvaluationsButton.TabIndex = 1;
@@ -85,7 +87,7 @@ namespace SystemAnalysisAndDesignProject
             // PendingEvaluationsDisplay
             // 
             this.PendingEvaluationsDisplay.Controls.Add(this.flowLayoutPanel1);
-            this.PendingEvaluationsDisplay.Location = new System.Drawing.Point(52, 99);
+            this.PendingEvaluationsDisplay.Location = new System.Drawing.Point(91, 89);
             this.PendingEvaluationsDisplay.Name = "PendingEvaluationsDisplay";
             this.PendingEvaluationsDisplay.Size = new System.Drawing.Size(624, 307);
             this.PendingEvaluationsDisplay.TabIndex = 2;
@@ -144,7 +146,7 @@ namespace SystemAnalysisAndDesignProject
             // 
             // CompletedEvaluationsDisplay
             // 
-            this.CompletedEvaluationsDisplay.Location = new System.Drawing.Point(0, 0);
+            this.CompletedEvaluationsDisplay.Location = new System.Drawing.Point(-1, -3);
             this.CompletedEvaluationsDisplay.Name = "CompletedEvaluationsDisplay";
             this.CompletedEvaluationsDisplay.Size = new System.Drawing.Size(624, 307);
             this.CompletedEvaluationsDisplay.TabIndex = 0;
@@ -153,7 +155,7 @@ namespace SystemAnalysisAndDesignProject
             // flowLayoutPanel3
             // 
             this.flowLayoutPanel3.AutoScroll = true;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(52, 99);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(91, 89);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(624, 307);
             this.flowLayoutPanel3.TabIndex = 4;
@@ -162,7 +164,7 @@ namespace SystemAnalysisAndDesignProject
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(190, 15);
+            this.comboBox1.Location = new System.Drawing.Point(189, 12);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(103, 21);
             this.comboBox1.TabIndex = 0;
@@ -171,7 +173,7 @@ namespace SystemAnalysisAndDesignProject
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(633, 17);
+            this.button1.Location = new System.Drawing.Point(720, 18);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(38, 38);
             this.button1.TabIndex = 21;
@@ -183,7 +185,7 @@ namespace SystemAnalysisAndDesignProject
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Light", 13.75F);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(108)))), ((int)(((byte)(225)))));
-            this.label1.Location = new System.Drawing.Point(48, 21);
+            this.label1.Location = new System.Drawing.Point(50, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(187, 25);
             this.label1.TabIndex = 22;
@@ -192,7 +194,7 @@ namespace SystemAnalysisAndDesignProject
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(552, 423);
+            this.button2.Location = new System.Drawing.Point(551, 414);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 23;
@@ -206,7 +208,7 @@ namespace SystemAnalysisAndDesignProject
             this.back.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.back.Image = ((System.Drawing.Image)(resources.GetObject("back.Image")));
-            this.back.Location = new System.Drawing.Point(633, 18);
+            this.back.Location = new System.Drawing.Point(720, 19);
             this.back.Name = "back";
             this.back.Size = new System.Drawing.Size(43, 37);
             this.back.TabIndex = 20;
@@ -217,18 +219,28 @@ namespace SystemAnalysisAndDesignProject
             // 
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(497, 412);
+            this.pictureBox1.Location = new System.Drawing.Point(551, 393);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(179, 61);
+            this.pictureBox1.Size = new System.Drawing.Size(161, 44);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.button2_Click_1);
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(24, -11);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(769, 481);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 24;
+            this.pictureBox2.TabStop = false;
+            // 
             // EmployeeEvaluationForm
             // 
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(720, 472);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.back);
             this.Controls.Add(this.PendingEvaluationsDisplay);
@@ -238,11 +250,13 @@ namespace SystemAnalysisAndDesignProject
             this.Controls.Add(this.flowLayoutPanel3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);
+            this.Controls.Add(this.pictureBox2);
             this.Name = "EmployeeEvaluationForm";
             this.Load += new System.EventHandler(this.EmployeeEvaluationForm_Load);
             this.PendingEvaluationsDisplay.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

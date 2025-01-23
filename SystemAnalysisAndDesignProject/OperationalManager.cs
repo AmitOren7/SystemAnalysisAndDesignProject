@@ -84,7 +84,7 @@ namespace SystemAnalysisAndDesignProject
 
         public static void assign_clerk (Clerk clerk , Order order ) 
         {
-            order.SetClerk(clerk);
+            order.  (clerk);
             SqlCommand sp1 = new SqlCommand();
             sp1.CommandText = "EXECUTE SP_Update_orderClerk @id, @clerkID";
             sp1.Parameters.AddWithValue("@id", order.GetId());

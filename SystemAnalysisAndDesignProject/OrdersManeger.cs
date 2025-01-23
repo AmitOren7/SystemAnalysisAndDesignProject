@@ -11,7 +11,9 @@ namespace SystemAnalysisAndDesignProject
     {
         public static List<Order> orders = Program.OrderList;
         public static List<Driver> drivers = Program.DriverList;
-        public static List<Vehicle> vehicles = Program.VehicleList; 
+        public static List<Vehicle> vehicles = Program.VehicleList;
+        public static List<Clerk> Clerks = Program.ClerkList;
+
         public static List<Order> GetPendingOrders()
         {
             List<Order> pendingOrders = new List<Order>();
@@ -50,7 +52,7 @@ namespace SystemAnalysisAndDesignProject
             {
 
                 var suitableDrivers = drivers.Where(driver =>
-                    driver.GetPerformanceStatus() != PerformanceStatus.awaitingFirstEvaluation &&
+                    driver.GetPerformanceStatus() == PerformanceStatus.pendingForAssignment &&
                     driver.GetVehicle().GetVehicleType() == order.GetVehicleType() &&
                     driver.GetVehicle().GetMaxCapacity() >= order.GetTotalWeight() &&
                     driver.GetVehicle().GetCargoType() == order.GetCargoType() &&

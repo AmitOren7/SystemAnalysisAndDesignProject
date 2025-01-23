@@ -91,7 +91,7 @@ namespace SystemAnalysisAndDesignProject
                 Clerk newClerk = new Clerk(first_name.Text, last_name.Text, id_.Text,
                                             phone_.Text, email_.Text, address_.Text,
                                             username_.Text, password_.Text, id_copy.Text,
-                                            true, PerformanceStatus.awaitingFirstEvaluation);
+                                            true, PerformanceStatus.pendingForAssignment);
             }
             if (employeeType == "Driver")
             {
@@ -99,7 +99,7 @@ namespace SystemAnalysisAndDesignProject
                                             phone_.Text, email_.Text, address_.Text,
                                             username_.Text, password_.Text, id_copy.Text,
                                             license_copy.Text, license_id.Text, true,
-                                            PerformanceStatus.awaitingFirstEvaluation, null);
+                                            PerformanceStatus.pendingForAssignment, null);
                 if (string.IsNullOrEmpty(license_copy.Text) || string.IsNullOrEmpty(license_id.Text))
                 {
                     MessageBox.Show("All fields must be filled out before proceeding.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

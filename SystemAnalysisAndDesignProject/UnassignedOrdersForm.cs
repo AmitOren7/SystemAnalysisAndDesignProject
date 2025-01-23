@@ -18,7 +18,7 @@ namespace SystemAnalysisAndDesignProject
         private Order selectedOrder;
         private List<Driver> currentDriversList;
         private OperationalManager operationalManager;
-        private List<Clerk> clerks = Program.ClerkList;
+        private List<Clerk> clerks = OrdersManeger.Clerks;
         private Driver selectedDriver;
         private Clerk selectedClerk;
 
@@ -160,15 +160,15 @@ namespace SystemAnalysisAndDesignProject
                  selectedOrder = sortedOrders[e.RowIndex];
                 Dictionary<Order, List<Driver>> eligibleDrivers = OrdersManeger.GetEligibleDrivers(sortedOrders, selectedOrder);
                 extendDriverButton.Visible = true;
-
+                currentDriversList = eligibleDrivers[selectedOrder];
                 // Fetch the list of eligible drivers for the selected order from the dictionary
-                if (eligibleDrivers.TryGetValue(selectedOrder, out List<Driver> Drivers))
+                if (currentDriversList.Count > 0)
                 {
-                     currentDriversList = eligibleDrivers[selectedOrder];
                     ShowEligibleDrivers(currentDriversList);
                 }
                 else
                 {
+                    DG_EligibleDrivers.Rows.Clear();
                     MessageBox.Show("No drivers found for the selected order, please look for other options through extend drivers options","extend options", MessageBoxButtons.OK);
                 }
             }

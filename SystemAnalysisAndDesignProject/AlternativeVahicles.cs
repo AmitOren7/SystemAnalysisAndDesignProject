@@ -19,7 +19,7 @@ namespace SystemAnalysisAndDesignProject
         private Order selectedOrder;
         private Vehicle selectedVehicle;
         private int originalIndex;
-        private List<Clerk> clerks = Program.ClerkList;
+        private List<Clerk> clerks = OrdersManeger.Clerks;
         private Clerk selectedClerk;
         private OperationalManager operationalManager;
         
@@ -172,7 +172,6 @@ namespace SystemAnalysisAndDesignProject
             {
                 OperationalManager.SetDriverAlternativeVehicle (selectedDriver, selectedVehicle);
             }
-            MessageBox.Show("they where null");
 
 
         }

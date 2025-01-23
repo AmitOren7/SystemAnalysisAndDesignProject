@@ -35,6 +35,7 @@ namespace SystemAnalysisAndDesignProject
 
         }
 
+        // save the new driver in the database
         public override void Create()
         {
             SqlCommand sp = new SqlCommand();
@@ -61,7 +62,6 @@ namespace SystemAnalysisAndDesignProject
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(sp); 
         }
-
 
 
         public PerformanceStatus GetPerformanceStatus() 
@@ -94,9 +94,7 @@ namespace SystemAnalysisAndDesignProject
             this.licenseId = licenseId;
         }
 
-        //public void FillWorkCertification() { }
-
-
+        // updates the order status 
         public void UpdateOrderStatus(OrderStatus orderStatus, Order order)
         {
             order.SetOrderStatus(orderStatus);
@@ -112,6 +110,7 @@ namespace SystemAnalysisAndDesignProject
             }
         }
         
+        // saves the profile updated details in the database
         public override void Update()
         {
             SqlCommand sp = new SqlCommand();
@@ -134,9 +133,7 @@ namespace SystemAnalysisAndDesignProject
             SC.execute_non_query(sp);
         }
 
-
-
-        public bool GetAssociatedRole()  // indicated associated role for driver and clerk roles in the survey.
+        public bool GetAssociatedRole() 
         {
             return true;
         }
@@ -146,37 +143,32 @@ namespace SystemAnalysisAndDesignProject
             this.vehicle = vehicle;
         }
 
+        // change the status of driver
         public void changeStatus(PerformanceStatus status)
         {
             this.performanceStatus = status;
-
             SqlCommand sp = new SqlCommand();
             sp.CommandText = "EXECUTE SP_Update_Driver_Status @id, @performanceStatus";
-
             sp.Parameters.AddWithValue("@id", this.id);
             sp.Parameters.AddWithValue("@performanceStatus", this.performanceStatus.ToString());
 
-
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(sp);
-
             if (status == PerformanceStatus.archived)
             {
                 Archive();
             }
         }
 
+        // when driver is fired he will be removed from the drivers table and move to the archived clerks tanle in the database
         public void Archive()
         {
-
             SqlCommand sp = new SqlCommand();
             sp.CommandText = "EXECUTE SP_archive_driver @id";
-
             sp.Parameters.AddWithValue("@id", this.id);
 
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(sp);
-
             Program.ArchivedEmployeeList.Add(this);
             Program.EmployeeList.Remove(this);
             Program.DriverList.Remove(this);

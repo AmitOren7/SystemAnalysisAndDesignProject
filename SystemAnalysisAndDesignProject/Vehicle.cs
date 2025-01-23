@@ -10,11 +10,11 @@ namespace SystemAnalysisAndDesignProject
     public class Vehicle
     {
         private string id;
-        private CargoType cargoType; //enum
-        private VehicleType vehicleType; //enum
+        private CargoType cargoType; 
+        private VehicleType vehicleType;
         private float maxCapacity;
-        private DateTime testDate; //datetime
-        private VehicleConditionStatus vehicleConditionStatus; //enum
+        private DateTime testDate; 
+        private VehicleConditionStatus vehicleConditionStatus; 
 
 
         public Vehicle(string id, VehicleType vehicleType, 
@@ -33,10 +33,9 @@ namespace SystemAnalysisAndDesignProject
                 Program.VehicleList.Add(this);
             }
 
-
         }
 
-
+        // save the new vehicle in the database
         public void CreateVehicle()
         {
             SqlCommand sp = new SqlCommand();
@@ -51,8 +50,6 @@ namespace SystemAnalysisAndDesignProject
             SC.execute_non_query(sp);
 
         }
-
-
 
         public string GetID()
         {
@@ -93,10 +90,6 @@ namespace SystemAnalysisAndDesignProject
             this.testDate = date;
             return true;
         }
-
-
-        
-
 
     }
 }

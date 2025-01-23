@@ -23,16 +23,13 @@ namespace SystemAnalysisAndDesignProject
             this.order = order;
             this.questions = new List<Question>();
             this.answers = new List<Answer>();
-
-
             if (is_new)
             {
                 this.CreateSurvey();
                 Program.SurveyList.Add(this);
-
             }
         }
-
+// creates new survey and saves in the database
         public void CreateSurvey()
         {
             SqlCommand sp = new SqlCommand();
@@ -40,7 +37,6 @@ namespace SystemAnalysisAndDesignProject
             sp.Parameters.AddWithValue("@headline", this.headline);
             sp.Parameters.AddWithValue("@completed", this.completed);
             sp.Parameters.AddWithValue("@order", this.order.GetId());
-
 
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(sp);
@@ -65,7 +61,7 @@ namespace SystemAnalysisAndDesignProject
         {
             return this.completed;
         }
-
+        
         public bool IsEmployeeAssociated(string employeeId)
         {
             return this.order.GetAssignedClerkId().Equals(employeeId) ||

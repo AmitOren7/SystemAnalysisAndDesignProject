@@ -57,6 +57,21 @@ namespace SystemAnalysisAndDesignProject
         // submit button to create a new employee evaluation
         private void button1_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void lblRole_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblEmployeeName_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SubmitEvaluaation_Click(object sender, EventArgs e)
+        {
             string personalNote = richTextBox1.Text.Trim(); // Get the text from the notes field
 
             if (string.IsNullOrWhiteSpace(personalNote))
@@ -89,7 +104,7 @@ namespace SystemAnalysisAndDesignProject
                     MessageBox.Show("Evaluation submitted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     // Clear the card
-                        Parent.Controls.Remove(this);
+                    Parent.Controls.Remove(this);
 
 
                 }
@@ -98,16 +113,6 @@ namespace SystemAnalysisAndDesignProject
             {
                 MessageBox.Show("An error occurred while submitting the evaluation: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void lblRole_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblEmployeeName_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -70,5 +70,12 @@ namespace SystemAnalysisAndDesignProject
             createVehicleForm.Show();
             this.Hide();
         }
+
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+            vehicleDetails vehicleDetailsForm = new vehicleDetails(this);
+            vehicleDetailsForm.Show();
+            this.Hide();
+        }
     }
 }

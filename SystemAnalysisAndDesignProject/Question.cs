@@ -82,7 +82,7 @@ namespace SystemAnalysisAndDesignProject
         {
             return this.description;
         }
-
+        //updates the question details in the database 
         public void Update()
         {
             SqlCommand sp = new SqlCommand();
@@ -100,8 +100,6 @@ namespace SystemAnalysisAndDesignProject
         {
             this.hide = hide;
         }
-
-
 
     }
 }

@@ -14,6 +14,7 @@ namespace SystemAnalysisAndDesignProject
         public static List<Vehicle> vehicles = Program.VehicleList;
         public static List<Clerk> Clerks = Program.ClerkList;
 
+        // return the orders that are pending for results 
         public static List<Order> GetPendingOrders()
         {
             List<Order> pendingOrders = new List<Order>();
@@ -28,6 +29,7 @@ namespace SystemAnalysisAndDesignProject
             return pendingOrders;
         }
 
+        // prioritize orders acorrding to rate = profit/duration 
         public static List<Order> PrioritizeOrders()
         {
             List<Order> pendingOrders = GetPendingOrders();
@@ -45,6 +47,8 @@ namespace SystemAnalysisAndDesignProject
             return sortedOrders;
         }
 
+        // return the drivars that suitble for an order according to the order details like:
+        // max capacity, vehicle type, cargo type and vehicle condition
         public static Dictionary<Order, List<Driver>> GetEligibleDrivers(List<Order> sortedOrders, Order currentOrder)
         {
             Dictionary<Order, List<Driver>> orderDrivers = new Dictionary<Order, List<Driver>>();
@@ -69,6 +73,7 @@ namespace SystemAnalysisAndDesignProject
 
 
         }
+        // returns a list of alternative vehicles that are available and in proper condition 
         public static List<Vehicle> alternativeVehicles ()
         {
             List<Vehicle> alternativeVehicles = new List<Vehicle>();
@@ -82,7 +87,8 @@ namespace SystemAnalysisAndDesignProject
             return alternativeVehicles;
         }
 
-
+        //if the operational manager wants to assing a driver to an order that in
+        //overlaping another order that the driver is alreary assign to - it's returns the alreary assigned order 
         public static Order overlapCheck(Order clickedOrder, Driver clickedDriver)
         {
             foreach (Order order in orders)
@@ -93,13 +99,11 @@ namespace SystemAnalysisAndDesignProject
                     )
                 {
                     return order;
-
                 }
             }
             return null;
         }
 
     }
-
 
 }

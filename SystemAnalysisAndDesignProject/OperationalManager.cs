@@ -26,6 +26,7 @@ namespace SystemAnalysisAndDesignProject
 
         }
 
+        // create the operational manager in the database
         public override void Create()
         {
             SqlCommand sp = new SqlCommand();
@@ -44,6 +45,8 @@ namespace SystemAnalysisAndDesignProject
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(sp);
         }
+
+        // updates the details in the database
         public override void Update()
         {
             SqlCommand sp = new SqlCommand();
@@ -63,6 +66,7 @@ namespace SystemAnalysisAndDesignProject
             SC.execute_non_query(sp);
         }
 
+        // assign driver to a task 
         public static void assign_driver (Driver driver, Order order )
         {
             order.SetDriver(driver);
@@ -82,6 +86,7 @@ namespace SystemAnalysisAndDesignProject
 
         }
 
+        // assing a clek to a task
         public static void assign_clerk (Clerk clerk , Order order ) 
         {
             order.SetClerk(clerk);
@@ -94,6 +99,7 @@ namespace SystemAnalysisAndDesignProject
 
         }
 
+        // when a vehicle is not proper the operational manager can set anthor vehicle to a driver 
         public static void SetDriverAlternativeVehicle (Driver driver , Vehicle vehicle)
         {
             driver.SetVehicle(vehicle);
@@ -104,10 +110,9 @@ namespace SystemAnalysisAndDesignProject
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(sp1);
 
-
-
         }
 
+        // change the order to be unassign 
         public static void UnAssign (Order order)
         {
             SqlCommand sp1 = new SqlCommand();
@@ -128,11 +133,13 @@ namespace SystemAnalysisAndDesignProject
             SC.execute_non_query(sp3);
         }
 
+       //change the status to assigned to order when driver is assigned 
         public static void ChangeDriverStatus (Driver driver)
         {
             driver.changeStatus(PerformanceStatus.assignedToOrder);
         }
 
+        //change the status to assigned to order when clerk is assigned 
         public static void ChangeClerkStatus (Clerk clerk)
         {
             clerk.changeStatus(PerformanceStatus.assignedToOrder);

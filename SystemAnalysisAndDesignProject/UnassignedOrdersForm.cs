@@ -42,7 +42,7 @@ namespace SystemAnalysisAndDesignProject
             DG_EligibleDrivers.CellClick += DG_EligibleDrivers_CellClick;
 
         }
-
+//costomize grid looking
         private void CustomizeDataGridView()
         {
             SortedOrdersDiff.Columns.Clear();
@@ -58,7 +58,7 @@ namespace SystemAnalysisAndDesignProject
             SortedOrdersDiff.Columns.Add("totalWeight", "Total Weight");
         }
 
-
+//populate orders data grid 
         private void PopulateOrdersGridDiff()
         {
             SortedOrdersDiff.Rows.Clear();
@@ -79,6 +79,7 @@ namespace SystemAnalysisAndDesignProject
             }
 
         }
+        //managing the drag and drop events orders original sorting by deffult
         private void PrioritizedOrderDiff_MouseDown(object sender, MouseEventArgs e)
         {
             // Get the index of the row under the mouse pointer
@@ -89,7 +90,7 @@ namespace SystemAnalysisAndDesignProject
                 draggedRow = SortedOrdersDiff.Rows[rowIndexFromMouseDown];
             }
         }
-
+//managing the drag and drop orders original sorting by deffult
         private void PrioritizedOrderDiff_MouseMove(object sender, MouseEventArgs e)
         {
             if ((e.Button & MouseButtons.Left) == MouseButtons.Left && draggedRow != null)
@@ -98,13 +99,13 @@ namespace SystemAnalysisAndDesignProject
                 SortedOrdersDiff.DoDragDrop(draggedRow, DragDropEffects.Move);
             }
         }
-
+//managing the drag and drop orders original sorting by deffult
         private void PrioritizedOrderDiff_DragOver(object sender, DragEventArgs e)
         {
             // Allow the move operation
             e.Effect = DragDropEffects.Move;
         }
-
+//managing the drag and drop orders original sorting by deffult
         private void PrioritizedOrderDiff_DragDrop(object sender, DragEventArgs e)
         {
             // Get the drop location
@@ -152,7 +153,7 @@ namespace SystemAnalysisAndDesignProject
             SortedOrdersDiff.DefaultCellStyle.Font = new Font("Segoe UI", 8, FontStyle.Regular);
 
         }
-        
+        //selecting an order from the orders data grid
         private void SortedOrdersDiff_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0) // Ensure the click is on a valid row
@@ -175,6 +176,7 @@ namespace SystemAnalysisAndDesignProject
                 }
             }
         }
+        //populating the drivers data grid according to selected order
         private void ShowEligibleDrivers(List<Driver> drivers)
         {
             DG_EligibleDrivers.Columns.Clear();
@@ -208,7 +210,7 @@ namespace SystemAnalysisAndDesignProject
             // Set font for the content rows
             DG_EligibleDrivers.DefaultCellStyle.Font = new Font("Segoe UI", 8, FontStyle.Regular);
         }
-
+// selecting driver from drivers data grid
         private void DG_EligibleDrivers_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0) // Ensure the click is on a valid row
@@ -230,13 +232,13 @@ namespace SystemAnalysisAndDesignProject
                 clerkscombobox.Items.Add(clerk);
             }
         }
-
+//selected clerk for the order
         private void clerkscombobox_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Get the selected Clerk object
              selectedClerk = (Clerk)clerkscombobox.SelectedItem;   
         }
-
+//if operational manager wants, he can search for a desired driver from other form
         private void extendDriverButton_Click(object sender, EventArgs e)
         {
             AlternativeVahicles av = new AlternativeVahicles(selectedOrder , operationalManager);

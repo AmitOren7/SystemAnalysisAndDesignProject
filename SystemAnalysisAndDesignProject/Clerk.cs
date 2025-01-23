@@ -56,7 +56,7 @@ namespace SystemAnalysisAndDesignProject
             return this.performanceStatus;
         }
 
-     
+     // clerk can update the order status
         public void UpdateOrderStatus(OrderStatus orderStatus, Order order)
         {
             order.SetOrderStatus(orderStatus);
@@ -103,7 +103,7 @@ namespace SystemAnalysisAndDesignProject
         }
     
             
-      
+      // clerk sends a mail with the survey content when the order status is changed to "order closed" 
         private void SendSurveyEmail(Order order)
         {
             try
@@ -190,6 +190,8 @@ namespace SystemAnalysisAndDesignProject
             SC.execute_non_query(sp);
         }
 
+// the following methods are to create new employees in the system
+
         public void CreateNewDriver(string firstName, string lastName, string id, string phoneNumber,
             string email, string address, string userName, string password,
             string idCopy, string licenseCopy, string licenseId, bool is_new, 
@@ -226,6 +228,8 @@ namespace SystemAnalysisAndDesignProject
         {
             return GetName(); 
         }
+
+        // this method is used for changing the performance status of the clerk due to surveys and evaluations
         public void changeStatus(PerformanceStatus status)
         {
             this.performanceStatus = status;
@@ -247,6 +251,7 @@ namespace SystemAnalysisAndDesignProject
 
         }
 
+        // archives the clerk - removes the employee from relevant lists and inserts to archive list
         public void Archive()
         {
 

@@ -146,14 +146,15 @@
             this.status.AutoSize = true;
             this.status.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.status.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.status.Location = new System.Drawing.Point(511, 44);
+            this.status.Location = new System.Drawing.Point(511, 60);
             this.status.Name = "status";
-            this.status.Size = new System.Drawing.Size(73, 17);
+            this.status.Size = new System.Drawing.Size(77, 17);
             this.status.TabIndex = 9;
-            this.status.Text = "Select Satus";
+            this.status.Text = "Select Status";
             // 
             // save
             // 
+            this.save.Cursor = System.Windows.Forms.Cursors.Hand;
             this.save.FlatAppearance.BorderSize = 0;
             this.save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.save.ForeColor = System.Drawing.Color.Transparent;

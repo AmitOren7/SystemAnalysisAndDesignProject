@@ -161,7 +161,7 @@
             // 
             this.firstname.AutoSize = true;
             this.firstname.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.firstname.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.firstname.Font = new System.Drawing.Font("Segoe UI Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.firstname.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.firstname.Location = new System.Drawing.Point(66, 89);
             this.firstname.Name = "firstname";
@@ -173,7 +173,7 @@
             // 
             this.lastName.AutoSize = true;
             this.lastName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lastName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.lastName.Font = new System.Drawing.Font("Segoe UI Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.lastName.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.lastName.Location = new System.Drawing.Point(298, 89);
             this.lastName.Name = "lastName";
@@ -184,7 +184,7 @@
             // id
             // 
             this.id.AutoSize = true;
-            this.id.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.id.Font = new System.Drawing.Font("Segoe UI Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.id.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.id.Location = new System.Drawing.Point(298, 164);
             this.id.Name = "id";
@@ -195,7 +195,7 @@
             // email
             // 
             this.email.AutoSize = true;
-            this.email.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.email.Font = new System.Drawing.Font("Segoe UI Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.email.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.email.Location = new System.Drawing.Point(66, 314);
             this.email.Name = "email";
@@ -206,7 +206,7 @@
             // address
             // 
             this.address.AutoSize = true;
-            this.address.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.address.Font = new System.Drawing.Font("Segoe UI Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.address.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.address.Location = new System.Drawing.Point(66, 164);
             this.address.Name = "address";
@@ -217,7 +217,7 @@
             // username
             // 
             this.username.AutoSize = true;
-            this.username.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.username.Font = new System.Drawing.Font("Segoe UI Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.username.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.username.Location = new System.Drawing.Point(66, 238);
             this.username.Name = "username";
@@ -228,7 +228,7 @@
             // password
             // 
             this.password.AutoSize = true;
-            this.password.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.password.Font = new System.Drawing.Font("Segoe UI Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.password.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.password.Location = new System.Drawing.Point(298, 238);
             this.password.Name = "password";
@@ -239,7 +239,7 @@
             // licenseId
             // 
             this.licenseId.AutoSize = true;
-            this.licenseId.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.licenseId.Font = new System.Drawing.Font("Segoe UI Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.licenseId.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.licenseId.Location = new System.Drawing.Point(66, 389);
             this.licenseId.Name = "licenseId";

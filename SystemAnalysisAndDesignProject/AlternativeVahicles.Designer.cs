@@ -41,13 +41,11 @@
             this.clerksComboBox = new System.Windows.Forms.ComboBox();
             this.clerksheadline = new System.Windows.Forms.Label();
             this.BackButton = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.driversGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehiclesGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -140,13 +138,15 @@
             // assignButton
             // 
             this.assignButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.assignButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.assignButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.assignButton.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.assignButton.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.assignButton.Location = new System.Drawing.Point(678, 381);
+            this.assignButton.ForeColor = System.Drawing.Color.Transparent;
+            this.assignButton.Image = ((System.Drawing.Image)(resources.GetObject("assignButton.Image")));
+            this.assignButton.Location = new System.Drawing.Point(643, 373);
             this.assignButton.Name = "assignButton";
-            this.assignButton.Size = new System.Drawing.Size(78, 33);
+            this.assignButton.Size = new System.Drawing.Size(116, 50);
             this.assignButton.TabIndex = 13;
-            this.assignButton.Text = "Assign";
             this.assignButton.UseVisualStyleBackColor = false;
             this.assignButton.Click += new System.EventHandler(this.assignButton_Click);
             // 
@@ -182,18 +182,6 @@
             this.BackButton.TabIndex = 50;
             this.BackButton.UseVisualStyleBackColor = true;
             this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(642, 381);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(114, 38);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 51;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.assignButton_Click);
             // 
             // pictureBox2
             // 
@@ -237,7 +225,6 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.clerksheadline);
             this.Controls.Add(this.clerksComboBox);
@@ -255,7 +242,6 @@
             this.Load += new System.EventHandler(this.AlternativeVahicles_Load);
             ((System.ComponentModel.ISupportInitialize)(this.driversGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehiclesGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -278,7 +264,6 @@
         private System.Windows.Forms.ComboBox clerksComboBox;
         private System.Windows.Forms.Label clerksheadline;
         private System.Windows.Forms.Button BackButton;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;

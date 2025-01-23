@@ -21,6 +21,8 @@ namespace SystemAnalysisAndDesignProject
             populatecombobox2();
             OperationalManagerMainForm = operationalManagerMainForm;
             save.Visible = true;
+            pictureBox2.Visible = true;
+
         }
 
         private void populatecombobox1 ()
@@ -55,6 +57,16 @@ namespace SystemAnalysisAndDesignProject
         {
             this.Close();
             this.OperationalManagerMainForm.Show();
+        }
+
+        private void FormHeadline_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CreateVehicle_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -26,6 +26,7 @@ namespace SystemAnalysisAndDesignProject
             string personName = officeManager.GetName();
             label1.Text = $"{personName} ID Copy:";
             string imageUrl = this.officeManager.GetIdCopy();
+
             using (WebClient client = new WebClient())
             {
                 byte[] imageBytes = client.DownloadData(imageUrl);

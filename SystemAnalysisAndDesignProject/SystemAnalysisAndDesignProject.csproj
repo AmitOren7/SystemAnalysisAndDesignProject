@@ -288,6 +288,12 @@
     <Compile Include="UserControlDay.Designer.cs">
       <DependentUpon>UserControlDay.cs</DependentUpon>
     </Compile>
+    <Compile Include="vehicleDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="vehicleDetails.Designer.cs">
+      <DependentUpon>vehicleDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="VehicleType.cs" />
     <Compile Include="VehicleConditionStatus.cs" />
     <Compile Include="Vehicle.cs" />
@@ -415,6 +421,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControlDay.resx">
       <DependentUpon>UserControlDay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="vehicleDetails.resx">
+      <DependentUpon>vehicleDetails.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -151,6 +151,12 @@
     <Compile Include="DriverTaskForm.Designer.cs">
       <DependentUpon>DriverTaskForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DriverWorkCertification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DriverWorkCertification.Designer.cs">
+      <DependentUpon>DriverWorkCertification.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditSurvey.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +183,12 @@
     </Compile>
     <Compile Include="HomePage.Designer.cs">
       <DependentUpon>HomePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageEmployeeStatusForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageEmployeeStatusForm.Designer.cs">
+      <DependentUpon>ManageEmployeeStatusForm.cs</DependentUpon>
     </Compile>
     <Compile Include="NewQuestionCard.cs">
       <SubType>UserControl</SubType>
@@ -337,6 +349,9 @@
     <EmbeddedResource Include="DriverTaskForm.resx">
       <DependentUpon>DriverTaskForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DriverWorkCertification.resx">
+      <DependentUpon>DriverWorkCertification.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditSurvey.resx">
       <DependentUpon>EditSurvey.cs</DependentUpon>
     </EmbeddedResource>
@@ -348,6 +363,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HomePage.resx">
       <DependentUpon>HomePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageEmployeeStatusForm.resx">
+      <DependentUpon>ManageEmployeeStatusForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewQuestionCard.resx">
       <DependentUpon>NewQuestionCard.cs</DependentUpon>

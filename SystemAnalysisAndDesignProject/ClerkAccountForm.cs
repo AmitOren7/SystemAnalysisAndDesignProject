@@ -56,7 +56,9 @@ namespace SystemAnalysisAndDesignProject
             address_.Visible = true;
             username_.Visible = true;
             password_.Visible = true;
-      
+            pictureBox2.Visible = true;
+
+
             first_name.Text = clerk.GetFirstName();
             last_name.Text = clerk.GetLastName();
             email_.Text = clerk.GetEmail();
@@ -100,7 +102,8 @@ namespace SystemAnalysisAndDesignProject
             address_.Visible = false;
             username_.Visible = false;
             password_.Visible = false;
-           
+            pictureBox2.Visible = false;
+
             MessageBox.Show("Details updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 

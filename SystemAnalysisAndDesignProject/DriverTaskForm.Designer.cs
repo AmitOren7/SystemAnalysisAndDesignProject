@@ -193,7 +193,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.label2.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.label2.Location = new System.Drawing.Point(66, 28);
+            this.label2.Location = new System.Drawing.Point(65, 28);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(221, 21);
             this.label2.TabIndex = 49;
@@ -270,7 +270,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(793, 450);
             this.Controls.Add(this.task_status5);
             this.Controls.Add(this.task_status4);
             this.Controls.Add(this.task_status3);

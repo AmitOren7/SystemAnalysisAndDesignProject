@@ -60,7 +60,9 @@ namespace SystemAnalysisAndDesignProject
             address_.Visible = true;
             username_.Visible = true;
             password_.Visible = true;
-         
+            pictureBox2.Visible = true;
+
+
             first_name.Text = operationalManager.GetFirstName();
             last_name.Text = operationalManager.GetLastName();
             email_.Text = operationalManager.GetEmail();
@@ -106,6 +108,8 @@ namespace SystemAnalysisAndDesignProject
             address_.Visible = false;
             username_.Visible = false;
             password_.Visible = false;
+            pictureBox2.Visible = false;
+
 
 
             MessageBox.Show("Details updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);

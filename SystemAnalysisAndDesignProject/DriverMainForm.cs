@@ -56,7 +56,7 @@ namespace SystemAnalysisAndDesignProject
         {
             this.Close();
             HomePage hm = new HomePage();
-            hm.Show();
+            hm.ShowDialog();
         }
 
         private void button3_Click(object sender, EventArgs e)

@@ -73,10 +73,35 @@ namespace SystemAnalysisAndDesignProject
 
                 order.Archive();
                 SendSurveyEmail(order);
-            }
-            
-        }
+                Driver driver = order.GetDriver();
+                Clerk clerk = order.GetClerk();
 
+                // Check if driver has any assigned orders (excluding the closed one)
+                bool driverHasOtherOrders = Program.OrderList.Any(o => o.GetDriver() == driver && o.GetId() != order.GetId());
+                if (!driverHasOtherOrders)
+                {
+                    driver.changeStatus(PerformanceStatus.pendingForAssignment);
+                }
+                else
+                {
+                    driver.changeStatus(PerformanceStatus.assignedToOrder);
+                }
+
+                // Check if clerk has any assigned orders (excluding the closed one)
+                bool clerkHasOtherOrders = Program.OrderList.Any(o => o.GetClerk() == clerk && o.GetId() != order.GetId());
+                if (!clerkHasOtherOrders)
+                {
+                    clerk.changeStatus(PerformanceStatus.pendingForAssignment);
+                }
+                else
+                {
+                    clerk.changeStatus(PerformanceStatus.assignedToOrder);
+                }
+            }
+        }
+    
+            
+      
         private void SendSurveyEmail(Order order)
         {
             try
@@ -213,12 +238,15 @@ namespace SystemAnalysisAndDesignProject
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(sp);
 
+            if (status == PerformanceStatus.archived)
+            {
+                Archive();
+            }
 
         }
 
         public void Archive()
         {
-            this.changeStatus(PerformanceStatus.archived);
 
             SqlCommand sp = new SqlCommand();
             sp.CommandText = "EXECUTE SP_archive_clerk @id";
@@ -228,7 +256,9 @@ namespace SystemAnalysisAndDesignProject
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(sp);
 
-
+            Program.ArchivedEmployeeList.Add(this);
+            Program.EmployeeList.Remove(this);
+            Program.ClerkList.Remove(this);
         }
 
     }

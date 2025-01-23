@@ -59,7 +59,6 @@
             this.labelCustomer.Size = new System.Drawing.Size(56, 15);
             this.labelCustomer.TabIndex = 1;
             this.labelCustomer.Text = "Customer";
-            this.labelCustomer.Click += new System.EventHandler(this.label1_Click);
             // 
             // labelStatus
             // 
@@ -80,7 +79,6 @@
             this.labelAddress.Size = new System.Drawing.Size(49, 15);
             this.labelAddress.TabIndex = 3;
             this.labelAddress.Text = "Address";
-            this.labelAddress.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // labelPhone
             // 
@@ -101,7 +99,6 @@
             this.labelStartDate.Size = new System.Drawing.Size(59, 15);
             this.labelStartDate.TabIndex = 5;
             this.labelStartDate.Text = "Start Date";
-            this.labelStartDate.Click += new System.EventHandler(this.label3_Click);
             // 
             // labelFinishDate
             // 
@@ -122,7 +119,6 @@
             this.labelOrderId.Size = new System.Drawing.Size(76, 25);
             this.labelOrderId.TabIndex = 7;
             this.labelOrderId.Text = "OrderID";
-            this.labelOrderId.Click += new System.EventHandler(this.labelOrderId_Click);
             // 
             // OrderDetailsForm
             // 

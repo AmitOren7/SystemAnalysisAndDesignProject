@@ -180,7 +180,6 @@
             this.Controls.Add(this.taskForm);
             this.Controls.Add(this.pictureBox1);
             this.Name = "DriverMainForm";
-            this.Text = "DriverMainForm";
             this.Load += new System.EventHandler(this.DriverMainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

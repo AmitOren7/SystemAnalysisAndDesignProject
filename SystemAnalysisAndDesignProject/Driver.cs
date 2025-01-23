@@ -150,7 +150,6 @@ namespace SystemAnalysisAndDesignProject
         {
             this.performanceStatus = status;
 
-
             SqlCommand sp = new SqlCommand();
             sp.CommandText = "EXECUTE SP_Update_Driver_Status @id, @performanceStatus";
 
@@ -161,12 +160,14 @@ namespace SystemAnalysisAndDesignProject
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(sp);
 
-
+            if (status == PerformanceStatus.archived)
+            {
+                Archive();
+            }
         }
 
         public void Archive()
         {
-            this.changeStatus(PerformanceStatus.archived);
 
             SqlCommand sp = new SqlCommand();
             sp.CommandText = "EXECUTE SP_archive_driver @id";
@@ -176,6 +177,9 @@ namespace SystemAnalysisAndDesignProject
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(sp);
 
+            Program.ArchivedEmployeeList.Add(this);
+            Program.EmployeeList.Remove(this);
+            Program.DriverList.Remove(this);
 
         }
     }

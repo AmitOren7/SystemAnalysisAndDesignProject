@@ -42,11 +42,11 @@ namespace SystemAnalysisAndDesignProject
             SqlCommand sp = new SqlCommand();
             sp.CommandText = "EXECUTE SP_add_vehicle @id, @type, @maxCapacity, @testDate, @condition, @cargoType";
             sp.Parameters.AddWithValue("@id", this.id);
-            sp.Parameters.AddWithValue("@type", this.vehicleType);
+            sp.Parameters.AddWithValue("@type", this.vehicleType.ToString());
             sp.Parameters.AddWithValue("@maxCapacity", this.maxCapacity);
             sp.Parameters.AddWithValue("@testDate" , this.testDate);
-            sp.Parameters.AddWithValue("@condition", this.vehicleConditionStatus);
-            sp.Parameters.AddWithValue("@cargoType", this.cargoType);
+            sp.Parameters.AddWithValue("@condition", this.vehicleConditionStatus.ToString());
+            sp.Parameters.AddWithValue("@cargoType", this.cargoType.ToString());
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(sp);
 

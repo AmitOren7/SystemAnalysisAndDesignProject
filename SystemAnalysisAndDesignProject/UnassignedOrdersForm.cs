@@ -250,6 +250,8 @@ namespace SystemAnalysisAndDesignProject
 
                 OperationalManager.assign_clerk(selectedClerk, selectedOrder);
                 OperationalManager.assign_driver(selectedDriver, selectedOrder);
+                OperationalManager.ChengeDriverStatus(selectedDriver);
+                OperationalManager.ChangeClerkStatus(selectedClerk);    
                 MessageBox.Show($"{selectedClerk.GetFirstName()} {selectedClerk.GetLastName()} as clerk and {selectedDriver.GetFirstName()} {selectedDriver.GetLastName()} as driver assigned successfully to order number {selectedOrder.GetId()}");
 
 

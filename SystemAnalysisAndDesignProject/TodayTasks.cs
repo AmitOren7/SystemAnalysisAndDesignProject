@@ -33,6 +33,7 @@ namespace SystemAnalysisAndDesignProject
                 to.Text = $"To : {Taskorder.GetDestination()}";
                 vehicle.Text = $"Vehicle : {Taskorder.GetVehicleType().ToString()}";
                 driver.Text = $"Driver : {Taskorder.GetDriver().GetName()}";
+                currentorderstatus.Text = $"Status : {Taskorder.GetOrderStatus().ToString()}";
 
 
                 // Handle potential null Driver or missing Driver properties

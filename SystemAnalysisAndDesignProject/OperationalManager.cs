@@ -128,6 +128,16 @@ namespace SystemAnalysisAndDesignProject
             SC.execute_non_query(sp3);
         }
 
+        public static void ChangeDriverStatus (Driver driver)
+        {
+            driver.changeStatus(PerformanceStatus.assignedToOrder);
+        }
+
+        public static void ChangeClerkStatus (Clerk clerk)
+        {
+            clerk.changeStatus(PerformanceStatus.assignedToOrder);
+        }
+
     }
 }
 

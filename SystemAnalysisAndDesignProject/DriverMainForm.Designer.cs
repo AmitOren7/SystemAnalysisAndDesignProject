@@ -103,7 +103,7 @@
             this.driverLabel.TabIndex = 4;
             this.driverLabel.Text = "Hello User!";
             this.driverLabel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.driverLabel.Click += new System.EventHandler(this.driverLabel_Click);
+            
             // 
             // back
             // 

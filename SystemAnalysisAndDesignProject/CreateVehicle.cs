@@ -68,5 +68,22 @@ namespace SystemAnalysisAndDesignProject
         {
 
         }
+
+        private void testdatetext_TextChanged(object sender, EventArgs e)
+        {
+            string input = testdatetext.Text;
+
+            if (DateTime.TryParseExact(input, "yyyy-MM-dd HH:mm:ss",
+                System.Globalization.CultureInfo.InvariantCulture,
+                System.Globalization.DateTimeStyles.None,
+                out DateTime result))
+            {
+                testdatetext.BackColor = Color.White; // שינוי צבע הרקע ל"תקין"
+            }
+            else
+            {
+                testdatetext.BackColor = Color.LightPink; 
+            }
+        }
     }
 }

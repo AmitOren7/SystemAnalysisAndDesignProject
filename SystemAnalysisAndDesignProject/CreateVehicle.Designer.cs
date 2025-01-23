@@ -116,6 +116,7 @@
             this.testdatetext.Name = "testdatetext";
             this.testdatetext.Size = new System.Drawing.Size(144, 20);
             this.testdatetext.TabIndex = 8;
+            this.testdatetext.TextChanged += new System.EventHandler(this.testdatetext_TextChanged);
             // 
             // IDtext
             // 

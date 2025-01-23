@@ -1,5 +1,7 @@
 # **System Analysis and Design Project**
 
+[GitHub](https://github.com/AmitOren7/SystemAnalysisAndDesignProject/tree/master)
+
 This project is part of a course focusing on analyzing, designing, and implementing an information system.
 The project was developed collaboratively by a team of four students and involves designing a system for "Sammy Cranes," a company specializing in transportation and crane services.
 - Amit Oren
@@ -46,3 +48,7 @@ The system models four roles:</br>
 4. **Operations Manager**  
      username: galinda14  
      password: glgl4747  
+
+## Troubleshooting
+if you encore a problem `Couldn't process file .redx due to its being in the internet or Restricted Zone or having the mark of the web on the file. Remove the mark of the web if you want to process these files.`
+open the project folder in powershell and run `gci -recurse | Unblock-File`

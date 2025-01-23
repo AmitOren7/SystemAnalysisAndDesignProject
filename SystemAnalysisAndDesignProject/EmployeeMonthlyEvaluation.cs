@@ -32,6 +32,7 @@ namespace SystemAnalysisAndDesignProject
             {
                 this.CreateEmployeeMonthlyEvaluation(); 
                 Program.EmployeeMonthlyEvaluationList.Add(this);
+
             }
         }
 
@@ -65,6 +66,11 @@ namespace SystemAnalysisAndDesignProject
             else
                 return "Clerk";
 
+        }
+
+        public Evaluatable GetEmployee()
+        {
+            return this.employee;
         }
 
 

@@ -57,6 +57,12 @@
             this.license_id = new System.Windows.Forms.TextBox();
             this.last_name = new System.Windows.Forms.TextBox();
             this.password_ = new System.Windows.Forms.TextBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -242,9 +248,9 @@
             this.edit.FlatAppearance.BorderSize = 0;
             this.edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.edit.Image = ((System.Drawing.Image)(resources.GetObject("edit.Image")));
-            this.edit.Location = new System.Drawing.Point(574, 54);
+            this.edit.Location = new System.Drawing.Point(625, 77);
             this.edit.Name = "edit";
-            this.edit.Size = new System.Drawing.Size(214, 82);
+            this.edit.Size = new System.Drawing.Size(142, 41);
             this.edit.TabIndex = 16;
             this.edit.UseVisualStyleBackColor = true;
             this.edit.Click += new System.EventHandler(this.edit_Click);
@@ -254,9 +260,9 @@
             this.idCopy.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("idCopy.BackgroundImage")));
             this.idCopy.FlatAppearance.BorderSize = 0;
             this.idCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.idCopy.Location = new System.Drawing.Point(571, 145);
+            this.idCopy.Location = new System.Drawing.Point(612, 145);
             this.idCopy.Name = "idCopy";
-            this.idCopy.Size = new System.Drawing.Size(217, 83);
+            this.idCopy.Size = new System.Drawing.Size(132, 58);
             this.idCopy.TabIndex = 17;
             this.idCopy.UseVisualStyleBackColor = true;
             this.idCopy.Click += new System.EventHandler(this.idCopy_Click);
@@ -268,7 +274,7 @@
             this.licenseCopy.Image = ((System.Drawing.Image)(resources.GetObject("licenseCopy.Image")));
             this.licenseCopy.Location = new System.Drawing.Point(575, 243);
             this.licenseCopy.Name = "licenseCopy";
-            this.licenseCopy.Size = new System.Drawing.Size(213, 73);
+            this.licenseCopy.Size = new System.Drawing.Size(169, 18);
             this.licenseCopy.TabIndex = 18;
             this.licenseCopy.UseVisualStyleBackColor = true;
             this.licenseCopy.Click += new System.EventHandler(this.licenseCopy_Click);
@@ -357,12 +363,51 @@
             this.password_.TabIndex = 28;
             this.password_.Visible = false;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(562, 64);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(226, 54);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 29;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.edit_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(562, 145);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(226, 54);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 30;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.idCopy_Click);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(562, 226);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(226, 54);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 31;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.licenseCopy_Click);
+            // 
             // DriverAccountForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.password_);
             this.Controls.Add(this.last_name);
             this.Controls.Add(this.license_id);
@@ -394,6 +439,9 @@
             this.Name = "DriverAccountForm";
             this.Text = "DriverAccountForm";
             this.Load += new System.EventHandler(this.DriverAccountForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -429,5 +477,8 @@
         private System.Windows.Forms.TextBox license_id;
         private System.Windows.Forms.TextBox last_name;
         private System.Windows.Forms.TextBox password_;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }

@@ -111,7 +111,7 @@ namespace SystemAnalysisAndDesignProject
                 SC.execute_non_query(sp);
             }
         }
-
+        
         public override void Update()
         {
             SqlCommand sp = new SqlCommand();
@@ -129,9 +129,11 @@ namespace SystemAnalysisAndDesignProject
             sp.Parameters.AddWithValue("@licenseCopy", this.licenseCopy);
             sp.Parameters.AddWithValue("@licenseId", this.licenseId);
 
+
             SQL_CON SC = new SQL_CON();
             SC.execute_non_query(sp);
         }
+
         //public override void Update()
         //{
         //    SqlCommand sp = new SqlCommand();
@@ -166,5 +168,39 @@ namespace SystemAnalysisAndDesignProject
             this.vehicle = vehicle;
         }
 
+        public void changeStatus(PerformanceStatus status)
+        {
+            this.performanceStatus = status;
+
+
+            SqlCommand sp = new SqlCommand();
+            sp.CommandText = "EXECUTE SP_Update_Driver_Status @id, @performanceStatus";
+
+            sp.Parameters.AddWithValue("@id", this.id);
+            sp.Parameters.AddWithValue("@performanceStatus", this.performanceStatus.ToString());
+
+
+            SQL_CON SC = new SQL_CON();
+            SC.execute_non_query(sp);
+
+
+        }
+
+        public void Archive()
+        {
+            this.changeStatus(PerformanceStatus.archived);
+
+            SqlCommand sp = new SqlCommand();
+            sp.CommandText = "EXECUTE SP_archive_driver @id";
+
+            sp.Parameters.AddWithValue("@id", this.id);
+
+            SQL_CON SC = new SQL_CON();
+            SC.execute_non_query(sp);
+
+
+        }
     }
+
+  
 }

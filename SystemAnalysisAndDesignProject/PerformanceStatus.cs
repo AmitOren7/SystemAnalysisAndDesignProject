@@ -8,14 +8,11 @@ namespace SystemAnalysisAndDesignProject
 {
     public enum PerformanceStatus
     {
-        outstanding,
-        warning, 
+        pendingForAssignment,
+        assignedToOrder,
+        underWarning, 
         archived,
-        onProbation,
-        satisfactory,
-        pendingForHearing,
-        pendingForResults,
-        awaitingFirstEvaluation
-
+        pendingForHearingResults,
+        inoperative
     }
 }

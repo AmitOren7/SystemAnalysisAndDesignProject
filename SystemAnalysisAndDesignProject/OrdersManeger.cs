@@ -50,7 +50,7 @@ namespace SystemAnalysisAndDesignProject
             {
 
                 var suitableDrivers = drivers.Where(driver =>
-                    driver.GetPerformanceStatus() != PerformanceStatus.awaitingFirstEvaluation &&
+                    driver.GetPerformanceStatus() == PerformanceStatus.pendingForAssignment &&
                     driver.GetVehicle().GetVehicleType() == order.GetVehicleType() &&
                     driver.GetVehicle().GetMaxCapacity() >= order.GetTotalWeight() &&
                     driver.GetVehicle().GetCargoType() == order.GetCargoType() &&

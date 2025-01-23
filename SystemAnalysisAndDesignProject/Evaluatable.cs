@@ -8,9 +8,20 @@ namespace SystemAnalysisAndDesignProject
 {
     public interface Evaluatable
     {
-        string GetId();
-        bool GetAssociatedRole();
 
         string GetName();
+        string GetId();
+
+        PerformanceStatus GetPerformanceStatus();
+
+        bool GetAssociatedRole();
+
+        void changeStatus(PerformanceStatus status);
+
+        string GetEmail();
+
+        void Archive();
+
+
     }
 }

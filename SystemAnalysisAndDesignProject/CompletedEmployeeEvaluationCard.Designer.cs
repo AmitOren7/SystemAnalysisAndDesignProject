@@ -34,7 +34,10 @@
             this.lblEmployeeName = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.pictureBoxIsuueWarning = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIsuueWarning)).BeginInit();
             this.SuspendLayout();
             // 
             // lblScore
@@ -92,19 +95,46 @@
             this.richTextBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.richTextBox1.Location = new System.Drawing.Point(33, 76);
+            this.richTextBox1.Location = new System.Drawing.Point(33, 73);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(350, 44);
+            this.richTextBox1.Size = new System.Drawing.Size(330, 54);
             this.richTextBox1.TabIndex = 15;
             this.richTextBox1.Text = "";
             this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
+            // 
+            // pictureBoxIsuueWarning
+            // 
+            this.pictureBoxIsuueWarning.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxIsuueWarning.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxIsuueWarning.Image")));
+            this.pictureBoxIsuueWarning.Location = new System.Drawing.Point(369, 80);
+            this.pictureBoxIsuueWarning.Name = "pictureBoxIsuueWarning";
+            this.pictureBoxIsuueWarning.Size = new System.Drawing.Size(89, 45);
+            this.pictureBoxIsuueWarning.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxIsuueWarning.TabIndex = 26;
+            this.pictureBoxIsuueWarning.TabStop = false;
+            this.pictureBoxIsuueWarning.Visible = false;
+            this.pictureBoxIsuueWarning.WaitOnLoad = true;
+            this.pictureBoxIsuueWarning.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(388, 97);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(53, 11);
+            this.button1.TabIndex = 27;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // CompletedEmployeeEvaluationCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.pictureBoxIsuueWarning);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.lblScore);
             this.Controls.Add(this.lblRole);
@@ -113,6 +143,7 @@
             this.Name = "CompletedEmployeeEvaluationCard";
             this.Size = new System.Drawing.Size(500, 150);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIsuueWarning)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -125,5 +156,7 @@
         private System.Windows.Forms.Label lblEmployeeName;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.PictureBox pictureBoxIsuueWarning;
+        private System.Windows.Forms.Button button1;
     }
 }

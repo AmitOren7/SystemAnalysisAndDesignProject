@@ -234,7 +234,6 @@ namespace SystemAnalysisAndDesignProject
         // archives orders when called
         public void Archive()
         {
-
             // Create a new SqlCommand for the stored procedure
             SqlCommand sp = new SqlCommand();
             sp.CommandText = "EXECUTE SP_archive_order @id";

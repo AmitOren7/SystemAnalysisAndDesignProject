@@ -172,7 +172,7 @@ namespace SystemAnalysisAndDesignProject
             this.back.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.back.Image = ((System.Drawing.Image)(resources.GetObject("back.Image")));
-            this.back.Location = new System.Drawing.Point(637, 24);
+            this.back.Location = new System.Drawing.Point(637, 14);
             this.back.Name = "back";
             this.back.Size = new System.Drawing.Size(43, 37);
             this.back.TabIndex = 20;
@@ -181,7 +181,7 @@ namespace SystemAnalysisAndDesignProject
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(637, 23);
+            this.button1.Location = new System.Drawing.Point(637, 13);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(38, 38);
             this.button1.TabIndex = 21;
@@ -191,10 +191,11 @@ namespace SystemAnalysisAndDesignProject
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.label1.Location = new System.Drawing.Point(48, 31);
+            this.label1.Font = new System.Drawing.Font("Segoe UI Light", 13.75F);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(108)))), ((int)(((byte)(225)))));
+            this.label1.Location = new System.Drawing.Point(48, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(154, 20);
+            this.label1.Size = new System.Drawing.Size(187, 25);
             this.label1.TabIndex = 22;
             this.label1.Text = "Employee Evaluations";
             this.label1.Click += new System.EventHandler(this.label1_Click_1);
@@ -261,7 +262,7 @@ namespace SystemAnalysisAndDesignProject
             foreach (EmployeeMonthlyEvaluation evaluation in Program.EmployeeMonthlyEvaluationList)
             {
                 // Create a new card for the current evaluation
-                var card = new CompletedEmployeeEvaluationCard
+                var card = new CompletedEmployeeEvaluationCard(evaluation.GetEmployee())
                 {
                     EmployeeName = evaluation.GetEmployeeName(),
                     Role = evaluation.GetAssociatedRole(),
@@ -508,6 +509,16 @@ namespace SystemAnalysisAndDesignProject
         }
 
         private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void employeeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void IssueWarningButton_Click(object sender, EventArgs e)
         {
 
         }

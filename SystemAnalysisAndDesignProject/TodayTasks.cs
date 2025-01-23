@@ -65,8 +65,8 @@ namespace SystemAnalysisAndDesignProject
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            OrderStatus selectedStatus = (OrderStatus)orderStatusCombo.SelectedItem;
-            this.clerk.UpdateOrderStatus(selectedStatus, this.Taskorder);
+            currentStatus = (OrderStatus)orderStatusCombo.SelectedItem;
+            //this.clerk.UpdateOrderStatus(currentStatus, this.Taskorder);
         }
 
         private void TodayTasks_Load(object sender, EventArgs e)

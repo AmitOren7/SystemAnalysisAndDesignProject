@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net.Mail;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SystemAnalysisAndDesignProject
 {
@@ -60,16 +63,86 @@ namespace SystemAnalysisAndDesignProject
             if (order.GetOrderStatus() == OrderStatus.orderClosed)
             {
                 SqlCommand sp = new SqlCommand();
-                sp.CommandText = "EXECUTE UpdateOrderStatus @OrderId, @OrderStatus";
-                sp.Parameters.AddWithValue("@OrderStatus", orderStatus);
-                sp.Parameters.AddWithValue("@OrderId", orderStatus);
+                sp.CommandText = "EXECUTE SP_Update_orderStatus @OrderId, @OrderStatus";
+                sp.Parameters.AddWithValue("@OrderId", order.GetId());
+                sp.Parameters.AddWithValue("@OrderStatus", OrderStatus.orderClosed.ToString());
+
 
                 SQL_CON SC = new SQL_CON();
                 SC.execute_non_query(sp);
 
                 order.Archive();
+                SendSurveyEmail(order);
+            }
+            
+        }
+
+        private void SendSurveyEmail(Order order)
+        {
+            try
+            {
+                // 1. Get customer email from the order
+                string toAddress = order.GetCustomerEmail();
+                if (string.IsNullOrEmpty(toAddress))
+                {
+                    MessageBox.Show("Customer email is missing!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return; // Exit the function if the email is missing
+                }
+
+                // 2. Get active questions
+                List<Question> activeQuestions = Program.QuestionList.Where(q => q.IsActive()).ToList();
+
+                if (activeQuestions.Count == 0)
+                {
+                    MessageBox.Show("No active questions found for the survey!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // 3. Build the email body
+                string body = $"Dear {order.GetCustomerName()},\n\nPlease take a moment to complete this short survey regarding your order (ID: {order.GetId()}):\n\n";
+
+                for (int i = 0; i < activeQuestions.Count; i++)
+                {
+                    body += $"{i + 1}. {activeQuestions[i].GetDescription()}\n"; // Add question description to the body
+                }
+
+                body += "\nThank you for your feedback!\n\nSincerely,\nSami Cranes";
+
+                // 4. Set up email details
+                string fromAddress = "samicranes2000@gmail.com"; // email address
+                string fromPassword = "lnxh bvkk nzcf khqn"; // app password!
+                string subject = "Customer Satisfaction Survey"; // Email subject
+
+
+                // 5. Create the MailMessage object
+                MailMessage message = new MailMessage(fromAddress, toAddress, subject, body);
+
+                // 6. Set up the SMTP client
+                SmtpClient smtpClient = new SmtpClient("smtp.gmail.com"); // Gmail SMTP server
+                smtpClient.Port = 587;
+                smtpClient.Credentials = new NetworkCredential(fromAddress, fromPassword);
+                smtpClient.EnableSsl = true;
+
+                // 7. Send the email
+                smtpClient.Send(message);
+
+                MessageBox.Show("Survey email sent successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (SmtpException ex)
+            {
+                MessageBox.Show($"Error sending email: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show($"Invalid email address format: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"General error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
 
         public override void Update()
         {
@@ -125,6 +198,37 @@ namespace SystemAnalysisAndDesignProject
         public override string ToString()
         {
             return GetName(); 
+        }
+        public void changeStatus(PerformanceStatus status)
+        {
+            this.performanceStatus = status;
+
+            SqlCommand sp = new SqlCommand();
+            sp.CommandText = "EXECUTE SP_Update_Clerk_Status @id, @performanceStatus";
+
+            sp.Parameters.AddWithValue("@id", this.id);
+            sp.Parameters.AddWithValue("@performanceStatus", this.performanceStatus.ToString());
+
+
+            SQL_CON SC = new SQL_CON();
+            SC.execute_non_query(sp);
+
+
+        }
+
+        public void Archive()
+        {
+            this.changeStatus(PerformanceStatus.archived);
+
+            SqlCommand sp = new SqlCommand();
+            sp.CommandText = "EXECUTE SP_archive_clerk @id";
+
+            sp.Parameters.AddWithValue("@id", this.id);
+
+            SQL_CON SC = new SQL_CON();
+            SC.execute_non_query(sp);
+
+
         }
 
     }

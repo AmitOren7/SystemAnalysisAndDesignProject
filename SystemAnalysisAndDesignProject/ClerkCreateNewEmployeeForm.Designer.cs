@@ -500,6 +500,7 @@
             this.Controls.Add(this.label1);
             this.Name = "ClerkCreateNewEmployeeForm";
             this.Text = "ClerkCreateNewEmployeeForm";
+            this.Load += new System.EventHandler(this.ClerkCreateNewEmployeeForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

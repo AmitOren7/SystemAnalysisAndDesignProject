@@ -62,11 +62,11 @@ namespace SystemAnalysisAndDesignProject
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.label1.Font = new System.Drawing.Font("Segoe UI Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.label1.ForeColor = System.Drawing.Color.CornflowerBlue;
             this.label1.Location = new System.Drawing.Point(74, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(142, 30);
+            this.label1.Size = new System.Drawing.Size(125, 30);
             this.label1.TabIndex = 28;
             this.label1.Text = "Today\'s Tasks";
             // 

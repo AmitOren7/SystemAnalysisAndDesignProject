@@ -56,7 +56,7 @@ namespace SystemAnalysisAndDesignProject
             {
 
                 var suitableDrivers = drivers.Where(driver =>
-                    driver.GetPerformanceStatus() == PerformanceStatus.pendingForAssignment &&
+                    (driver.GetPerformanceStatus() == PerformanceStatus.pendingForAssignment || driver.GetPerformanceStatus() == PerformanceStatus.assignedToOrder) &&
                     driver.GetVehicle().GetVehicleType() == order.GetVehicleType() &&
                     driver.GetVehicle().GetMaxCapacity() >= order.GetTotalWeight() &&
                     driver.GetVehicle().GetCargoType() == order.GetCargoType() &&
@@ -66,6 +66,7 @@ namespace SystemAnalysisAndDesignProject
                                o.GetStartDate() <= currentOrder.GetEstimatedFinishDate() && // Overlap condition
                                o.GetEstimatedFinishDate() >= currentOrder.GetStartDate()    // Overlap condition
                                )
+                ).ToList();
                 ).ToList();
                 orderDrivers[order] = suitableDrivers;
             }
